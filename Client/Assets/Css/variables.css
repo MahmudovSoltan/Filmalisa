@@ -1,0 +1,13 @@
+:root {
+  /* Fonts */
+  --PopinsFont: "Poppins", serif;
+  --NumansFont: "Numans", serif;
+  --RobotoFont: "Roboto", serif;
+  /*Colors*/
+  --BacgrounColorBlack:rgba(29, 29, 29, 1);
+  --WhiteGreyColor:rgba(195, 200, 212, 1);
+  --PurpleColor:rgba(155, 81, 224, 1);
+  --WhiteColor:rgba(255, 255, 255, 1);
+  --PlaceholderColor:rgba(71, 80, 105, 1);
+  --LightBlackColor:rgba(30, 30, 30, 1);
+}
