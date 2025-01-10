@@ -3,8 +3,9 @@
     --PopinsFont: "Poppins", serif;
     --NumansFont: "Numans", serif;
     --RobotoFont: "Roboto", serif;
+    --RalewayFont:"Raleway", serif;
     /*Colors*/
-    --BacgrounColorBlack:rgba(29, 29, 29, 1);
+    --BacgrounColorBlack:rgba(0, 0, 0, 1);
     --WhiteGreyColor:rgba(195, 200, 212, 1);
     --PurpleColor:rgba(155, 81, 224, 1);
     --WhiteColor:rgba(255, 255, 255, 1);
