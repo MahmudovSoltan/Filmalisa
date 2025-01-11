@@ -4,6 +4,10 @@ body{
     padding: 0;
 }
 
+.left_panel{
+    background-color:var(--LightBlackColor) ;
+}
+
 .nav_item{
     display: flex;
     align-items: center;
