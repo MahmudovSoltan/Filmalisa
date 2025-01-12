@@ -63,23 +63,96 @@ thead {
   background-color: var(--LightBlackColor);
   color: var(--WhiteColor);
 }
-table tr th,
-table tr td{
-    padding: 16px;
+table tr th {
+  padding: 16px;
+  text-align: center;
+  font-family: var(--NunitoFont);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.1px;
+  letter-spacing: 0.01em;
 }
-table tr td:first-child{
-    border-bottom-left-radius: 4px;
+table tr td {
+  padding: 16px;
+  text-align: center;
+  font-family: var(--NunitoFont);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.1px;
+  letter-spacing: 0.01em;
+  color: var(--BacgrounColorBlack);
 }
-table tr td:last-child{
-    border-bottom-right-radius: 4px;
+
+table tr:last-child td:first-child {
+  border-bottom-left-radius: 4px;
 }
-table tr th:first-child{
-    border-top-left-radius: 4px;
+table tr:last-child td:last-child {
+  border-bottom-right-radius: 4px;
 }
-table tr th:last-child{
-    border-top-right-radius: 4px;
+table tr:last-child th:first-child {
+  border-top-left-radius: 4px;
 }
-tbody tr{
-    background-color: var(--WhiteColor);
-   color: var();
+table tr:last-child th:last-child {
+  border-top-right-radius: 4px;
 }
+tbody tr {
+  background-color: var(--WhiteColor);
+  color: var();
+}
+.table_creat_btn {
+  color: var(--color-create);
+  cursor: pointer;
+}
+.table_delete_btn {
+  color: var(--color-delete);
+  cursor: pointer;
+}
+.table_title {
+  display: flex;
+  align-items: center;
+  gap: 15.5px;
+}
+/* MODAL CSS START */
+.modal_section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  padding-top: 206px;
+}
+.modal_container {
+
+}
+.modal_form {
+  background-color: var(--formBgColor);
+  padding: 50px 30px;
+  border-radius: 24px;
+}
+.form_input {
+  border: 1px solid var(--inputBorderColor);
+  width: 550px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+}
+.form_area {
+  width: 550px;
+  height: 121px;
+  border: 1px solid var(--inputBorderColor);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+}
+
+select {
+  width: 100%;
+  color: white;
+}
+/* MODAL CSS END */

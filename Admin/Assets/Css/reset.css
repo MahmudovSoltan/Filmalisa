@@ -12,6 +12,8 @@
 }
 body{
    background-color: var(--BacgrounColorBlack);
+   max-width: 1440px;
+   margin: 0 auto;
 }
 
 /* Block-level elements */
@@ -46,7 +48,6 @@ button, input, select, textarea {
     background-color: transparent;
     border: none;
     outline: none;
-    appearance: none;
 }
 
 /* Table elements */
