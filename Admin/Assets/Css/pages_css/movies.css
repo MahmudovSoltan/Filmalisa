@@ -1,0 +1,224 @@
+.movies_main_container {
+  display: flex;
+  gap: 24px;
+}
+.sideBar {
+  position: fixed;
+}
+
+.movies_right {
+  padding-top: 24px;
+  padding-right: 116px;
+  flex: 1;
+  padding-left: 295px;
+}
+.movies_right_top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 96px;
+}
+.right_top_left h6 {
+  font-family: var(--RalewayFont);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 15.26px;
+  color: var(--WhiteGreyColor);
+}
+.right_top_left p {
+  font-family: var(--RalewayFont);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 23.48px;
+  color: var(--WhiteColor);
+}
+.right_top_right {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.create_btn {
+  padding: 8px 25px;
+  background-color: var(--PurpleColor);
+  border-radius: 4px;
+  font-family: var(--RobotoFont);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16.41px;
+  color: var(--WhiteColor);
+}
+.admin_image {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.admin_image span {
+  font-family: var(--RalewayFont);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 13px;
+  color: var(--WhiteColor);
+}
+table {
+  width: 100%;
+  text-align: center;
+  border-radius: 4px !important;
+}
+thead {
+  background-color: var(--LightBlackColor);
+  color: var(--WhiteColor);
+}
+table tr th {
+  padding: 16px;
+  text-align: center;
+  font-family: var(--NunitoFont);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.1px;
+  letter-spacing: 0.01em;
+}
+table tr td {
+  padding: 16px;
+  text-align: center;
+  font-family: var(--NunitoFont);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.1px;
+  letter-spacing: 0.01em;
+  color: var(--BacgrounColorBlack);
+}
+
+table tr:last-child td:first-child {
+  border-bottom-left-radius: 4px;
+}
+table tr:last-child td:last-child {
+  border-bottom-right-radius: 4px;
+}
+table tr:last-child th:first-child {
+  border-top-left-radius: 4px;
+}
+table tr:last-child th:last-child {
+  border-top-right-radius: 4px;
+}
+tbody tr {
+  background-color: var(--WhiteColor);
+  color: var();
+}
+.table_creat_btn {
+  color: var(--color-create);
+  cursor: pointer;
+}
+.table_delete_btn {
+  color: var(--color-delete);
+  cursor: pointer;
+}
+.table_title {
+  display: flex;
+  align-items: center;
+  gap: 15.5px;
+}
+/* MODAL CSS START */
+.modal_section {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-bottom: 118px;
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  padding-top: 206px;
+}
+.active{
+  display: flex;
+}
+.owarlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  cursor: crosshair;
+}
+.modal_container {
+  z-index: 999;
+  display: flex;
+  gap: 84px;
+}
+.modal_form {
+  display: flex;
+  gap: 84px;
+  background-color: var(--formBgColor);
+  padding: 50px 30px 118px;
+  border-radius: 24px;
+}
+.form_input {
+  border: 1px solid var(--inputBorderColor);
+  width: 550px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+}
+.form_area {
+  width: 550px;
+  height: 121px;
+  border: 1px solid var(--inputBorderColor);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+}
+::placeholder {
+  color: var(--inputBorderColor);
+  font-family: var(--PopinsFont);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+select {
+  width: 100%;
+  color: var(--inputBorderColor) !important;
+  cursor: pointer;
+}
+.form_bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 27px;
+}
+.form_bottom_checkBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 17px;
+}
+.form_bottom_checkBox input {
+  cursor: pointer;
+}
+.form_bottom_checkBox label {
+  font-family: var(--PopinsFont);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--inputBorderColor);
+}
+.submit_btn {
+  font-family: var(--RobotoFont);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16.41px;
+  padding: 8px 23px;
+  background-color: var(--PurpleColor);
+  cursor: pointer;
+  border-radius: 4px;
+}
+.modal_image {
+  width: 203px;
+  height: 283px;
+}
+/* MODAL CSS END */

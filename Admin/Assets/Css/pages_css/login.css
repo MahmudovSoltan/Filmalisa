@@ -1,0 +1,67 @@
+body {
+    width: 1440px;
+    margin: auto;
+    box-sizing: border-box;
+    background-color: var(--BacgrounColorBlack);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    color:var(--WhiteGreyColor);
+}
+/* Logo icon  */
+.logo {
+    width: 249px;
+    height: 214px;
+    padding-top: 90px;
+}
+
+/* Admin Text */
+.login_container h1 {
+font-weight: 400;
+font-size: 70px;
+font-family: var(--NumansFont);
+line-height: 80px;
+letter-spacing: -2%;
+margin-top: 16px;
+margin-bottom: 40px;
+}
+
+/* Login Form Container */
+.login_form {
+    width: 547px;
+    height: 424px;
+    display: flex;
+    margin-top: 40px;
+    margin-bottom: 82px;
+}
+.form_group {
+    position: relative;
+    height: 64px;
+    width: 547px;
+    gap: 16px;
+    background-color: rgba(0, 0, 0, 0.1);
+    color:rgba(118, 126, 148, 1);
+    bottom: 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(50, 59, 84, 1) ;
+}
+.icon_left, .icon_right img {
+    width: 24px;
+    height: 24px;
+}
+.form_group .icon_left {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+}
+.form_group .icon_right {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+}
+.login_button {
+    background-color: var(--PurpleColor);
+    width:100%;
+    height: 56px;
+    border-radius: 12px;
+}
