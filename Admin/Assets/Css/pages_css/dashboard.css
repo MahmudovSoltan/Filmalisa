@@ -1,18 +1,16 @@
 body {
   margin: 0;
   padding: 0;
-  overflow-y: hidden;
 }
-
 .left_panel {
   background-color: var(--LightBlackColor);
   width: 256px;
-  padding-top: 20px;
   height: 100vh;
+  padding-top: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-bottom: 82px;
+  padding-bottom: 32px;
 }
 .nav_itemhead {
   display: flex;
@@ -31,7 +29,6 @@ body {
   color: var(--WhiteGreyColor);
   line-height: 80px;
 }
-
 .nav_item {
   display: flex;
   align-items: center;
@@ -45,7 +42,6 @@ body {
 }
 .nav_link {
   font-family: var(--Raleway);
-
   font-size: 14px;
   font-weight: 400;
   line-height: 13px;
@@ -56,9 +52,6 @@ body {
   align-items: center;
   gap: 13px;
   padding-left: 47px;
-  margin-bottom: 40px;
-  margin-top: 80%;
-  padding-bottom: 80px;
 }
 .logoimagefut {
   width: 15px;
@@ -66,7 +59,6 @@ body {
 }
 .nav_linkfut {
   font-family: var(--Raleway);
-
   font-size: 14px;
   font-weight: 400;
   line-height: 13px;
@@ -159,4 +151,14 @@ body {
   padding-left: 24px;
   gap: 8px;
   color: var(--WhiteColor);
+}
+.quote {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 17.61px;
+}
+.number {
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 36.31px;
 }
