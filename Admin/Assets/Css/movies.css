@@ -114,12 +114,13 @@ tbody tr {
 }
 /* MODAL CSS START */
 .modal_section {
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  display: flex;
+  padding-bottom: 118px;
+  /* display: flex; */
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -127,12 +128,28 @@ tbody tr {
   color: white;
   padding-top: 206px;
 }
+.active{
+  display: flex;
+}
+.owarlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  cursor: crosshair;
+}
 .modal_container {
-
+  z-index: 999;
+  display: flex;
+  gap: 84px;
 }
 .modal_form {
+  display: flex;
+  gap: 84px;
   background-color: var(--formBgColor);
-  padding: 50px 30px;
+  padding: 50px 30px 118px;
   border-radius: 24px;
 }
 .form_input {
@@ -150,9 +167,53 @@ tbody tr {
   padding: 16px 20px;
   margin-bottom: 20px;
 }
+::placeholder {
+  color: var(--inputBorderColor);
+  font-family: var(--PopinsFont);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+}
 
 select {
   width: 100%;
-  color: white;
+  color: var(--inputBorderColor) !important;
+  cursor: pointer;
+}
+.form_bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 27px;
+}
+.form_bottom_checkBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 17px;
+}
+.form_bottom_checkBox input {
+  cursor: pointer;
+}
+.form_bottom_checkBox label {
+  font-family: var(--PopinsFont);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--inputBorderColor);
+}
+.submit_btn {
+  font-family: var(--RobotoFont);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16.41px;
+  padding: 8px 23px;
+  background-color: var(--PurpleColor);
+  cursor: pointer;
+  border-radius: 4px;
+}
+.modal_image {
+  width: 203px;
+  height: 283px;
 }
 /* MODAL CSS END */

@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    <!-- MOVIE TABLE START  -->
     <section>
         <div class="movies_main_container">
             <div style="width: 256px;"></div>
@@ -50,7 +51,7 @@
                                 <th>
                                     IMDB
                                 </th>
-                                <th>
+                                <th >
                                     Create
                                 </th>
                                 <th>
@@ -65,7 +66,7 @@
                                 <td>Lorem ipsum</td>
                                 <td>Action</td>
                                 <td>7.7</td>
-                                <td class="table_creat_btn"><i class="fa-solid fa-pen-to-square"></i></td>
+                                <td class="table_creat_btn" id="creat"><i class="fa-solid fa-pen-to-square"></i></td>
                                 <td class="table_delete_btn"><i class="fa-solid fa-trash"></i></td>
                             </tr>
                         </tbody>
@@ -76,8 +77,9 @@
 
         </div>
     </section>
+        <!-- MOVIE TABLE END  -->
     <!-- MODAL START -->
-    <section class="modal_section">
+    <section class="modal_section" id="movieModal">
 
         <div class="owarlay">
         </div>
@@ -93,25 +95,31 @@
                     <div class="form_input"><input type="text" placeholder="run time minute"></div>
                     <div class="form_input">
                         <select name="" id="">
-                        <option value="">category</option>
-                    </select></div>
-                    <div>
-                        <div>
+                            <option value="">category</option>
+                        </select>
+                    </div>
+                    <div class="form_bottom">
+                        <div class="form_bottom_checkBox">
                             <label for="adult">
-                                <input type="checkbox" id="adult"> Adult
+                                Adult
                             </label>
+                           <input type="checkbox" id="adult">
+                        </div>
                         <div>
                             <button type="submit" class="submit_btn">Submit</button>
                         </div>
                     </div>
                 </form>
-            </div>
-            <div class="modal_image">
-
+                <div class="modal_image">
+                    <img src="../Assets/Image/moviImage.svg" alt="">
+    
+                </div>
             </div>
         </div>
     </section>
     <!-- MODAL START -->
+
+    <script src="../Js/Movies/movies.js"></script>
 </body>
 
 </html>
