@@ -3,11 +3,17 @@
     --PopinsFont: "Poppins", serif;
     --NumansFont: "Numans", serif;
     --RobotoFont: "Roboto", serif;
+    --Raleway:"Raleway", serif;
     /*Colors*/
-    --BacgrounColorBlack:rgba(29, 29, 29, 1);
+    --BacgrounColorBlack:rgba(23, 22, 22, 1);
     --WhiteGreyColor:rgba(195, 200, 212, 1);
     --PurpleColor:rgba(155, 81, 224, 1);
     --WhiteColor:rgba(255, 255, 255, 1);
     --PlaceholderColor:rgba(71, 80, 105, 1);
     --LightBlackColor:rgba(30, 30, 30, 1);
+    --lightBlackColor2:rgba(45, 45, 45, 1);
+    --textlightgreyColor: rgba(174, 174, 174, 1);
+    --textlightgreyColor2: rgba(215, 215, 215, 1);
+
+
   }
