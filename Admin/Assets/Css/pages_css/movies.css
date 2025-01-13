@@ -115,7 +115,7 @@ tbody tr {
 }
 .table_title {
   display: flex;
-  align-items: center;ca
+  align-items: center;
   gap: 15.5px;
 }
 /* MODAL CSS START */
@@ -134,7 +134,7 @@ tbody tr {
   color: white;
   padding-top: 206px;
 }
-.active{
+.active {
   display: flex;
 }
 .owarlay {
