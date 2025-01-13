@@ -46,6 +46,7 @@
   font-weight: 500;
   line-height: 16.41px;
   color: var(--WhiteColor);
+  cursor: pointer;
 }
 .admin_image {
   display: flex;
