@@ -1,0 +1,119 @@
+.main_container {
+    display: flex;
+    gap: 24px;
+  }
+ .categories_right {
+    padding-top: 24px;
+    padding-right: 116px;
+    flex: 1;
+    padding-left: 295px;
+  }
+  .categories_right_top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 96px;
+  }
+  .right_top_left h6 {
+    font-family: var(--RalewayFont);
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 15.26px;
+    color: var(--WhiteGreyColor);
+  }
+  .right_top_left p {
+    font-family: var(--RalewayFont);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 23.48px;
+    color: var(--WhiteColor);
+  }
+  .right_top_right {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+  .create_btn {
+    padding: 8px 25px;
+    background-color: var(--PurpleColor);
+    border-radius: 4px;
+    font-family: var(--RobotoFont);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16.41px;
+    color: var(--WhiteColor);
+    cursor: pointer;
+  }
+  .admin_image {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .admin_image span {
+    font-family: var(--RalewayFont);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 13px;
+    color: var(--WhiteColor);
+  }
+
+  /* Table */
+
+  table {
+    width: 100%;
+    text-align: center;
+    border-radius: 4px !important;
+  }
+  thead {
+    background-color: var(--LightBlackColor);
+    color: var(--WhiteColor);
+  }
+  table tr th {
+    padding: 16px;
+    text-align: center;
+    font-family: var(--NunitoFont);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.1px;
+    letter-spacing: 0.01em;
+  }
+  table tr td {
+    padding: 16px;
+    text-align: center;
+    font-family: var(--NunitoFont);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.1px;
+    letter-spacing: 0.01em;
+    color: var(--BacgrounColorBlack);
+  }
+  
+  table tr:last-child td:first-child {
+    border-bottom-left-radius: 4px;
+  }
+  table tr:last-child td:last-child {
+    border-bottom-right-radius: 4px;
+  }
+  table tr:last-child th:first-child {
+    border-top-left-radius: 4px;
+  }
+  table tr:last-child th:last-child {
+    border-top-right-radius: 4px;
+  }
+  tbody tr {
+    background-color: var(--WhiteColor);
+    color: var();
+  }
+  .table_creat_btn {
+    color: var(--color-create);
+    cursor: pointer;
+  }
+  .table_delete_btn {
+    color: var(--color-delete);
+    cursor: pointer;
+  }
+  .table_title {
+    display: flex;
+    align-items: center;
+    gap: 15.5px;
+  }
