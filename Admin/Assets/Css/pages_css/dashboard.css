@@ -10,7 +10,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-bottom: 32px;
+  padding-bottom: 33px;
 }
 .nav_itemhead {
   display: flex;
