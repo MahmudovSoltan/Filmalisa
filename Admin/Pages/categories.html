@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Categories</title>
     <!-- CSS LINKS  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../Assets/Css/pages_css/dashboard.css">
     <link rel="stylesheet" href="../Assets/Css/global_css/global.css">
     <link rel="stylesheet" href="../Assets/Css/pages_css/categories.css">    
@@ -91,23 +94,15 @@
             </div>
         </div>
     </div>
-
+    TABLE CONTAINER START
     <div class="categories_table_container">
         <table>
             <thead>
                 <tr>
-                    <th>
-                        ID
-                    </th>
-                    <th>
-                        Name
-                    </th>
-                    <th>
-                        Edit
-                    </th>
-                    <th>
-                        Remove
-                    </th>                    
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Edit</th>
+                    <th>Remove</th>                    
                 </tr>
             </thead>
             <tbody>
@@ -124,8 +119,23 @@
 </div>
 <!-- categories TABLE END  -->
 
+<!-- Modal Start  -->
+ <div class="modal">
+    <div class="modal_container">
+    <form action="">
+        <div class="form_input">
+            <input type="text" placeholder="category name">
+        </div>
+        <div>
+            <button type="submit" class="modalBtn">Submit</button>
+        </div>
+    </form>
 </div>
+ </div>
 
+
+
+</div>
 </main>
 </body>
 </html>
