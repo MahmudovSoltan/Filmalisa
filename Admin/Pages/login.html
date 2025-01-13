@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login</title>
     <!-- CSS LINKS  -->
-    <link rel="stylesheet" href="../Assets/Css/global.css">
+    <link rel="stylesheet" href="../Assets/Css/global_css/global.css">
     <link rel="stylesheet" href="../Assets/Css/pages_css/login.css">
 </head>
 
@@ -36,17 +36,18 @@
                             <img src="../Assets/Icons/login.icons/passwordleft.svg" alt="Password icon">
                         </div>
                             <input type="password" id="password" name="password" placeholder="Password" required>
-                        <div class="icon_right">
+                        <div class="icon_right" id="iconPassword">
                             <img src="../Assets/Icons/login.icons/passwordright.svg" alt="Visibility icon">
                         </div>
                     </div>
                     <!-- Login button  --> 
-                        <button type="submit" class="login_button">login</button>              
+                        <button type="submit" class="login_button" id="loginButton">login</button>              
                 </form>
             </div>
         </section>
     </main>
     <!-- LOGIN FORM END -->
+     <script src="../Js/login.js"></script>
 </body>
 
 </html>
