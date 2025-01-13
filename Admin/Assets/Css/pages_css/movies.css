@@ -2,10 +2,15 @@
   display: flex;
   gap: 24px;
 }
+.sideBar {
+  position: fixed;
+}
+
 .movies_right {
   padding-top: 24px;
   padding-right: 116px;
   flex: 1;
+  padding-left: 295px;
 }
 .movies_right_top {
   display: flex;
@@ -41,6 +46,7 @@
   font-weight: 500;
   line-height: 16.41px;
   color: var(--WhiteColor);
+  cursor: pointer;
 }
 .admin_image {
   display: flex;
