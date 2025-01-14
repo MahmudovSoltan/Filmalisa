@@ -69,5 +69,9 @@ form a {
   background-color: var(--PurpleColor);
   padding: 16px 0;
   margin-top: 40px;
+  border-radius: 12px;
+  color: var(--WhiteColor);
+  cursor: pointer;
+
 }
 /* LOGIN FORM END*/
