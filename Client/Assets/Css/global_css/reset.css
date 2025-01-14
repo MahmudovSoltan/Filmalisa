@@ -11,8 +11,10 @@
     vertical-align: baseline;
 }
 body{
-    font-family: var(--roboto);
-}
+    background-color: var(--BacgrounColorBlack);
+    max-width: 1440px;
+    margin: 0 auto;
+ }
 
 /* Block-level elements */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section {
