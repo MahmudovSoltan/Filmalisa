@@ -27,6 +27,11 @@
 .form_title span {
   display: block;
   margin-top: 23px;
+  font-family:var(--PopinsFont);
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 80px;
+  letter-spacing: -0.02em;
 }
 .input_div {
   display: flex;
@@ -72,6 +77,5 @@ form a {
   border-radius: 12px;
   color: var(--WhiteColor);
   cursor: pointer;
-
 }
 /* LOGIN FORM END*/
