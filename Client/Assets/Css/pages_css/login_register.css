@@ -1,0 +1,81 @@
+/* LOGIN FORM START*/
+.form_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 93px;
+  padding-bottom: 191px;
+}
+.login_logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 23px;
+  margin-bottom: 40px;
+}
+.form_title {
+  color: var(--WhiteGreyColor);
+  font-family: var(--NumansFont);
+  font-size: 70px;
+  font-weight: 400;
+  line-height: 80px;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+.form_title span {
+  display: block;
+  margin-top: 23px;
+  font-family:var(--PopinsFont);
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 80px;
+  letter-spacing: -0.02em;
+}
+.input_div {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 16px;
+  border: 1px solid var(--inputBorderColor);
+  margin-bottom: 16px;
+  border-radius: 12px;
+  width: 100%;
+}
+.input_div input {
+  width: 546px;
+  color: var(--inputBorderColor);
+}
+.eyeIcon {
+  cursor: pointer;
+}
+input::placeholder {
+  font-family: var(--PopinsFont);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--inputBorderColor);
+}
+form a {
+  color: var(--inputBorderColor);
+  font-family: var(--PopinsFont);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: left;
+  text-decoration-line: underline;
+}
+.submit_btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--PurpleColor);
+  padding: 16px 0;
+  margin-top: 40px;
+  border-radius: 12px;
+  color: var(--WhiteColor);
+  cursor: pointer;
+}
+/* LOGIN FORM END*/

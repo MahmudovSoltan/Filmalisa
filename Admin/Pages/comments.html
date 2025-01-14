@@ -1,144 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <!-- FOTN AWSAME LINK -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../Assets/Css/pages_css/comment.css" />
+    <link rel="stylesheet" href="../Assets/Css/pages_css/dashboard.css" />
+    <link rel="stylesheet" href="../Assets/Css/global_css/global.css" />
+    <link rel="stylesheet" href="../Assets/Css/pages_css/movies.css" />
+  </head>
 
-  <!-- FOTN AWSAME LINK -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="../Assets/Css/pages_css/comment.css">
-  <link rel="stylesheet" href="../Assets/Css/pages_css/dashboard.css">
-  <link rel="stylesheet" href="../Assets/Css/global_css/global.css">
-  <link rel="stylesheet" href="../Assets/Css/pages_css/movies.css">
-
-</head>
-
-<body>
-
-
-
-  <section class="comment_section">
-    <aside>
-      <div class="left_panel">
-        <div>
-          <ul class="nav_list">
-            <li class="nav_itemhead">
-              <img class="logoimagehead" src="../Assets/Icons/logo.svg" alt="" />
-              <a class="nav_linkhead" href="">Filmalisa</a>
-            </li>
-            <li class="nav_item">
-              <img class="logoimage" src="../Assets/Icons/dashboard.svg" alt="" />
-              <a class="nav_link" href="../Pages/dashboard.html">Dashboard</a>
-            </li>
-            <li class="nav_item">
-              <img class="logoimage" src="../Assets/Icons/movies.svg" alt="" />
-              <a class="nav_link" href="../Pages/movies.html">Movies</a>
-            </li>
-            <li class="nav_item">
-              <img class="logoimage" src="../Assets/Icons/categories.svg" alt="" />
-              <a class="nav_link" href="">Categories</a>
-            </li>
-            <li class="nav_item">
-              <img class="logoimage" src="../Assets/Icons/users.svg" alt="" />
-              <a class="nav_link" href="">Users</a>
-            </li>
-            <li class="nav_item pagesname_class">
-              <img class="logoimage " src="../Assets/Icons/comments.svg" alt="" />
-              <a class="nav_link" href="#">Comments</a>
-            </li>
-            <li class="nav_item">
-              <img class="logoimage" src="../Assets/Icons/contact.svg" alt="" />
-              <a class="nav_link" href="">Contact us</a>
-            </li>
-          </ul>
+  <body>
+    <section class="comment_section">
+      <aside>
+        <div class="left_panel">
+          <div>
+            <ul class="nav_list">
+              <li class="nav_itemhead">
+                <img
+                  class="logoimagehead"
+                  src="../Assets/Icons/logo.svg"
+                  alt=""
+                />
+                <a class="nav_linkhead" href="">Filmalisa</a>
+              </li>
+              <li class="nav_item">
+                <img
+                  class="logoimage"
+                  src="../Assets/Icons/dashboard.svg"
+                  alt=""
+                />
+                <a class="nav_link" href="../Pages/dashboard.html">Dashboard</a>
+              </li>
+              <li class="nav_item">
+                <img
+                  class="logoimage"
+                  src="../Assets/Icons/movies.svg"
+                  alt=""
+                />
+                <a class="nav_link" href="../Pages/movies.html">Movies</a>
+              </li>
+              <li class="nav_item">
+                <img
+                  class="logoimage"
+                  src="../Assets/Icons/categories.svg"
+                  alt=""
+                />
+                <a class="nav_link" href="">Categories</a>
+              </li>
+              <li class="nav_item">
+                <img class="logoimage" src="../Assets/Icons/users.svg" alt="" />
+                <a class="nav_link" href="./users.html">Users</a>
+              </li>
+              <li class="nav_item pagesname_class">
+                <img
+                  class="logoimage"
+                  src="../Assets/Icons/comments.svg"
+                  alt=""
+                />
+                <a class="nav_link" href="#">Comments</a>
+              </li>
+              <li class="nav_item">
+                <img
+                  class="logoimage"
+                  src="../Assets/Icons/contact.svg"
+                  alt=""
+                />
+                <a class="nav_link" href="">Contact us</a>
+              </li>
+              <li class="nav_item">
+                <img class="logoimage" src="../Assets/Icons/users.svg" alt="" />
+                <a class="nav_link" href="../Pages/actors.html">Actors</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <ul>
+              <li class="nav_itemfut">
+                <img
+                  class="logoimagefut"
+                  src="../Assets/Icons/logout.svg"
+                  alt=""
+                />
+                <a class="nav_linkfut" href="">Logout</a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div>
-          <ul>
-            <li class="nav_itemfut">
-              <img class="logoimagefut" src="../Assets/Icons/logout.svg" alt="" />
-              <a class="nav_linkfut" href="">Logout</a>
-            </li>
-          </ul>
+      </aside>
+      <div class="comments_right">
+        <div class="movies_right_top">
+          <div class="right_top_left">
+            <h6>Hi Admin</h6>
+            <p>Comments</p>
+          </div>
+          <div class="right_top_right">
+            <div class="admin_image">
+              <img src="../Assets/Image/adminSvg.svg" alt="" />
+              <span>Admin</span>
+            </div>
+          </div>
+        </div>
+        <div class="movies_table_container">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>UserName</th>
+                <th>Email</th>
+                <th>Film</th>
+                <th>Comment</th>
+                <th>Remove</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="table_title">
+                  <img src="../Assets/Image/movie.svg" alt="" /> Lost in space
+                </td>
+                <td>Lorem ipsum</td>
+                <td>Action</td>
+                <td>7.7</td>
+                <td class="table_delete_btn">
+                  <i class="fa-solid fa-trash"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
-    </aside>
-    <div class="comments_right">
-      <div class="movies_right_top">
-        <div class="right_top_left">
-          <h6>Hi Admin</h6>
-          <p>Comments</p>
-        </div>
-        <div class="right_top_right">
-          <div class="admin_image">
-            <img src="../Assets/Image/adminSvg.svg" alt=""> <span>Admin</span>
+    </section>
+
+    <!-- MODAL SECTION START -->
+    <section class="modal_section" id="movieModal">
+      <div class="owarlay"></div>
+      <div class="modal_container">
+        <div class="modal">
+          <div class="modal-header">
+            Are you sure you want to delete this comment?
+          </div>
+          <div class="modal-actions">
+            <button class="btn btn-confirm">Yes</button>
+            <button class="btn btn-cancel">No</button>
           </div>
         </div>
       </div>
-      <div class="movies_table_container">
-        <table>
-          <thead>
-            <tr>
-              <th>
-                ID
-              </th>
-              <th>
-                UserName
-              </th>
-              <th>
-                Email
-              </th>
-              <th>
-                Film
-              </th>
-              <th>
-                Comment
-              </th>
-              <th>
-                Remove
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td class="table_title"><img src="../Assets/Image/movie.svg" alt=""> Lost in space</td>
-              <td>Lorem ipsum</td>
-              <td>Action</td>
-              <td>7.7</td>
-              <td class="table_delete_btn"><i class="fa-solid fa-trash"></i></td>
-            </tr>
-          </tbody>
+    </section>
+    <!-- MODAL SECTION END -->
 
-        </table>
-      </div>
-    </div>
-  </section>
-
-<!-- MODAL SECTION START -->
-  <section class="modal_section  " id="movieModal">
-
-    <div class="owarlay">
-    </div>
-    <div class="modal_container">
-      <div class="modal">
-        <div class="modal-header">
-          Are you sure you want to delete this comment?
-        </div>
-        <div class="modal-actions">
-          <button class="btn btn-confirm">Yes</button>
-          <button class="btn btn-cancel">No</button>
-        </div>
-      </div>
-      
-    </div>
-</section>
-<!-- MODAL SECTION END -->
-
-<script src="../Js/Comments/comment.js"></script>
-</body>
-
+    <script src="../Js/Comments/comment.js"></script>
+  </body>
 </html>
