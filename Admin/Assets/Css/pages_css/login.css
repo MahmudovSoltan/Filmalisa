@@ -1,0 +1,109 @@
+body {
+    background-color: var(--mainbackgroundColorBlack);
+}
+main {
+    margin: 0;
+    height: 100vh;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    display: flex;    
+}
+
+/* Logo icon  */
+.logo {
+    margin: auto;
+    width: 249px;
+    height: 214px;
+    margin-top: 90px;
+}
+
+/* Admin Text */
+.login_container h1 {
+    font-weight: 400;
+    font-size: 70px;
+    font-family: var(--NumansFont);
+    line-height: 80px;
+    letter-spacing: -2%;
+    margin-top: 16px;
+    text-align: center;
+    justify-content: center;
+    color: var(--WhiteGreyColor);
+}
+
+/* Login Form Container */
+.login_form {
+    margin-top: 40px;
+    width: 547px;
+    height: 424px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 82px;
+    align-items: center;
+    justify-content: center;
+}
+
+.form_group {
+    position: relative;
+    height: 64px;
+    width: 547px;
+    border: 1px solid var(--inputBorderColor);
+    background-color: var(--BacgrounColorBlack);
+    color:var(--WhiteGreyColor);
+    margin-bottom: 16px;
+    border-radius: 12px;
+    
+}
+
+.form_group input {
+    height: 40px;
+    margin: 12px 56px;
+    font-family: var(--PopinsFont);
+ 
+}
+#username {
+    width: 475px;
+}
+input::placeholder {
+    color:var(--PlaceholderColor);
+}
+input:focus::placeholder {
+color: var(--WhiteGreyColor);
+}
+
+.icon_left,.icon_right img {
+    width: 24px;
+    height: 24px;
+}
+
+.form_group .icon_left {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 16px;
+    color:var(--PlaceholderColor);
+}
+
+#password {
+    width: 435px;
+}
+
+.form_group .icon_right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 16px;
+    color: rgba(71, 80, 105, 1);
+}
+
+.login_button {
+    background-color: var(--PurpleColor);
+    width: 100%;
+    height: 56px;
+    border-radius: 12px;
+    margin-top: 40px;
+    font-weight: 400;
+    font-size: 16px;
+    font-family: var(--PopinsFont);
+    color: var(--WhiteColor);
+}
