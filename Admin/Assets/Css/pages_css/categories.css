@@ -1,19 +1,17 @@
-.ringt_panelhead {
-  margin-bottom: 60px;
-}
-
 table {
   width: 90%;
 }
 
-.adminheadtext p {
-  font-size: 13px;
-  font-weight: 500;
+.movies_right {
+  padding-left: 60px;
+  padding-top: 50px;
 }
-.category_container{
+
+.category_container {
   width: 300px;
   z-index: 999;
 }
+
 .modal_category {
   position: relative;
   display: none;
@@ -24,9 +22,27 @@ table {
 
 .category_modal {
   z-index: 999;
-  background-color: rgba(23, 22, 22, 1);
-  padding: 50px 30px;
+  background-color: var(--formBgColor);
+  padding: 60px 30px;
   border-radius: 12px;
+
+}
+
+.submitBtn button {
+  padding: 16px 32px;
+  border-radius: 12px;
+  color: var(--WhiteColor);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  font-family: var(--PopinsFont);
+}
+
+.form_input {
+  margin-bottom: 60px;
+  padding: 20px 12px;
+  color: var(--WhiteColor);
+  background-color: var(--BacgrounColorBlack);
 }
 
 /* Modal container styling */
@@ -40,6 +56,7 @@ table {
   font-family: Arial, sans-serif;
   margin: 50px auto;
 }
+
 /* Modal header */
 .modal-header {
   font-size: 16px;
