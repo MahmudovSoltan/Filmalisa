@@ -1,0 +1,188 @@
+/* SWEIPER CSS START */
+.swiper {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto !important;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+.swiper_image img {
+  width: 100%;
+  height: 100vh;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--WhiteColor) !important;
+}
+/* SWEIPER CSS END */
+.swiper_content {
+  position: absolute;
+  left: 15%;
+  top: 35%;
+  width: 45%;
+}
+
+.movie_raiting {
+  width: 80px;
+  height: 16px;
+}
+.swiper_content_top {
+  width: 111px;
+  height: 24px;
+  background: rgba(29, 29, 29, 0.5);
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  cursor: pointer;
+  font-family: var(--RobotoFont);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(15, 239, 253, 1);
+}
+.movie_title {
+  font-family: var(--RobotoFont);
+  font-size: 56px;
+  font-weight: 500;
+  line-height: 64px;
+  text-align: left;
+  color: var(--WhiteColor);
+  margin: 20px 0;
+}
+.movie_desc {
+  font-family: var(--RobotoFont);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 32px;
+  text-align: left;
+  color: var(--WhiteColor);
+}
+.watch_btn {
+  display: flex;
+  align-items: flex-start;
+  width: 188px;
+  height: 54px;
+  background-color: transparent;
+  /* z-index: 999 !important; Z-index-in təsir edilməsi üçün əlavə qeyd */
+  margin-top: 20px;
+  border-radius: 40px; /* Elementin kənarlarının yumşaldılması üçün */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Mənbənin önə çıxması üçün kölgə */
+  color: white; /* Mətni görmək üçün rəng */
+  position: relative; /* Mövqe istifadəsi üçün */
+  overflow: hidden; /* Yığılmış elementlərin sıxılmış vizual görünməsi üçün */
+}
+
+.watch_link {
+  width: 200px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 40px;
+  background-image: linear-gradient(
+    135.87deg,
+    #0feffd 1.25%,
+    #ff00f5 51.73%,
+    rgba(15, 239, 253, 0.22) 77.22%
+  );
+  color: white; /* Mətnin görünməsi üçün */
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  /* z-index: -1; */
+}
+
+/* CATEGORY CSS START */
+
+.category_title {
+  margin-top: 28px;
+  margin-bottom: 20px;
+  margin-left: 40px;
+  color: var(--WhiteColor);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: flex-start;
+}
+.category_title h2 {
+  font-family: var(--RobotoFont);
+  font-size: 35px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+}
+
+.swiper2 {
+  width: 800px;
+}
+.swiper2 > .swiper-slide {
+  height: 300px !important;
+  /* width: 292px !important; */
+  /* background: #882525; */
+  line-height: 300px;
+  text-align: center;
+}
+
+.swiper-slide:nth-child(2) {
+  background: #8acc7d;
+}
+
+.swiper-slide:nth-child(3) {
+  background: #b7cc7d;
+}
+
+.swiper-slide:nth-child(4) {
+  background: #9eb75c;
+}
+
+.swiper-slide:nth-child(5) {
+  background: #7da8cc;
+}
+
+.swiper-slide:nth-child(6) {
+  background: #96cc7d;
+}
+
+.swiper-slide:nth-child(7) {
+  background: #cc7dae;
+}
+.swiper_card {
+  position: relative;
+}
+.swiper_card_content {
+  position: absolute;
+  bottom: 0;
+  left: 24px;
+}
+.swiper_card_content .swiper_content_top {
+  margin-bottom: 20px;
+}
+.swiper_card_content h3 {
+  width: 244px;
+  margin-bottom: 24px;
+  font-family: var(--RobotoFont);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  text-align: left;
+  color: var(--WhiteColor);
+}
