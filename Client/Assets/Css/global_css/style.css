@@ -1,15 +1,17 @@
-aside {
-  position: fixed;
-  top: 8px;
-  left: 20px;
-  height: 100vh;
-  padding: 40px 12px;
-  background-color: var(--LightBlackColor);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 64px;
-  box-shadow: var(--LightBlackColor) 0px 22px 70px 4px;
+
+aside{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100vh;
+    padding: 40px 12px;
+    background-color: var(  --LightBlackColor);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 64px;
+    box-shadow: var(  --LightBlackColor) 0px 22px 70px 4px;
+    z-index: 999;
 }
 
 .logo {
