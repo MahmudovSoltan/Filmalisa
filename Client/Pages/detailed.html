@@ -9,9 +9,9 @@
   </head>
   <body>
     <div class="detailed_container">
-      <div class="left_sidebar">
-        <!-- ASIDE BAR START -->
+      <!-- ASIDE BAR START -->
 
+      <div class="left_sidebar">
         <div class="logo">
           <img src="../Assets/Icons/logo.svg" alt="" />
         </div>
@@ -31,9 +31,8 @@
             /></a>
           </div>
         </div>
-
-        <!-- ASIDE BAR END -->
       </div>
+      <!-- ASIDE BAR END -->
 
       <div class="rightpanel">
         <div class="lostinspace">
@@ -46,13 +45,96 @@
         <img src="../Assets/images/lostinspaceimg.svg" alt="" />
       </div>
       <div class="lostspaseinfo">
-        <div>have you seen our robot? <span>Watch Link</span></div>
-        <div>
+        <div class="texthead">
+          Have you seen our robot?
+          <button class="watclinkbtn">Watch Link</button>
+          <button class="plus">
+            <img src="../Assets/Icons/+icon.svg" alt="" />
+          </button>
+        </div>
+        <div class="textbody1">
           The mission to save Scarecrow takes an unexpected turn, throwing the
           Resolute into chaos. Judy hatches a plan to get a ship to Alpha
           Centauri.
         </div>
+        <div>
+          <button class="adfavbtn">
+            <img src="../Assets/Icons/yellovstaricon.svg" alt="" /> 8.1
+          </button>
+        </div>
+        <div class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Status</th>
+                <th>No. of episodes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>TV Show</td>
+                <td>Returning Series</td>
+                <td>20</td>
+              </tr>
+            </tbody>
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Status</th>
+                <th>No. of episodes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>TV Show</td>
+                <td>Returning Series</td>
+                <td>20</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="genres">
+          <h4>Genres</h4>
+
+          <p>Action & Adventure, Sci-Fi & Fantasy, Drama</p>
+        </div>
+        <p class="topcastext">Top Cast</p>
+        <div class="top_cast">
+          <div>
+            <img src="../Assets/images/topcastimage.svg" alt="" />
+            <p class="topcastext1">maxwell jenkins</p>
+            <p class="topcastext2">tony slack</p>
+          </div>
+          <div>
+            <img src="../Assets/images/topcastimage.svg" alt="" />
+            <p class="topcastext1">maxwell jenkins</p>
+            <p class="topcastext2">tony slack</p>
+          </div>
+          <div>
+            <img src="../Assets/images/topcastimage.svg" alt="" />
+            <p class="topcastext1">maxwell jenkins</p>
+            <p class="topcastext2">tony slack</p>
+          </div>
+          <div>
+            <img src="../Assets/images/topcastimage.svg" alt="" />
+            <p class="topcastext1">maxwell jenkins</p>
+            <p class="topcastext2">tony slack</p>
+          </div>
+        </div>
       </div>
+    </div>
+    <div class="commentare">
+      <img src="../Assets/Icons/adminlogo.svg" alt="" />
+      <input
+        class="commentinput"
+        type="text"
+        id="commentInput"
+        placeholder="Your Comment..."
+      />
+      <button onclick="addComment()">
+        <img src="../Assets/Icons/commentaddbtn.svg" alt="" />
+      </button>
     </div>
   </body>
 </html>

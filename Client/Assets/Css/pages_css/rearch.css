@@ -1,0 +1,35 @@
+.search_left{
+    padding-left: 80px;
+    padding-top: 160px;
+
+}
+
+.seracr_left_cards{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    row-gap: 29px;
+}
+.search_left_top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 60px;
+}
+.search_left_top_input{
+    display: flex;
+    align-items: center;
+
+}
+.search_left_top_input input{
+    border: 1px solid rgba(128, 128, 128, 1);
+    padding: 16px 12px;
+    border-radius: 4px;
+    color: rgba(128, 128, 128, 1);
+}
+
+.search_left_top_input .search_btn{
+    cursor: pointer;
+}
