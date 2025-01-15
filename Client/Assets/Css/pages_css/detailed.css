@@ -14,6 +14,7 @@ body {
   box-shadow: var(--LightBlackColor);
   opacity: 90%;
   z-index: 20;
+  margin-left: 0;
 }
 .logo {
   width: 56px;
@@ -45,7 +46,7 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 .rightpanel {
-  background-image: url("../../images/detailedbackbigpic.svg");
+  background-image: url("../../images/7RyHsO4yDXtBv1zUU3mTpHeQ0d5\ 1.png");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
@@ -57,9 +58,129 @@ body {
 }
 
 .container2 {
+  display: flex;
   margin-top: 121px;
   margin-left: 80px;
+  font-family: var(--PopinsFont);
+  margin-bottom: 122px;
 }
 .lostinspimage {
   border-radius: 24px;
+  object-fit: cover;
+  width: 90%;
+  height: 100%;
+}
+.lostspaseinfo {
+  padding-left: 72px;
+  padding-right: 72px;
+}
+.texthead {
+  display: flex;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 32px;
+  color: var(--textwhitecolor3);
+}
+.watclinkbtn {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 32px;
+  color: var(--textyellowcolor);
+  border-radius: 8px;
+  background-color: var(--buttonbackblackcolor);
+  margin-left: 20px;
+  padding: 4px 8px;
+}
+.plus {
+  padding-left: 110px;
+}
+.textbody1 {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 32px;
+  color: var(--textblackcolor4);
+  width: 100%;
+  padding-bottom: 24px;
+}
+.adfavbtn {
+  display: flex;
+  color: var(--textyellowcolor);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  background-color: var(--buttonbackblackcolor);
+  justify-content: center;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 12px;
+  gap: 4px;
+  margin-bottom: 24px;
+}
+table {
+  width: 100%;
+  text-align: center;
+}
+table tr th {
+  padding-bottom: 8px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--textgreycolor);
+}
+table tr td {
+  padding-bottom: 24px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32px;
+  color: var(--WhiteGreyColor);
+}
+.genres h4 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--textgreycolor);
+  padding-bottom: 8px;
+}
+.genres p {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32px;
+  color: var(--WhiteGreyColor);
+  padding-bottom: 27px;
+}
+.topcastext {
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--WhiteColor);
+  margin-bottom: 23px;
+}
+
+.top_cast {
+  display: flex;
+  gap: 24px;
+}
+.topcastext1 {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--WhiteColor);
+  padding-bottom: 2px;
+}
+.topcastext2 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--WhiteColor);
+}
+.commentare {
+  margin-left: 80px;
+  display: flex;
+  margin-bottom: 85px;
+}
+.commentinput {
+  height: 64px;
+  width: 60%;
+  border: 1px solid red;
+  margin-right: 22px;
 }
