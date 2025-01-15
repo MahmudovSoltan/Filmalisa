@@ -1,13 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./Assets/Css/style.css">
-    <link rel="stylesheet" href="./Assets/Css/global.css">
+    <title>Admin Login</title>
+    <!-- CSS LINKS  -->
+    <link rel="stylesheet" href="./Assets/Css/global_css/global.css">
+    <link rel="stylesheet" href="./Assets/Css/pages_css/login.css">
 </head>
+
 <body>
-    
+    <!-- LOGO CONTAINER START -->
+    <main>
+        <section class="login_container">
+            <div class="logo">
+                <img src="./Assets/Icons/logo.svg" alt="Logo">
+                <h1>Admin</h1>
+            </div>
+            <!-- LOGO CONTAINER END -->
+
+            <!-- LOGIN FORM START -->
+            <div class="login_form">
+                <div class="login_form_group">
+                    <!-- Username input with left icon -->
+                    <div class="form_group">
+                        <div class="icon_left">
+                            <img src="./Assets/Icons/login.icons/username.svg" alt="Username icon">
+                        </div>
+                        <input type="text" id="username" name="username" placeholder="Username" required>
+                    </div>
+                    <!-- Password input with left and right icons -->
+                    <div class="form_group">
+                        <div class="icon_left">
+                            <img src="./Assets/Icons/login.icons/passwordleft.svg" alt="Password icon">
+                        </div>
+                        <input type="password" id="password" name="password" placeholder="Password" required>
+                        <div class="icon_right" id="iconPassword">
+                            <img src="./Assets/Icons/login.icons/passwordright.svg" alt="Visibility icon">
+                        </div>
+                    </div>
+                    <!-- Login button  -->
+                    <button type="submit" class="login_button" id="loginButton">
+                        <a href="./Pages/dashboard.html">login</a>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- LOGIN FORM END -->
+     <script src="./Js/login/login.js"></script>
 </body>
+
 </html>
