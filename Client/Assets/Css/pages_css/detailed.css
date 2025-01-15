@@ -175,12 +175,31 @@ table tr td {
 }
 .commentare {
   margin-left: 80px;
+  align-items: center;
   display: flex;
   margin-bottom: 85px;
+  position: relative;
+  text-align: center;
+  transform: translateY(-50%);
+}
+.commentare img {
+  position: absolute;
 }
 .commentinput {
+  padding-left: 40px;
   height: 64px;
   width: 60%;
-  border: 1px solid red;
+  border: 1px solid var(--inputBorderColor);
   margin-right: 22px;
+  border-radius: 12px;
+  color: var(--WhiteColor);
+}
+.addcombtn {
+  display: inline-flex;
+  padding: 10px;
+  background-color: brown;
+  align-items: center;
+  justify-content: center;
+  margin-left: 22px;
+  cursor: pointer;
 }
