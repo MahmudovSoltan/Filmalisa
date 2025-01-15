@@ -7,7 +7,9 @@ body {
     background-color:var(--BacgrounColorBlack);
     color:var(--WhiteColor);
 }
-
+button {
+    cursor: pointer;
+}
 /* Header Section */
 .header {
 display: flex;
@@ -87,98 +89,117 @@ border-radius: 4px;
     margin-left: 10px;
     padding-bottom: 17px;
 }
-.first_section_container{
-    display: flex;
-    padding: 72px 168px 76px 168px;
+/* First section start */
+.section_container{
+    display: flex; 
     gap: 12px;
+   justify-content: center;
+   align-items: center;
+    padding: 72px 168px 76px 168px;
 }
-.first_section {
-    
+.section_text {
+    padding-top: 30px;
 }
-.enjoy_text h2 {
+.section_text h2 {
     font-weight: 700;
     font-size: 48px;
     padding-bottom: 16px;
 }
-.imgTV .img1 {
-    position: absolute;
-margin-left: -71px;
-margin-top: -86px;
-}
-.imgTV {
-padding-left: 60px;
-}
-
-/* 
-.header h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-}
-.header p {
-    margin-bottom: 20px;
-}
-.header input {
-    padding: 10px;
-    margin-right: 10px;
-}
-.cta-button {
-    padding: 10px 20px;
-    background-color: purple;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-/* Features Section */
-/* .features {
-    display: flex;
-    justify-content: space-around;
-    padding: 50px;
-}
-.feature {
-    text-align: center;
-    max-width: 300px;
-}
-.feature img {
+.section1 .section2 .section3 .contact_section {
     width: 100%;
-    height: auto;
-} */
+}
 
-/* Contact Section */
-/* .contact {
+/* Contact section start */
+.contact_text {
     text-align: center;
-    padding: 50px;
-    background-color: #111;
+    padding-top: 47px;
 }
-.contact form input, .contact form textarea {
-    width: 80%;
-    margin: 10px 0;
-    padding: 10px;
-    border: none;
+.contact_text h2{
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 62px;
+    align-items: center;
 }
-.contact form button {
-    padding: 10px 20px;
-    background-color: purple;
-    border: none;
-    color: white;
-    cursor: pointer;
+.form input, textarea{
+    margin-bottom: 35px;
+    padding: 18px 16px;
+    width: 478px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 4px;
+    border: 1px solid rgba(128, 128, 128, 1);
+}
+ .form {
+    padding-top: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  
+}
+textarea {
+    padding-bottom: 70px;
+}
+.contact_btn{
+    color: rgba(255, 255, 255, 1);
+    font-weight: 500;
+    padding: 12px 24px;
+    border-radius: 4px;
+    line-height: 28px;
+    background-color: var(--PurpleColor);
+    text-align: center;
+    margin: auto;
+    width: 208px;
+    margin-bottom: 140px;
 }
 
-/* FAQ Section */
-/* .faq {
-    padding: 50px;
+/* FAQ Start */
+.faq_text h2 {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 62px;
+    align-items: center;
+    text-align: center;
+    padding-top: 72px;
+    padding-bottom: 24px;
 }
-.faq-item {
-    margin-bottom: 20px;
+.faq {
+    display: flex;
+    gap:8px;
+    flex-direction: column;
 }
-.faq-content {
+.faq_item {
+    line-height: 30px;
+    padding: 24px;
+    background-color: rgba(42, 42, 42, 1);
+    display: flex;
+    justify-content: space-between;
+}
+p {
     display: none;
-    margin-top: 10px;
-} */ 
+}
+.vector_icon img {
+    width: 28px;
+    height: 28px;
+}
+.faq_container {
+    padding: 72px 168px;
+}
+/* FAQ END */
 
-/* Footer */
-/* footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #111;
-} */ 
+/* Footer Start */
+
+.footer_container {
+    color: rgba(179, 179, 179, 1);
+    font-size: 14px;
+    text-decoration: underline;
+    line-height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 72px 168px 170px 168px;
+    gap: 50px;
+}
+.footer_container div {
+    display: flex;
+    flex-direction: column;
+}
