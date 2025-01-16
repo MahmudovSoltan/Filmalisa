@@ -1,3 +1,6 @@
+
+
+// function addComment() {
 function addComment() {
   const commentInput = document.querySelector("#commentInput");
   const addedcomment = document.querySelector("#addedcomment");
@@ -51,5 +54,6 @@ var swiper3 = new Swiper(".mySwiper3", {
   spaceBetween: 16,
   loop: true,
 });
+
 
 }
