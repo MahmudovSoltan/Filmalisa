@@ -11,7 +11,9 @@ button {
     cursor: pointer;
 }
 /* Header Section */
-
+header {
+    background-image: url("../../Images/landingimg/Frame\ 48.png");
+}
 .header {
 display: flex;
 justify-content: space-around;
@@ -207,10 +209,12 @@ gap: 16px;
 }
 
 /* Footer End  */
+
+/* All Underline  */
 .contact_section, .features, .section2 {
     border-bottom: 8px solid rgba(35, 35, 35, 1);    
 }
 .section2, .footer_container {
     border-top: 8px solid rgba(35, 35, 35, 1);
 }
-
+/* All Underline */
