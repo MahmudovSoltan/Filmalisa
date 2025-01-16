@@ -9,3 +9,12 @@ faqItems.forEach(item => {
         content.style.display = isVisible ? 'none' : 'block';
     });
 });
+
+
+const add = document.querySelector("#add")
+const paraqraf = document.querySelector("#paraqraf")
+const image = document.querySelector("#image")
+add.addEventListener("click",()=>{
+    paraqraf.classList.toggle("active")
+    image.classList.toggle("element")
+})
