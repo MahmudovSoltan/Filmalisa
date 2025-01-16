@@ -1,5 +1,17 @@
 
+
 // function addComment() {
+function addComment() {
+  const commentInput = document.querySelector("#commentInput");
+  const addedcomment = document.querySelector("#addedcomment");
+
+  if (commentInput.value.trim() !== "") {
+    addedcomment.innerText += commentInput.value;
+    commentInput.value = "";
+    console.log(commentInput.value);
+  } else {
+    console.log("serh yazin");
+  }// function addComment() {
 //   const commentInput = document.querySelector("#commentInput");
 //   const addedcomment = document.querySelector("#addedcomment");
 //   data = commentInput.value.jSON;
@@ -42,3 +54,6 @@ var swiper3 = new Swiper(".mySwiper3", {
   spaceBetween: 16,
   loop: true,
 });
+
+
+}
