@@ -67,10 +67,32 @@ body {
 .lostinspimage {
   border-radius: 24px;
   object-fit: cover;
-  width: 90%;
+  width: 40%;
   height: 100%;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  display: inline-block;
+}
+.image1 {
+  /* position: relative; */
+  cursor: pointer;
+}
+
+.hoverplaybtn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+.lostinspimage:hover .hoverplaybtn {
+  opacity: 1;
+  cursor: pointer;
 }
 .lostspaseinfo {
+  width: 60%;
   padding-left: 72px;
   padding-right: 72px;
 }
@@ -175,12 +197,108 @@ table tr td {
 }
 .commentare {
   margin-left: 80px;
+  align-items: center;
   display: flex;
   margin-bottom: 85px;
+  position: relative;
+  text-align: center;
+  transform: translateY(-50%);
+}
+.commentare img {
+  position: absolute;
 }
 .commentinput {
+  padding-left: 40px;
   height: 64px;
   width: 60%;
-  border: 1px solid red;
+  border: 1px solid var(--inputBorderColor);
   margin-right: 22px;
+  border-radius: 12px;
+  color: var(--WhiteColor);
+}
+.addcombtn {
+  display: inline-flex;
+  padding: 10px;
+  background-color: brown;
+  align-items: center;
+  justify-content: center;
+  margin-left: 22px;
+  cursor: pointer;
+}
+.addedcomment {
+  font-family: var(--RubikFont);
+  margin-left: 80px;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  border-radius: 8px;
+  border: 2px solid var(--PlaceholderColor);
+  margin-bottom: 20%;
+  padding: 20px 25px;
+  color: var(--WhiteGreyColor);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+.comhead {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.comheadlogo {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  gap: 12px;
+}
+/* SWEIPER CSS START */
+.swiper {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto !important;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+.swiper_image img {
+  width: 100%;
+  height: 100vh;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--WhiteColor) !important;
+}
+/* SWEIPER CSS END */
+.swiper-wrapper {
+  display: flex;
+}
+
+.top_cast .swiper {
+  width: 800px;
+}
+
+.top_cast .swiper-slide {
+  height: 300px;
+  background: transparent;
+  line-height: 300px;
+  text-align: center;
 }
