@@ -11,6 +11,7 @@ button {
     cursor: pointer;
 }
 /* Header Section */
+
 .header {
 display: flex;
 justify-content: space-around;
@@ -174,7 +175,7 @@ textarea {
     display: flex;
     justify-content: space-between;
 }
-p {
+.faq_section p {
     display: none;
 }
 .vector_icon img {
@@ -194,12 +195,22 @@ p {
     text-decoration: underline;
     line-height: 18px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 72px 168px 170px 168px;
-    gap: 50px;
+    justify-content: flex-start;
+    padding: 72px 168px 170px 168px;  
+    gap: 120px;
+   
 }
 .footer_container div {
     display: flex;
-    flex-direction: column;
+flex-direction: column;
+gap: 16px;
 }
+
+/* Footer End  */
+.contact_section, .features, .section2 {
+    border-bottom: 8px solid rgba(35, 35, 35, 1);    
+}
+.section2, .footer_container {
+    border-top: 8px solid rgba(35, 35, 35, 1);
+}
+
