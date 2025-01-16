@@ -67,23 +67,32 @@ body {
 .lostinspimage {
   border-radius: 24px;
   object-fit: cover;
-  width: 90%;
+  width: 40%;
   height: 100%;
   align-items: center;
   justify-content: center;
   position: relative;
   display: inline-block;
 }
-/* .image1 { */
-/* position: relative; */
-/* } */
+.image1 {
+  /* position: relative; */
+  cursor: pointer;
+}
+
 .hoverplaybtn {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+.lostinspimage:hover .hoverplaybtn {
+  opacity: 1;
+  cursor: pointer;
 }
 .lostspaseinfo {
+  width: 60%;
   padding-left: 72px;
   padding-right: 72px;
 }
@@ -281,4 +290,15 @@ table tr td {
 /* SWEIPER CSS END */
 .swiper-wrapper {
   display: flex;
+}
+
+.top_cast .swiper {
+  width: 800px;
+}
+
+.top_cast .swiper-slide {
+  height: 300px;
+  background: transparent;
+  line-height: 300px;
+  text-align: center;
 }
