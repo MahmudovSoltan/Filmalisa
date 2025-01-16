@@ -74,9 +74,9 @@ body {
   position: relative;
   display: inline-block;
 }
-.image1 {
-  /* position: relative; */
-}
+/* .image1 { */
+/* position: relative; */
+/* } */
 .hoverplaybtn {
   position: absolute;
   top: 50%;
