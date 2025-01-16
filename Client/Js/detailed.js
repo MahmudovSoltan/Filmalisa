@@ -29,12 +29,10 @@
 //     prevEl: ".swiper-button-prev",
 //   },
 // });
-
-var swiper2 = new Swiper(".mySwiper2", {
+var swiper = new Swiper(".mySwiper", {
   watchSlidesProgress: true,
   slidesPerView: 5,
-  spaceBetween: 16,
-  // loop: true,
+  spaceBetween: 24,
 });
 
 var swiper3 = new Swiper(".mySwiper3", {
