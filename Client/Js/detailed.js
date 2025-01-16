@@ -1,3 +1,4 @@
+
 // function addComment() {
 //   const commentInput = document.querySelector("#commentInput");
 //   const addedcomment = document.querySelector("#addedcomment");
