@@ -1,17 +1,4 @@
-
-
 // function addComment() {
-function addComment() {
-  const commentInput = document.querySelector("#commentInput");
-  const addedcomment = document.querySelector("#addedcomment");
-
-  if (commentInput.value.trim() !== "") {
-    addedcomment.innerText += commentInput.value;
-    commentInput.value = "";
-    console.log(commentInput.value);
-  } else {
-    console.log("serh yazin");
-  }// function addComment() {
 //   const commentInput = document.querySelector("#commentInput");
 //   const addedcomment = document.querySelector("#addedcomment");
 //   data = commentInput.value.jSON;
@@ -42,6 +29,7 @@ function addComment() {
 //     prevEl: ".swiper-button-prev",
 //   },
 // });
+
 var swiper = new Swiper(".mySwiper", {
   watchSlidesProgress: true,
   slidesPerView: 5,
@@ -54,6 +42,3 @@ var swiper3 = new Swiper(".mySwiper3", {
   spaceBetween: 16,
   loop: true,
 });
-
-
-}
