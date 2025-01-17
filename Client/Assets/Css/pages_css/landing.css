@@ -174,12 +174,23 @@ textarea {
     line-height: 30px;
     padding: 24px;
     background-color: rgba(42, 42, 42, 1);
+
+}
+.faq_item_first{
     display: flex;
     justify-content: space-between;
 }
 .faq_section p {
-    display: none;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    transition: all .3s ease-in-out;
 }
+.active {
+width: 150px;
+height: 30px;
+}
+
 .vector_icon img {
     width: 28px;
     height: 28px;

@@ -1,11 +1,14 @@
 // FAQ Toggle Logic
-const faqItems = document.querySelectorAll('.faq_item');
+const faqItems = document.querySelector('#faq_item1');
+const faqParagraph =document.querySelector (".faq_content");
 
-faqItems.forEach(item => {
-    const question = item.querySelector('h3');
-    const content = item.querySelector('.faq_content');
-    question.addEventListener('click', () => {
-        const isVisible = content.style.display === 'block';
-        content.style.display = isVisible ? 'none' : 'block';
-    });
-});
+faqItems.addEventListener("click", () => {
+    faqParagraph.classList.add("active")
+    console.log("click");
+    
+} )
+console.log(faqItems);
+console.log(faqParagraph);
+
+
+
