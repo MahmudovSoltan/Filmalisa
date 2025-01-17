@@ -43,7 +43,8 @@ body {
   bottom: -50px;
   left: 10%;
   border-radius: 24px;
-
+  backdrop-filter: blur(24px);
+  box-shadow: 5px 4px 20px rgba(0, 0, 0, 0.2);
   padding: 40px;
 }
 .txt1 {
