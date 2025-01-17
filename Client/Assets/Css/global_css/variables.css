@@ -27,4 +27,6 @@
   --buttonbackblackcolor: rgba(0, 0, 0, 0.65);
   --textblackcolor4: rgba(142, 149, 169, 1);
   --textgreycolor: rgba(118, 126, 148, 1);
+  --backgreycolor: rgba(32, 40, 62, 0.8);
+  --greycolor: rgba(190, 183, 251, 1);
 }

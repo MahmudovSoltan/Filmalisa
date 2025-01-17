@@ -34,16 +34,29 @@ body {
 }
 .lostinspace {
   position: absolute;
-  background-color: rgba(206, 81, 81, 0.7);
+  background-color: var(--backgreycolor);
   color: white;
   padding: 15px 25px;
   font-size: 24px;
-  width: 35%;
-  height: 80px;
-  bottom: -30px;
+  width: 43%;
+  height: 20%;
+  bottom: -50px;
   left: 10%;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  border-radius: 24px;
+
+  padding: 40px;
+}
+.txt1 {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--greycolor);
+}
+.txt2 {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 40px;
+  color: var(--textwhitecolor3);
 }
 .rightpanel {
   background-image: url("../../images/7RyHsO4yDXtBv1zUU3mTpHeQ0d5\ 1.png");
@@ -67,7 +80,7 @@ body {
 .lostinspimage {
   border-radius: 24px;
   object-fit: cover;
-  width: 40%;
+  width: 37%;
   height: 100%;
   align-items: center;
   justify-content: center;
@@ -92,7 +105,7 @@ body {
   cursor: pointer;
 }
 .lostspaseinfo {
-  width: 60%;
+  width: 63%;
   padding-left: 72px;
   padding-right: 72px;
 }
@@ -203,12 +216,14 @@ table tr td {
   position: relative;
   text-align: center;
   transform: translateY(-50%);
+  padding-left: 10px;
 }
 .commentare img {
   position: absolute;
+  padding-left: 10px;
 }
 .commentinput {
-  padding-left: 40px;
+  padding-left: 60px;
   height: 64px;
   width: 60%;
   border: 1px solid var(--inputBorderColor);
@@ -219,7 +234,7 @@ table tr td {
 .addcombtn {
   display: inline-flex;
   padding: 10px;
-  background-color: brown;
+
   align-items: center;
   justify-content: center;
   margin-left: 22px;
