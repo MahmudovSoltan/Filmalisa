@@ -7,3 +7,5 @@ deleteBtn.addEventListener("click",()=>{
 exitModal.addEventListener("click",()=>{
     movieModal.classList.remove("active")
 })
+
+console.log(deleteBtn,exitModal);

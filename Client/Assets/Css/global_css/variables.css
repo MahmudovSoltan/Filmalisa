@@ -3,12 +3,27 @@
   --PopinsFont: "Poppins", serif;
   --NumansFont: "Numans", serif;
   --RobotoFont: "Roboto", serif;
+  --RalewayFont: "Raleway", serif;
+  --NunitoFont: "Nunito Sans", serif;
+
   /*Colors*/
-  --BacgrounColorBlack:rgba(0, 0, 0, 1);
-  --WhiteGreyColor:rgba(195, 200, 212, 1);
-  --PurpleColor:rgba(155, 81, 224, 1);
-  --WhiteColor:rgba(255, 255, 255, 1);
-  --PlaceholderColor:rgba(71, 80, 105, 1);
-  --LightBlackColor:rgba(30, 30, 30, 1);
-  --inputBorderColor:rgba(50, 59, 84, 1);
+  --mainbackgroundColorBlack: rgba(29, 29, 29, 1);
+  --BacgrounColorBlack: rgba(0, 0, 0, 1);
+  --WhiteGreyColor: rgba(195, 200, 212, 1);
+  --PurpleColor: rgba(155, 81, 224, 1);
+  --WhiteColor: rgba(255, 255, 255, 1);
+  --PlaceholderColor: rgba(71, 80, 105, 1);
+  --LightBlackColor: rgba(30, 30, 30, 1);
+  --inputBorderColor: rgba(50, 59, 84, 1);
+  --lightBlackColor2: rgba(45, 45, 45, 1);
+  --color-create: #4caf50;
+  --color-delete: #f44336;
+  --formBgColor: rgba(23, 22, 22, 1);
+  --textlightgreyColor: rgba(174, 174, 174, 1);
+  --textlightgreyColor2: rgba(215, 215, 215, 1);
+  --textwhitecolor3: rgba(235, 238, 245, 1);
+  --textyellowcolor: rgba(255, 173, 73, 1);
+  --buttonbackblackcolor: rgba(0, 0, 0, 0.65);
+  --textblackcolor4: rgba(142, 149, 169, 1);
+  --textgreycolor: rgba(118, 126, 148, 1);
 }
