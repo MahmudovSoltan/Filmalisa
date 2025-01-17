@@ -31,7 +31,7 @@ body {
   gap: 80px;
 }
 .right-panel {
-  padding-top: 132px;
+  padding-top: 20px 0px;
   flex: 1;
   display: flex;
   justify-content: center;
