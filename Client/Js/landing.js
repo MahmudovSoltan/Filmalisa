@@ -12,7 +12,7 @@
 
 const add = document.querySelector("#add1")
 const paraqraf = document.querySelector("#paragraph1")
-const image = document.querySelector("#image")
+const image = document.querySelector("#image1")
 add.addEventListener("click",()=>{
     paraqraf.classList.toggle("active")
     image.classList.toggle("element")
