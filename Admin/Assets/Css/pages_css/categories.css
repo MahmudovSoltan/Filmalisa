@@ -6,6 +6,9 @@ table {
   padding-left: 60px;
   padding-top: 50px;
 }
+.ringt_panelhead {
+  margin-bottom: 60px;
+}
 
 .category_container {
   width: 300px;
