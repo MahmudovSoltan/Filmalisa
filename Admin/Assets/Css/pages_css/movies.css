@@ -118,7 +118,10 @@ tbody tr {
   align-items: center;
   gap: 15.5px;
 }
-
+ .table_image{
+  width: 30px;
+  /* border-radius: 50%; */
+ }
 /* MODAL CSS START */
 .modal_section {
   display: none;

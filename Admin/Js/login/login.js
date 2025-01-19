@@ -32,35 +32,6 @@ loginButton.addEventListener("click", (event) => {
   creatAdmin();
 });
 
-// async function creatAdmin() {
-//   const userData = {
-//     email: usernameInput.value.trim(),
-//     password: passwordInput.value.trim(),
-//   };
-//   console.log(userData);
-
-//   try {
-//     const response = await fetch(
-//       "https://api.sarkhanrahimli.dev/api/filmalisa/auth/admin/login",
-//       {
-//         method: "POST",
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify(userData),
-//       }
-//     );
-//     const data = await response.json();
-//     usernameInput.value = "";
-//     passwordInput.value = "";
-//     const admin_tokon = data?.data?.tokens?.access_token;
-//     localStorage.setItem("admin_tokon", admin_tokon);
-
-//     window.location.href = "./dashboard.html";
-//   } catch (err) {
-//     console.log(err);
-//   }
-// }
 
 async function creatAdmin() {
   const error_masge = document.querySelector("#error_masge")
