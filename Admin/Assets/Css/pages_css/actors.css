@@ -1,6 +1,8 @@
 table {
-  width: 60%;
+  width: 70%;
+  text-align: left;
 }
+
 /* Modal container styling */
 .modal {
   width: 100%;
@@ -53,4 +55,9 @@ table {
 
 .btn-cancel:hover {
   background-color: #c82333;
+}
+.tableimage {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
 }
