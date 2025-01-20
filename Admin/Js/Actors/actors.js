@@ -9,12 +9,11 @@
 //   movieModal.classList.remove("active");
 // });
 const movieModal = document.querySelector("#movieModal");
-const exitModal = document.querySelector(".overlay"); // Düzgün sinif adını yoxlayın
+const exitModal = document.querySelector(".overlay");
 const actorstable = document.querySelector("#actorstable");
 
 // Hadisə dinləyiciləri
 document.addEventListener("click", (event) => {
-  // Delete düyməsinə klik olub-olmadığını yoxla
   if (event.target.closest(".table_delete_btn")) {
     movieModal.classList.add("active");
   }
