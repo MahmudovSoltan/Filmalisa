@@ -61,3 +61,13 @@ table {
   height: 20px;
   object-fit: cover;
 }
+.modal_container {
+  width: 40%;
+}
+.btn-create {
+  background-color: var(--color-create);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  padding: 4px 15px;
+}
