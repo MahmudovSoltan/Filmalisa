@@ -110,6 +110,17 @@ const overlay = document.querySelector(".owarlay");
 const createBtn = document.querySelector("#createBtn");
 let selectedActorId = null; // Seçilən aktyorun ID-ni saxlamaq üçün dəyişən
 // Modalı bağlama funksiyası
+
+const createConfirmBtn = document.querySelector("#createConfirm");
+const editConfirmBtn = document.querySelector("#editConfirm");
+
+const createNameInput = document.querySelector("#createName");
+const createSurnameInput = document.querySelector("#createSurname");
+const createImageInput = document.querySelector("#createImage");
+const editNameInput = document.querySelector("#editName");
+const editSurnameInput = document.querySelector("#editSurname");
+const editImageInput = document.querySelector("#editImage");
+const actorstable = document.querySelector("#actorstable");
 function closeModal(modal) {
   if (modal) {
     modal.classList.remove("active");
@@ -257,5 +268,51 @@ async function fetchActorDetails(actorId) {
   }
 }
 
+///creat function start
+// Aktyor yaratma funksiyası
+createConfirmBtn.addEventListener("click", async () => {
+  const name = createNameInput.value;
+  const surname = createSurnameInput.value;
+  const img_url = createImageInput.value;
+
+  if (!name || !surname || !img_url) {
+    alert("All fields are required!");
+    return;
+  }
+
+  const data = {
+    data: {
+      name,
+      surname,
+      img_url,
+    },
+  };
+
+  try {
+    const response = await fetch(
+      "https://api.sarkhanrahimli.dev/api/filmalisa/admin/actor",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("Dash_token")}`,
+        },
+        body: JSON.stringify(data), // Tələb olunan quruluşu göndəririk
+      }
+    );
+
+    if (response.ok) {
+      closeModal(createModal);
+      alert("Actor created successfully!");
+      getActors(); // Yeni aktoru göstərmək üçün cədvəli yenilə
+    } else {
+      alert("Failed to create actor.");
+    }
+  } catch (err) {
+    console.error("Error creating actor:", err);
+  }
+});
+
+///creat function end
 // İlk olaraq aktyorları yüklə
 getActors();
