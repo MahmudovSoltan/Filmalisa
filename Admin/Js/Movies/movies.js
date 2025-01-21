@@ -8,6 +8,7 @@ const table_body = document.querySelector("#table_body");
 const categorySelect = document.querySelector("#category");
 const actorsSelect = document.querySelector("#actors");
 // fomr input value
+
 const title = document.querySelector("#title");
 const overview = document.querySelector("#Overview");
 const cover_url = document.querySelector("#cover_url");
@@ -168,7 +169,7 @@ owarlay2.addEventListener("click", closeOwarlay2);
 function closeOwarlay2() {
   movieModal.classList.remove("active");
 }
-async function creatMoviesFunc(moviData,event) {
+async function creatMoviesFunc(moviData) {
   try {
     const response = await fetch(
       "https://api.sarkhanrahimli.dev/api/filmalisa/admin/movie",
@@ -238,6 +239,7 @@ async function deleteMovie() {
 
 console.log(mode);
 
+
 creatBtn.addEventListener("click", () => {
   mode = false;
   selectedMovie = null;
@@ -252,6 +254,7 @@ creatBtn.addEventListener("click", () => {
   adult.checked = false;
   movieModal2.classList.add("active");
 });
+
 
 function editMoviesFunc(element) {
   selectedMovie = element;

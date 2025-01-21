@@ -18,7 +18,7 @@ iconPassword.addEventListener("click", () => {
 // Formanın yoxlanılması 
 const loginButton = document.querySelector("#loginButton");
 const usernameInput = document.querySelector("#username");
-console.log(usernameInput);
+console.log(loginButton);
 
 loginButton.addEventListener("click", (e) => {
     e.preventDefault()
@@ -30,4 +30,36 @@ loginButton.addEventListener("click", (e) => {
         alert("Please fill in both username and password.");
         return;
     }
+    login() 
+    console.log("login button clicked");
+    
 })
+
+
+async function login() {
+    const formData = {
+        password: passwordInput.value.trim(),
+        email: usernameInput.value,
+    };
+
+    try {
+        const response = await fetch("https://api.sarkhanrahimli.dev/api/filmalisa/auth/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+        });
+       console.log(response);
+
+    //    const data = await response.json();
+       
+        if (response.status === 200) {
+            // window.location.href = "../../index.html";
+        } else {
+            // alert("Invalid username or password");
+        }
+    } catch (err) {
+        console.log(err);
+    }
+}
