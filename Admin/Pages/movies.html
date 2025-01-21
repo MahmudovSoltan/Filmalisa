@@ -129,8 +129,8 @@
                                 </th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
+                        <tbody id="table_body" >
+                            <!-- <tr>
                                 <td>1</td>
                                 <td class="table_title"><img src="../Assets/Image/movie.svg" alt=""> Lost in space</td>
                                 <td>Lorem ipsum</td>
@@ -138,7 +138,7 @@
                                 <td>7.7</td>
                                 <td class="table_creat_btn" id="creat"><i class="fa-solid fa-pen-to-square"></i></td>
                                 <td class="table_delete_btn"><i class="fa-solid fa-trash"></i></td>
-                            </tr>
+                            </tr> -->
                         </tbody>
 
                     </table>
@@ -155,19 +155,25 @@
         </div>
         <div class="modal_container">
             <div class="modal_form">
-                <form action="">
-                    <div class="form_input"><input type="text" placeholder="title"></div>
-                    <div class="form_area"><textarea name="" id="" placeholder="Overview"></textarea></div>
-                    <div class="form_input"><input type="text" placeholder="cover url"></div>
-                    <div class="form_input"><input type="text" placeholder="fragman (youtube embed url)"></div>
-                    <div class="form_input"><input type="text" placeholder="watch url"></div>
-                    <div class="form_input"><input type="text" placeholder="imdb"></div>
-                    <div class="form_input"><input type="text" placeholder="run time minute"></div>
+                <div action="">
+                    <div class="form_input"><input type="text" placeholder="title" id="title"></div>
+                    <div class="form_area"><textarea name="" id="Overview" placeholder="Overview"></textarea></div>
+                    <div class="form_input"><input type="text" id="cover_url" placeholder="cover url"></div>
+                    <div class="form_input"><input type="text" id="fragman" placeholder="fragman (youtube embed url)"></div>
+                    <div class="form_input"><input type="text" id="watch_url" placeholder="watch url"></div>
+                    <div class="form_input"><input type="text" id="imdb" placeholder="imdb"></div>
+                    <div class="form_input"><input type="text" id="run_time_min" placeholder="run time minute"></div>
                     <div class="form_input">
-                        <select name="" id="">
-                            <option value="">category</option>
+                        <select name="" id="category">
+                         
                         </select>
                     </div>
+                    <div class="form_input">
+                        <select name="" id="actors">
+                         
+                        </select>
+                    </div>
+      
                     <div class="form_bottom">
                         <div class="form_bottom_checkBox">
                             <label for="adult">
@@ -176,10 +182,10 @@
                            <input type="checkbox" id="adult">
                         </div>
                         <div>
-                            <button type="submit" class="submit_btn">Submit</button>
+                            <button type="submit"  class="submit_btn" id="submit_btn" onclick="submit()">Submit</button>
                         </div>
                     </div>
-                </form>
+                  </div>
                 <div class="modal_image">
                     <img src="../Assets/Image/moviImage.svg" alt="">
     
@@ -197,8 +203,8 @@
             Are you sure you want to delete this comment?
           </div>
           <div class="modal-actions">
-            <button class="btn btn-confirm">Yes</button>
-            <button class="btn btn-cancel">No</button>
+            <button class="btn btn-confirm" onclick="deleteMovie()">Yes</button>
+            <button class="btn btn-cancel" onclick="closeOwarlay2()">No</button>
           </div>
         </div>
       </div>
