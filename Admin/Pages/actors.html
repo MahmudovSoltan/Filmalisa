@@ -95,28 +95,49 @@
             <p>Hi Admin <br /><span>Actors</span></p>
           </div>
           <div class="adminphoto">
+            <button class="btn btn-create" id="createBtn">Create</button>
+
             <img src="../Assets/Icons/adminimage.svg" alt="" />
             <p>Admin</p>
           </div>
         </div>
         <!-- Table start -->
-        <div class="movies_table_container">
+        <div class="movies_table_container" id="actorstable">
           <table>
             <thead>
               <tr>
                 <th>ID</th>
                 <th>Name</th>
+                <th>Surname</th>
+                <th>Image</th>
+                <th>Edit</th>
                 <th>Remove</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <!-- <tr>
                 <td>1</td>
                 <td>Ramil</td>
-                <td class="table_delete_btn" id="deletebtn">
+                <td>Shahmerdanov</td>
+                <td>
+                  <img
+                    class="tableimage"
+                    src="../Assets/Image/adminSvg.svg"
+                    alt=""
+                  />
+                </td>
+                <td class="table_edit_btn" data-id="${element.id}">
+          <i class="fa-solid fa-pen"></i>
+          </td>
+
+                <td
+                  class="table_delete_btn"
+                  id="deletebtn"
+                  data-id="${element.id}"
+                >
                   <i class="fa-solid fa-trash"></i>
                 </td>
-              </tr>
+              </tr> -->
             </tbody>
           </table>
         </div>
@@ -130,8 +151,16 @@
                 Are you sure you want to delete this Actor?
               </div>
               <div class="modal-actions">
-                <button class="btn btn-confirm">Yes</button>
-                <button class="btn btn-cancel">No</button>
+                <button
+                  class="btn btn-confirm"
+                  id="yesbtn"
+                  onclick="getDelyes()"
+                >
+                  Yes
+                </button>
+                <button class="btn btn-cancel" id="nobtn" onclick="getDelno()">
+                  No
+                </button>
               </div>
             </div>
           </div>
@@ -139,6 +168,81 @@
         <!-- MODAL SECTION END -->
       </div>
     </div>
+    <!-- CREAT  SECTION START -->
+    <section class="modal_section" id="createModal">
+      <div class="owarlay"></div>
+      <div class="modal_container">
+        <div class="modal">
+          <div class="modal-header">Create New Actor</div>
+          <div class="modal-body">
+            <input
+              class="form_input"
+              type="text"
+              id="createName"
+              placeholder="Name"
+            />
+            <input
+              class="form_input"
+              type="text"
+              id="createSurname"
+              placeholder="Surname"
+            />
+            <input
+              class="form_input"
+              type="text"
+              id="createImage"
+              placeholder="Image URL"
+            />
+          </div>
+          <div class="modal-actions">
+            <button class="btn btn-confirm" id="createConfirm">Create</button>
+            <button class="btn btn-cancel" onclick="closeModal(createModal)">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CREAT  SECTION END -->
+
+    <!-- EDIT  SECTION START -->
+    <section class="modal_section" id="editModal">
+      <div class="owarlay"></div>
+      <div class="modal_container">
+        <div class="modal">
+          <div class="modal-header">Edit Actor</div>
+          <div class="modal-body">
+            <input
+              class="form_input"
+              type="text"
+              id="editName"
+              placeholder="Actor Name"
+            />
+            <input
+              class="form_input"
+              type="text"
+              id="editSurname"
+              placeholder="Actor Surname"
+            />
+            <input
+              class="form_input"
+              type="text"
+              id="editImage"
+              placeholder="Actor Image URL"
+            />
+          </div>
+          <div class="modal-actions">
+            <button class="btn btn-confirm" id="createConfirm">Create</button>
+            <button class="btn btn-cancel" onclick="closeModal(createModal)">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- EDIT  SECTION END -->
+
     <script src="../Js/Actors/actors.js"></script>
   </body>
 </html>
