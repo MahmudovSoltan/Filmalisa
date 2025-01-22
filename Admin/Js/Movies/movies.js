@@ -16,66 +16,69 @@ const fragman = document.querySelector("#fragman");
 const watch_url = document.querySelector("#watch_url");
 const imdb = document.querySelector("#imdb");
 const run_time_min = document.querySelector("#run_time_min");
-const category = document.querySelector("#category");
+let category = document.querySelector("#category");
 const adult = document.querySelector("#adult");
 const categoryId = document.querySelector("#categoryId");
+const miltiselectEl = document.querySelectorAll("#miltiselectEl");
 //ELAVE MODALLARI ACMAQ VE DELETE BUTTONUN DUZGUN ISTIFADE ETMEK UCUN OLAN VARIABLLAR
 let itemId = null;
 let mode = true;
 let selectedMovie = null;
 let allMovies = [];
+let multiselctValyu = [];
+let selectedItemsId = null
+let adultValue = null
 //Sehife acilanda butun filmleri gosterir
 getMoviesFunc();
 
-function submit() {
-  const moviData = {
-    title: title.value,
-    cover_url: cover_url.value,
-    fragman: fragman.value,
-    watch_url: watch_url.value,
-    adult: true,
-    run_time_min: Number(run_time_min.value),
-    imdb: imdb.value,
-    category: 98 /* Comedy*/,
-    actors: [159],
-    overview: overview.value,
-  };
-    if (mode === false) {
-      creatMoviesFunc(moviData );
-    } else if (mode === true) { 
-      updateMoviesFunc(moviData);
-    }
 
+const dropdown = document.getElementById("dropdown");
+const dropdownMenu = document.getElementById("dropdownMenu");
+const selectedItemsContainer = document.getElementById("selectedItems");
+
+function handleCheckBox() {
+  adultValue = adult.checked;
 }
 
 
-const getCategoriesFunc = async () => {
-  try {
-    const response = await fetch(
-      "https://api.sarkhanrahimli.dev/api/filmalisa/admin/categories",
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: ` Bearer ${localStorage.getItem("Admin_token")}`,
-        },
-      }
-    );
-    const category = await response.json();
-    console.log(category);
+// Dropdown-u açıb-bağlamaq üçün funksiya
+const toggleMenu = () => {
+  dropdownMenu.style.display =
+    dropdownMenu.style.display === "block" ? "none" : "block";
+};
 
-    let options = "";
-    category.data.forEach((element) => {
-      options += `
-         <option  id="categoryId" value="${element.id}">${element.name}</option>
-      `;
-    });
-    categorySelect.innerHTML = options;
-  } catch (err) {
-    console.error("Error fetching categories:", err);
+const updateSelectedItems = (item) => {
+  const value = item.getAttribute("data-value");
+  if (item.classList.contains("active")) {
+    item.classList.remove("active");
+    selectedItemsContainer.querySelector(`[data-value="${value}"]`).remove();
+  } else {
+    item.classList.add("active");
+    const selectedSpan = document.createElement("span");
+    selectedSpan.setAttribute("data-value", value);
+    selectedSpan.textContent = value;
+    selectedItemsContainer.appendChild(selectedSpan);
   }
 };
-getCategoriesFunc();
 
+// Dropdown kliklə hadisəni idarə et
+dropdown.addEventListener("click", toggleMenu);
+
+// Dinamik seçimləri idarə etmək üçün funksiyanı bağlama
+const attachClickEventToMenu = () => {
+  dropdownMenu.querySelectorAll("li").forEach((item) => {
+    item.addEventListener("click", (event) => {
+      event.stopPropagation(); // Başqa klik hadisələrinin qarşısını al
+      updateSelectedItems(item);
+      console.log(item.value);
+      multiselctValyu.push(item.value);
+
+      console.log(multiselctValyu);
+    });
+  });
+};
+
+// Aktyorları çəkən və menyuya əlavə edən funksiya
 const getActorsFunc = async () => {
   try {
     const response = await fetch(
@@ -83,24 +86,109 @@ const getActorsFunc = async () => {
       {
         headers: {
           "Content-Type": "application/json",
-          Authorization: ` Bearer ${localStorage.getItem("Admin_token")}`,
+          Authorization: `Bearer ${localStorage.getItem("Admin_token")}`,
         },
       }
     );
     const actor = await response.json();
     console.log(actor);
 
+    // Gələn məlumatlarla menyunu yenilə
     let options = "";
     actor.data.forEach((element) => {
+      options += `
+        <li data-value="${element.name}" value='${element.id}' id='miltiselectEl'><i class="fa fa-check"></i> ${element.name}</li>
+      `;
+    });
+    dropdownMenu.innerHTML = options;
+
+    // Seçimlərə klik hadisələrini bağlamaq
+    attachClickEventToMenu();
+  } catch (err) {
+    console.error("Error fetching actors:", err);
+  }
+};
+
+// İlk olaraq aktyorları çağır
+getActorsFunc();
+
+// Dropdown bağlamaq üçün klik hadisəsini idarə et
+document.addEventListener("click", (event) => {
+  if (!dropdown.contains(event.target)) {
+    dropdownMenu.style.display = "none";
+  }
+});
+
+function submit() {
+  const moviData = {
+    title: title.value,
+    cover_url: cover_url.value,
+    fragman: fragman.value,
+    watch_url: watch_url.value,
+    adult: adultValue,
+    run_time_min: Number(run_time_min.value),
+    imdb: imdb.value,
+    category: Number(selectedItemsId) /* Comedy*/,
+    actors: multiselctValyu,
+    overview: overview.value,
+  };
+  if (mode === false) {
+    creatMoviesFunc(moviData);
+  } else if (mode === true) {
+    updateMoviesFunc(moviData);
+  }
+}
+function handleselctCategiryId(e) {
+  // selectedItemsId = id;
+  console.log(selectedItemsId);
+  console.log(e);
+}
+console.log(category);
+
+category.addEventListener("click",()=>{
+  console.log();
+  
+})
+const getCategoriesFunc = async () => {
+  try {
+    // API sorğusu
+    const response = await fetch(
+      "https://api.sarkhanrahimli.dev/api/filmalisa/admin/categories",
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("Admin_token")}`,
+        },
+      }
+    );
+    const category = await response.json();
+
+    // HTML-də seçmə elementini tap
+    const categorySelect = document.getElementById("category");
+
+    let options = '<option value="">Kateqoriya seç</option>'; // Default seçim
+    category.data.forEach((element) => {
       options += `
          <option value="${element.id}">${element.name}</option>
       `;
     });
-    actorsSelect.innerHTML = options;
+
+    // Seçmə elementinə seçimləri əlavə et
+    categorySelect.innerHTML = options;
+
+    // Dəyişiklik hadisəsini bağla
+    categorySelect.addEventListener("change", (e) => {
+      selectedItemsId = e.target.value
+    });
   } catch (err) {
     console.error("Error fetching categories:", err);
   }
 };
+
+// Funksiyanı çağır
+getCategoriesFunc();
+
+
 getActorsFunc();
 
 async function getMoviesFunc() {
@@ -147,8 +235,6 @@ async function getMoviesFunc() {
       })
       .join("");
 
-  
-
     document.querySelectorAll(".table_delete_btn").forEach((btn) => {
       btn.addEventListener("click", () => {
         movieModal.classList.add("active");
@@ -158,8 +244,6 @@ async function getMoviesFunc() {
     console.log(err);
   }
 }
-
-
 
 owarlay.addEventListener("click", () => {
   movieModal2.classList.remove("active");
@@ -183,8 +267,9 @@ async function creatMoviesFunc(moviData) {
       }
     );
     const data = await response.json();
-    movieModal.classList.remove("active");
-    console.log(data);
+    movieModal2.classList.remove("active");
+    window.location.reload();
+    console.log(moviData);
     getMoviesFunc();
     console.log("Clicked create");
   } catch (err) {
@@ -204,9 +289,9 @@ async function updateMoviesFunc(element) {
         body: JSON.stringify(element),
       }
     );
-    movieModal2.classList.remove("active");
-    window.location.reload();
-    console.log("Clicked update");
+    // movieModal2.classList.remove("active");
+    // window.location.reload();
+    console.log(element);
   } catch (err) {
     console.log(err);
   }
@@ -237,8 +322,6 @@ async function deleteMovie() {
   }
 }
 
-console.log(mode);
-
 
 creatBtn.addEventListener("click", () => {
   mode = false;
@@ -252,9 +335,10 @@ creatBtn.addEventListener("click", () => {
   run_time_min.value = "";
   category.value = "";
   adult.checked = false;
+  multiselctValyu = [];
   movieModal2.classList.add("active");
+  adultValue=null
 });
-
 
 function editMoviesFunc(element) {
   selectedMovie = element;
@@ -263,13 +347,13 @@ function editMoviesFunc(element) {
     (cover_url.value = findElement.cover_url),
     (fragman.value = findElement.fragman),
     (watch_url.value = findElement.watch_url),
-    // adult = true,
+    adult.checked = findElement.adult,
     (run_time_min.value = findElement.run_time_min),
     (imdb.value = findElement.imdb),
-    // category = 98 /* Comedy*/,
-    // actors = [159],
+    category.value = selectedItemsId /* Comedy*/,
+    // actors.value = [159],
     (overview.value = findElement.overview);
   movieModal2.classList.add("active");
-
+  console.log(findElement);
   
 }

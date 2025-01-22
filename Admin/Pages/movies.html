@@ -164,14 +164,20 @@
                     <div class="form_input"><input  autocomplete="off" type="text" id="imdb" placeholder="imdb"></div>
                     <div class="form_input"><input  autocomplete="off" type="text" id="run_time_min" placeholder="run time minute"></div>
                     <div class="form_input">
-                        <select name="" id="category">
-                         
-                        </select>
+                      <select name="category" id="category">
+                      
+                      </select>
                     </div>
-                    <div class="form_input">
-                        <select name="" id="actors">
-                         
-                        </select>
+                    <div class="multiseletc-dropdown" id="dropdown">
+                      <i class="fa-solid fa-chevron-down"></i>
+                      <div class="selectedlis-container" id="selectedItems"></div>
+                      <ul class="menu" id="dropdownMenu">
+                        <li data-value="Kitab"><i class="fa fa-check"></i> Kitab</li>
+                        <li data-value="Qelem"><i class="fa fa-check"></i> Qelem</li>
+                        <li data-value="Defter"><i class="fa fa-check"></i> Defter</li>
+                        <li data-value="Yayil"><i class="fa fa-check"></i> Yayil</li>
+                        <li data-value="Mavi"><i class="fa fa-check"></i> Mavi</li>
+                      </ul>
                     </div>
       
                     <div class="form_bottom">
@@ -179,7 +185,7 @@
                             <label for="adult">
                                 Adult.
                             </label>
-                           <input  autocomplete="off" type="checkbox" id="adult">
+                           <input  autocomplete="off" type="checkbox" id="adult" onclick="handleCheckBox()">
                         </div>
                         <div>
                             <button  type="submit"  class="submit_btn" id="submit_btn" onclick="submit()">Submit</button>

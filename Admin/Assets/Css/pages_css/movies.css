@@ -118,10 +118,10 @@ tbody tr {
   align-items: center;
   gap: 15.5px;
 }
- .table_image{
+.table_image {
   width: 30px;
   /* border-radius: 50%; */
- }
+}
 /* MODAL CSS START */
 .modal_section {
   display: none;
@@ -135,7 +135,7 @@ tbody tr {
   flex-direction: column;
   align-items: center;
   color: white;
-  padding-top:10px;
+  padding-top: 10px;
 }
 .active {
   display: flex;
@@ -226,3 +226,67 @@ select {
   height: 283px;
 }
 /* MODAL CSS END */
+
+.multiseletc-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 54px;
+  border: 1px solid var(--inputBorderColor);
+  border-radius: 12px;
+  padding: 5px;
+  cursor: pointer;
+  color: var(--inputBorderColor) !important;
+}
+.multiseletc-dropdown .fa-chevron-down {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.multiseletc-dropdown .selectedlis-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.multiseletc-dropdown .selectedlis-container span {
+  padding: 5px;
+  margin: 2px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.multiseletc-dropdown .menu {
+  display: none;
+  position: absolute;
+  width: 100%;
+  border: 1px solid var(--inputBorderColor);
+  border-radius: 5px;
+  bottom: -150px;
+  left: 0;
+  background-color: var( --mainbackgroundColorBlack);
+  z-index: 1;
+  max-height: 150px;
+  overflow-y: auto;
+}
+.multiseletc-dropdown .menu li {
+  list-style: none;
+  padding: 5px;
+  cursor: pointer;
+}
+.multiseletc-dropdown .menu li:hover {
+  /* background-color: #e0e0e0; */
+}
+.multiseletc-dropdown .menu li.active {
+  background-color: #ccc;
+}
+.multiseletc-dropdown .menu li.active i {
+  display: inline-block;
+}
+.multiseletc-dropdown .menu li i {
+  display: none;
+  margin-right: 5px;
+}
+.multiseletc-dropdown .menu li i.fa-check {
+  color: green;
+}
