@@ -47,7 +47,7 @@ createConfirmBtn.addEventListener("click", function () {
   console.log("data", data);
   createActor(data);
   closeModal(createModal);
-  getActors();
+  location.reload();
 });
 
 // Modalı açan hadisə dinləyicisi
