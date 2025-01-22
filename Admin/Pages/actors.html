@@ -115,29 +115,7 @@
               </tr>
             </thead>
             <tbody>
-              <!-- <tr>
-                <td>1</td>
-                <td>Ramil</td>
-                <td>Shahmerdanov</td>
-                <td>
-                  <img
-                    class="tableimage"
-                    src="../Assets/Image/adminSvg.svg"
-                    alt=""
-                  />
-                </td>
-                <td class="table_edit_btn" data-id="${element.id}">
-          <i class="fa-solid fa-pen"></i>
-          </td>
-
-                <td
-                  class="table_delete_btn"
-                  id="deletebtn"
-                  data-id="${element.id}"
-                >
-                  <i class="fa-solid fa-trash"></i>
-                </td>
-              </tr> -->
+              <!-- Actor rows will be dynamically generated here -->
             </tbody>
           </table>
         </div>
@@ -154,7 +132,6 @@
                 <button
                   class="btn btn-confirm"
                   id="yesbtn"
-                  onclick="getDelyes()"
                 >
                   Yes
                 </button>
@@ -233,8 +210,8 @@
             />
           </div>
           <div class="modal-actions">
-            <button class="btn btn-confirm" id="createConfirm">Create</button>
-            <button class="btn btn-cancel" onclick="closeModal(createModal)">
+            <button class="btn btn-confirm" id="editConfirm">Edit</button>
+            <button class="btn btn-cancel" onclick="closeModal(editModal)">
               Cancel
             </button>
           </div>
@@ -245,4 +222,4 @@
 
     <script src="../Js/Actors/actors.js"></script>
   </body>
-</html>
+</html>    
