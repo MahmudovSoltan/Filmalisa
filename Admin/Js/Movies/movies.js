@@ -203,7 +203,7 @@ async function getMoviesFunc() {
       }
     );
     const movies = await response.json();
-    console.log(movies);
+    console.log(movies.data,"movies");
     let newData = movies.data;
     newData.map((item) => {
       allMovies.push(item);
@@ -289,8 +289,8 @@ async function updateMoviesFunc(element) {
         body: JSON.stringify(element),
       }
     );
-    // movieModal2.classList.remove("active");
-    // window.location.reload();
+    movieModal2.classList.remove("active");
+    window.location.reload();
     console.log(element);
   } catch (err) {
     console.log(err);
@@ -350,10 +350,11 @@ function editMoviesFunc(element) {
     adult.checked = findElement.adult,
     (run_time_min.value = findElement.run_time_min),
     (imdb.value = findElement.imdb),
-    category.value = selectedItemsId /* Comedy*/,
-    // actors.value = [159],
     (overview.value = findElement.overview);
   movieModal2.classList.add("active");
   console.log(findElement);
   
 }
+
+
+
