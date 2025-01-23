@@ -51,7 +51,7 @@
                 src="../Assets/Icons/categories.svg"
                 alt=""
               />
-              <a class="nav_link" href="">Categories</a>
+              <a class="nav_link" href="./categories.html">Categories</a>
             </li>
             <li class="nav_item">
               <img class="logoimage" src="../Assets/Icons/users.svg" alt="" />
@@ -67,17 +67,17 @@
             </li>
             <li class="nav_item">
               <img class="logoimage" src="../Assets/Icons/contact.svg" alt="" />
-              <a class="nav_link" href="">Contact us</a>
+              <a class="nav_link" href="./contact.html">Contact us</a>
             </li>
             <li class="nav_item pagesname_class">
-              <img class="logoimage" src="../Assets/Icons/contact.svg" alt="" />
+              <img class="logoimage" src="../Assets/Icons/users.svg" alt="" />
               <a class="nav_link" href="../Pages/actors.html">Actors</a>
             </li>
           </ul>
         </div>
         <div class="logoutclass">
           <ul>
-            <li class="nav_itemfut">
+            <li class="nav_itemfut" onclick="logOutFunc()">
               <img
                 class="logoimagefut"
                 src="../Assets/Icons/logout.svg"
@@ -115,30 +115,6 @@
               </tr>
             </thead>
             <tbody>
-              <!-- <tr>
-                <td>1</td>
-                <td>Ramil</td>
-                <td>Shahmerdanov</td>
-                <td>
-                  <img
-                    class="tableimage"
-                    src="../Assets/Image/adminSvg.svg"
-                    alt=""
-                  />
-                </td>
-                <td class="table_edit_btn" data-id="${element.id}">
-          <i class="fa-solid fa-pen"></i>
-          </td>
-
-                <td
-                  class="table_delete_btn"
-                  id="deletebtn"
-                  onclick="removeFn(${element.id})"
-                  data-id="${element.id}"
-                >
-                  <i class="fa-solid fa-trash"></i>
-                </td>
-              </tr> -->
             </tbody>
           </table>
         </div>
@@ -155,7 +131,6 @@
                 <button
                   class="btn btn-confirm"
                   id="yesbtn"
-                  onclick="getDelyes()"
                 >
                   Yes
                 </button>
@@ -234,13 +209,6 @@
             />
           </div>
           <div class="modal-actions">
-            <button
-              class="btn btn-confirm"
-              id="editConfirm"
-              onclick="updateFn()"
-            >
-              save
-            </button>
             <button class="btn btn-cancel" onclick="closeModal(editModal)">
               Cancel
             </button>
@@ -252,4 +220,4 @@
 
     <script src="../Js/Actors/actors.js"></script>
   </body>
-</html>
+</html>    
