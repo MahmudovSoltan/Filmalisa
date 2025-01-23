@@ -347,7 +347,6 @@ function editMoviesFunc(element) {
     (cover_url.value = findElement.cover_url),
     (fragman.value = findElement.fragman),
     (watch_url.value = findElement.watch_url),
-    adult.checked = findElement.adult,
     (run_time_min.value = findElement.run_time_min),
     (imdb.value = findElement.imdb),
     category.value = selectedItemsId /* Comedy*/,

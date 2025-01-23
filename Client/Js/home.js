@@ -88,32 +88,32 @@ async function getAllMovies() {
       .join("");
 
     let oneMovieCarusel = movies.data.slice(0, 3);
-    swiper_image.innerHTML = oneMovieCarusel
-      .map((movie) => {
-        return `
-            <div class="swiper-slide swiper_image">
-                 <div class="owarlay">
-      </div>
-                        <img src="${movie.cover_url}"  alt="">
+    // swiper_image.innerHTML = oneMovieCarusel
+    //   .map((movie) => {
+    //     return `
+    //         <div class="swiper-slide swiper_image">
+    //              <div class="owarlay">
+    //   </div>
+    //                     <img src="${movie.cover_url}"  alt="">
 
-                        <div class="swiper_content">
-                            <div class="swiper_content_top">
-                                Science Fiction
-                            </div>
-                            <h2 class="movie_title">${movie.title}</h2>
-                            <p class="movie_desc">
-                         ${movie.overview}
-                            </p>
-                            <div class="watch_btn">
-                                <a class="watch_link" href="">Watch now</a>
-                            </div>
-                        </div>
-                    </div>
+    //                     <div class="swiper_content">
+    //                         <div class="swiper_content_top">
+    //                             Science Fiction
+    //                         </div>
+    //                         <h2 class="movie_title">${movie.title}</h2>
+    //                         <p class="movie_desc">
+    //                      ${movie.overview}
+    //                         </p>
+    //                         <div class="watch_btn">
+    //                             <a class="watch_link" href="">Watch now</a>
+    //                         </div>
+    //                     </div>
+    //                 </div>
         
         
-        `;
-      })
-      .join("");
+    //     `;
+    //   })
+    //   .join("");
   } catch (errr) {
     console.log(errr);
   }

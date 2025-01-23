@@ -16,11 +16,19 @@ table {
 }
 
 .modal_category {
-  position: relative;
   display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  padding-bottom: 118px;
   align-items: center;
   justify-content: center;
-  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  padding-top: 10px;
 }
 
 .category_modal {
