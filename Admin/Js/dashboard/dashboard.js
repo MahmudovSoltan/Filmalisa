@@ -69,3 +69,12 @@ async function getinfo() {
   }
 }
 getinfo();
+
+
+
+
+
+function logOutFunc() {
+  localStorage.removeItem("Admin_token")
+  window.location.href = './login.html'
+}
