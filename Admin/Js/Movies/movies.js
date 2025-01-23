@@ -26,11 +26,10 @@ let mode = true;
 let selectedMovie = null;
 let allMovies = [];
 let multiselctValyu = [];
-let selectedItemsId = null
-let adultValue = null
+let selectedItemsId = null;
+let adultValue = null;
 //Sehife acilanda butun filmleri gosterir
 getMoviesFunc();
-
 
 const dropdown = document.getElementById("dropdown");
 const dropdownMenu = document.getElementById("dropdownMenu");
@@ -39,7 +38,6 @@ const selectedItemsContainer = document.getElementById("selectedItems");
 function handleCheckBox() {
   adultValue = adult.checked;
 }
-
 
 // Dropdown-u açıb-bağlamaq üçün funksiya
 const toggleMenu = () => {
@@ -125,7 +123,7 @@ function submit() {
     cover_url: cover_url.value,
     fragman: fragman.value,
     watch_url: watch_url.value,
-    adult: adultValue,
+    adult: adult.checked,
     run_time_min: Number(run_time_min.value),
     imdb: imdb.value,
     category: Number(selectedItemsId) /* Comedy*/,
@@ -145,10 +143,9 @@ function handleselctCategiryId(e) {
 }
 console.log(category);
 
-category.addEventListener("click",()=>{
+category.addEventListener("click", () => {
   console.log();
-  
-})
+});
 const getCategoriesFunc = async () => {
   try {
     // API sorğusu
@@ -178,7 +175,7 @@ const getCategoriesFunc = async () => {
 
     // Dəyişiklik hadisəsini bağla
     categorySelect.addEventListener("change", (e) => {
-      selectedItemsId = e.target.value
+      selectedItemsId = e.target.value;
     });
   } catch (err) {
     console.error("Error fetching categories:", err);
@@ -187,7 +184,6 @@ const getCategoriesFunc = async () => {
 
 // Funksiyanı çağır
 getCategoriesFunc();
-
 
 getActorsFunc();
 
@@ -203,7 +199,7 @@ async function getMoviesFunc() {
       }
     );
     const movies = await response.json();
-    console.log(movies.data,"movies");
+    console.log(movies.data, "movies");
     let newData = movies.data;
     newData.map((item) => {
       allMovies.push(item);
@@ -268,7 +264,8 @@ async function creatMoviesFunc(moviData) {
     );
     const data = await response.json();
     movieModal2.classList.remove("active");
-    window.location.reload();
+    // window.location.reload();
+    getMoviesFunc()
     console.log(moviData);
     getMoviesFunc();
     console.log("Clicked create");
@@ -290,7 +287,8 @@ async function updateMoviesFunc(element) {
       }
     );
     movieModal2.classList.remove("active");
-    window.location.reload();
+    // window.location.reload();
+    getMoviesFunc()
     console.log(element);
   } catch (err) {
     console.log(err);
@@ -322,7 +320,6 @@ async function deleteMovie() {
   }
 }
 
-
 creatBtn.addEventListener("click", () => {
   mode = false;
   selectedMovie = null;
@@ -337,7 +334,7 @@ creatBtn.addEventListener("click", () => {
   adult.checked = false;
   multiselctValyu = [];
   movieModal2.classList.add("active");
-  adultValue=null
+  adultValue = null;
 });
 
 function editMoviesFunc(element) {
@@ -347,14 +344,10 @@ function editMoviesFunc(element) {
     (cover_url.value = findElement.cover_url),
     (fragman.value = findElement.fragman),
     (watch_url.value = findElement.watch_url),
-    adult.checked = findElement.adult,
+    (adult.checked = findElement.adult),
     (run_time_min.value = findElement.run_time_min),
     (imdb.value = findElement.imdb),
     (overview.value = findElement.overview);
   movieModal2.classList.add("active");
   console.log(findElement);
-  
 }
-
-
-
