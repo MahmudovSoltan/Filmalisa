@@ -28,3 +28,17 @@ deleteBtn.addEventListener("click", () => {
   categoryModal.classList.add("active");
 });
 
+
+
+
+
+
+
+
+
+
+
+function logOutFunc() {
+  localStorage.removeItem("Admin_token")
+  window.location.href = './login.html'
+}

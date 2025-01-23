@@ -269,3 +269,19 @@ function editActors(id) {
   openModal(editModal);
   
 }
+
+
+
+
+
+
+
+
+
+
+
+
+function logOutFunc() {
+  localStorage.removeItem("Admin_token")
+  window.location.href = "./login.html"
+}

@@ -351,3 +351,13 @@ function editMoviesFunc(element) {
   movieModal2.classList.add("active");
   console.log(findElement);
 }
+
+
+
+
+
+
+function logOutFunc() {
+  localStorage.removeItem("Admin_token")
+  window.location.href = './login.html'
+}

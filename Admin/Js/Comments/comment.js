@@ -77,3 +77,10 @@ async function deleteCommentFunc() {
     console.log(err);
   }
 }
+
+
+
+function logOutFunc() {
+  localStorage.removeItem("Admin_token")
+  window.location.href = './login.html'
+}
