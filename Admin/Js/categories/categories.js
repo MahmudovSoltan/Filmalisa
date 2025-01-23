@@ -21,7 +21,6 @@ owarlay.addEventListener("click", () => {
   categoryModal.style.display = "none";
   console.log("click");
 });
-
 delete2.addEventListener("click", () => {
   console.log("click");
   modal_section.classList.remove("active");
@@ -173,4 +172,19 @@ async function editCategory(data) {
   } catch (err) {
     console.log(err);
   }
+}
+
+
+
+
+
+
+
+
+
+
+
+function logOutFunc() {
+  localStorage.removeItem("Admin_token")
+  window.location.href = './login.html'
 }
