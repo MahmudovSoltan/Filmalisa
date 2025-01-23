@@ -8,3 +8,12 @@
 .input_div input {
     color: var(--WhiteColor);
 }
+.login_logo{
+    width: 232px;
+    height: 232px;
+}
+.login_logo img{
+    border-radius: 50%;
+    background: transparent;
+    object-fit: cover;
+}
