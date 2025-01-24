@@ -72,7 +72,7 @@ thead {
 table tr th {
   padding: 16px;
   text-align: center;
-  font-family: var(--NunitoFont);
+  font-family: var( --RobotoFont);
   font-size: 14px;
   font-weight: 400;
   line-height: 16.1px;
@@ -81,7 +81,7 @@ table tr th {
 table tr td {
   padding: 16px;
   text-align: center;
-  font-family: var(--NunitoFont);
+  font-family: var( --RobotoFont);
   font-size: 14px;
   font-weight: 400;
   line-height: 16.1px;
@@ -118,6 +118,10 @@ tbody tr {
   align-items: center;
   gap: 15.5px;
 }
+.table_image {
+  width: 30px;
+  /* border-radius: 50%; */
+}
 /* MODAL CSS START */
 .modal_section {
   display: none;
@@ -126,13 +130,12 @@ tbody tr {
   left: 0;
   width: 100%;
   padding-bottom: 118px;
-  /* display: flex; */
   align-items: center;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   color: white;
-  padding-top: 206px;
+  padding-top: 10px;
 }
 .active {
   display: flex;
@@ -223,3 +226,126 @@ select {
   height: 283px;
 }
 /* MODAL CSS END */
+
+.multiseletc-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 54px;
+  border: 1px solid var(--inputBorderColor);
+  border-radius: 12px;
+  padding: 5px;
+  cursor: pointer;
+  color: var(--inputBorderColor) !important;
+}
+.multiseletc-dropdown .fa-chevron-down {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.multiseletc-dropdown .selectedlis-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.multiseletc-dropdown .selectedlis-container span {
+  padding: 5px;
+  margin: 2px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.multiseletc-dropdown .menu {
+  display: none;
+  position: absolute;
+  width: 100%;
+  border: 1px solid var(--inputBorderColor);
+  border-radius: 5px;
+  bottom: -150px;
+  left: 0;
+  background-color: var( --mainbackgroundColorBlack);
+  z-index: 1;
+  max-height: 150px;
+  overflow-y: auto;
+}
+.multiseletc-dropdown .menu li {
+  list-style: none;
+  padding: 5px;
+  cursor: pointer;
+}
+.multiseletc-dropdown .menu li:hover {
+  /* background-color: #e0e0e0; */
+}
+.multiseletc-dropdown .menu li.active {
+  background-color: #ccc;
+}
+.multiseletc-dropdown .menu li.active i {
+  display: inline-block;
+}
+.multiseletc-dropdown .menu li i {
+  display: none;
+  margin-right: 5px;
+}
+.multiseletc-dropdown .menu li i.fa-check {
+  color: green;
+}
+
+
+
+
+
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 1em;
+  font-family: 'Arial', sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+thead tr {
+  background-color: var(--mainbackgroundColorBlack);
+  color: #ffffff;
+  text-align: left;
+}
+
+th, td {
+  padding: 12px 15px;
+}
+
+
+
+
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.table_creat_btn, .table_delete_btn {
+  cursor: pointer;
+}
+
+.table_creat_btn:hover:hover {
+  color: #006f5f;
+}
+
+.table_image {
+  width: 50px;
+  height: auto;
+  border-radius: 5px;
+}
+
+.selectedlis-container span{
+  position: relative;
+}
+
+.delete-btn{
+  position: absolute;
+  top: -5px;
+  right: -27px;
+  cursor: pointer;
+}

@@ -1,7 +1,4 @@
-body {
-  margin: 0;
-  padding: 0;
-}
+
 .left_panel {
   background-color: var(--LightBlackColor);
   width: 256px;

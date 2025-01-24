@@ -1,0 +1,72 @@
+.search_left{
+    padding-left: 80px;
+    padding-top: 160px;
+
+}
+.category_title {
+    color: var(--WhiteColor);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: flex-start;
+  }
+  .category_title h2 {
+    font-family: var(--RobotoFont);
+    font-size: 35px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: left;
+  }
+.seracr_left_cards{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 30px;
+    row-gap: 30px;
+}
+.search_left_top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 60px;
+    margin-left: 50px;
+}
+.search_left_top_input{
+    display: flex;
+    align-items: center;
+
+}
+.search_left_top_input input{
+    border: 1px solid rgba(128, 128, 128, 1);
+    padding: 16px 12px;
+    border-radius: 4px;
+    color: rgba(128, 128, 128, 1);
+}
+
+.search_left_top_input .search_btn{
+    cursor: pointer;
+}
+.swiper_card{
+    position: relative;
+    width: 292px;
+    height: 389px;
+}
+.swiper_card img{
+    width: 100%;
+    height: 389px;
+}
+.swiper_card_content {
+    position: absolute;
+    bottom: 0;
+    left: 24px;
+  }
+
+
+  .owarlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+  }

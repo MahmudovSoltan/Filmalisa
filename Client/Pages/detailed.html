@@ -3,7 +3,310 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Detailed</title>
+    <link rel="stylesheet" href="../Assets/Css/global_css/global.css" />
+    <link rel="stylesheet" href="../Assets/Css/pages_css/detailed.css" />
+    <!-- <link rel="stylesheet" href="../Assets/Css/pages_css/home.css" /> -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
   </head>
-  <body></body>
+
+  <body>
+    <div class="detailed_container">
+      <!-- ASIDE BAR START -->
+
+      <div class="left_sidebar">
+        <div class="logo">
+          <a href="../../index.html"><img src="../Assets/Icons/logo.svg" alt=""></a>
+        </div>
+        <div class="aside_links">
+          <div class="aside_link">
+            <a href="./home.html"><img src="../Assets/Icons/homeIcon.svg" alt="" /></a>
+          </div>
+          <div class="aside_link">
+            <a href="./search.html"><img src="../Assets/Icons/searchIcon.svg" alt="" /></a>
+          </div>
+          <div class="aside_link">
+            <a href="./account.html"><img src="../Assets/Icons/accountIcon.svg" alt="" /></a>
+          </div>
+          <div class="aside_link">
+            <a href="./favorites.html"
+              ><img src="../Assets/Icons/favoritesIcon.svg" alt=""
+            /></a>
+          </div>
+        </div>
+      </div>
+      <!-- ASIDE BAR END -->
+
+      <div class="rightpanel">
+        <div class="lostinspace">
+          <p class="txt1">
+            MaileHereko&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            /&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TV Shows
+          </p>
+          <p class="txt2">Lost in space</p>
+        </div>
+      </div>
+    </div>
+    <div class="container2">
+      <div class="lostinspimage">
+        <img class="image1" src="../Assets/images/lostinspaceimg.svg" alt="" />
+        <img
+          class="hoverplaybtn"
+          src="../Assets/Icons/playbtnhover.svg"
+          alt=""
+        />
+      </div>
+      <div class="lostspaseinfo">
+        <div class="texthead">
+          Have you seen our robot?
+          <button class="watclinkbtn">Watch Link</button>
+          <button class="plus">
+            <img src="../Assets/Icons/+icon.svg" alt="" />
+          </button>
+        </div>
+        <div class="textbody1">
+          The mission to save Scarecrow takes an unexpected turn, throwing the
+          Resolute into chaos. Judy hatches a plan to get a ship to Alpha
+          Centauri.
+        </div>
+        <div>
+          <button class="adfavbtn">
+            <img src="../Assets/Icons/yellovstaricon.svg" alt="" /> 8.1
+          </button>
+        </div>
+        <div class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Status</th>
+                <th>No. of episodes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>TV Show</td>
+                <td>Returning Series</td>
+                <td>20</td>
+              </tr>
+            </tbody>
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Status</th>
+                <th>No. of episodes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>TV Show</td>
+                <td>Returning Series</td>
+                <td>20</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="genres">
+          <h4>Genres</h4>
+
+          <p>Action & Adventure, Sci-Fi & Fantasy, Drama</p>
+        </div>
+        <p class="topcastext">Top Cast</p>
+        <div class="top_cast">
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div>
+                  <img src="../Assets/images/topcastimage.svg" alt="" />
+                  <p class="topcastext1">maxwell jenkins</p>
+                  <p class="topcastext2">tony slack</p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div>
+                  <img src="../Assets/images/topcastimage.svg" alt="" />
+                  <p class="topcastext1">maxwell jenkins</p>
+                  <p class="topcastext2">tony slack</p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div>
+                  <img src="../Assets/images/topcastimage.svg" alt="" />
+                  <p class="topcastext1">maxwell jenkins</p>
+                  <p class="topcastext2">tony slack</p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div>
+                  <img src="../Assets/images/topcastimage.svg" alt="" />
+                  <p class="topcastext1">maxwell jenkins</p>
+                  <p class="topcastext2">tony slack</p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div>
+                  <img src="../Assets/images/topcastimage.svg" alt="" />
+                  <p class="topcastext1">maxwell jenkins</p>
+                  <p class="topcastext2">tony slack</p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div>
+                  <img src="../Assets/images/topcastimage.svg" alt="" />
+                  <p class="topcastext1">maxwell jenkins</p>
+                  <p class="topcastext2">tony slack</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="commentare">
+      <img src="../Assets/Icons/adminlogo.svg" alt="" />
+
+      <input
+        class="commentinput"
+        type="text"
+        id="commentInput"
+        autocomplete="off"
+        placeholder="Your Comment..."
+      />
+      <button class="addcombtn" onclick="addComment()">
+        <img src="../Assets/Icons/commentaddbtn.svg" alt="" />
+      </button>
+    </div>
+    <div class="addedcomment" id="addedcomment">
+      <div class="comhead">
+        <div class="comheadlogo">
+          <img src="../Assets/Icons/adminlogo.svg" alt="" />
+          <p>Sarkhan Rahimli</p>
+        </div>
+        <div>
+          <p>18:32 today</p>
+        </div>
+      </div>
+      <div class="comtext">
+        <p>
+          Woah, your project looks awesome! How long have you been coding for? I
+          am still new, but think I want to dive into React as well soon.
+          Perhaps you can give me an insight on where I can learn React? Thanks!
+        </p>
+      </div>
+    </div>
+    <!-- Swiper 3 -->
+    <section style="padding-left: 80px; padding-bottom: 60px">
+      <div class="category_title">
+        <h2>Smilar Movies</h2>
+        <svg
+          width="12"
+          height="17"
+          viewBox="0 0 12 17"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M7.4577 7.93863L1.72741 2.20833L2.72883 1.20691L9.99088 8.46896L2.72883 15.731L1.72741 14.7296L7.4577 8.99929L7.98803 8.46896L7.4577 7.93863Z"
+            fill="#0FEFFD"
+            stroke="white"
+            stroke-width="1.5"
+          />
+        </svg>
+      </div>
+      <div class="">
+        <div class="swiper mySwiper3">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide swiper_card">
+              <img src="../Assets/Images/card-img.png" alt="" />
+              <div class="swiper_card_content">
+                <div class="swiper_content_top">Fantasy</div>
+                <div class="">
+                  <h3>Wonder Woman 1984</h3>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide swiper_card">
+              <img src="../Assets/Images/img.png" alt="" />
+              <div class="swiper_card_content">
+                <div class="swiper_content_top">Fantasy</div>
+                <div class="">
+                  <h3>Zack Snyder's Justice League</h3>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide swiper_card">
+              <img src="../Assets/Images/img (1).png" alt="" />
+              <div class="swiper_card_content">
+                <div class="swiper_content_top">Fantasy</div>
+                <div class="">
+                  <h3>Mortal Kombat</h3>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide swiper_card">
+              <img src="../Assets/Images/card-img.png" alt="" />
+              <div class="swiper_card_content">
+                <div class="swiper_content_top">Fantasy</div>
+                <div class="">
+                  <h3>Zack Snyder's Justice League</h3>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide swiper_card">
+              <img src="../Assets/Images/img (2).png" alt="" />
+              <div class="swiper_card_content">
+                <div class="swiper_content_top">Fantasy</div>
+                <div class="">
+                  <h3>Wonder Woman 1984</h3>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide swiper_card">
+              <img src="../Assets/Images/card-img.png" alt="" />
+              <div class="swiper_card_content">
+                <div class="swiper_content_top">Fantasy</div>
+                <div class="">
+                  <h3>Zack Snyder's Justice League</h3>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide swiper_card">
+              <img src="../Assets/Images/img.png" alt="" />
+              <div class="swiper_card_content">
+                <div class="swiper_content_top">Fantasy</div>
+                <div class="">
+                  <h3>Wonder Woman 1984</h3>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide swiper_card">
+              <img src="../Assets/Images/img (1).png" alt="" />
+              <div class="swiper_card_content">
+                <div class="swiper_content_top">Fantasy</div>
+                <div class="">
+                  <h3>Wonder Woman 1984</h3>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide swiper_card">
+              <img src="../Assets/Images/img (2).png" alt="" />
+              <div class="swiper_card_content">
+                <div class="swiper_content_top">Fantasy</div>
+                <div class="">
+                  <h3>Wonder Woman 1984</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="../Js/detailed.js"></script>
+  </body>
 </html>
