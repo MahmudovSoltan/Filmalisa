@@ -19,6 +19,10 @@ const editSurnameInput = document.querySelector("#editSurname");
 const editImageInput = document.querySelector("#editImage");
 const actorstable = document.querySelector("#actorstable");
 //modali baglama funksiyasi
+
+
+
+
 function closeModal(modal) {
   if (modal) {
     modal.classList.remove("active");
@@ -90,7 +94,7 @@ async function getActors() {
           <td>${element.id}</td>
           <td>${element.name}</td>
           <td>${element.surname}</td>
-          <td><img class="tableimage" src="${element.img_url}" alt="Actor Image" /></td>
+          <td style="display: flex;justify-content: center;"><img class="tableimage" src="${element.img_url}" alt="Actor Image" /></td>
           <td class="table_edit_btn" onclick="editFn(${element.id})">
           <i class="fa-solid fa-pen"></i>
           </td>

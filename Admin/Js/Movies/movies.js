@@ -25,6 +25,7 @@ let itemId = null;
 let mode = true;
 let selectedMovie = null;
 let allMovies = [];
+
 let multiselctValyu = [];
 let selectedItemsId = null;
 let adultValue = null;
@@ -67,14 +68,43 @@ const attachClickEventToMenu = () => {
   dropdownMenu.querySelectorAll("li").forEach((item) => {
     item.addEventListener("click", (event) => {
       event.stopPropagation(); // Başqa klik hadisələrinin qarşısını al
-      updateSelectedItems(item);
-      console.log(item.value);
-      multiselctValyu.push(item.value);
 
-      console.log(multiselctValyu);
+      const actorId = Number(item.getAttribute("value")); // Elementin ID-sini al
+
+      if (multiselctValyu.includes(actorId)) {
+        // Əgər artıq seçilibsə, sil
+        multiselctValyu = multiselctValyu.filter((id) => id !== actorId); // Massivdən çıxar
+        item.classList.remove("active"); // Dropdown-dan aktiv sinfini sil
+
+        // Seçilmişlərdən də DOM-da sil
+        const spanToRemove = selectedItemsContainer.querySelector(
+          `span[data-value="${item.getAttribute("data-value")}"]`
+        );
+        if (spanToRemove) spanToRemove.remove();
+      } else {
+        // Əgər seçilməyibsə, əlavə et
+        multiselctValyu.push(actorId);
+        item.classList.add("active"); // Dropdown-da aktiv sinfini əlavə et
+
+        const selectedSpan = document.createElement("span");
+        selectedSpan.setAttribute("data-value", item.getAttribute("data-value"));
+        selectedSpan.textContent = item.getAttribute("data-value");
+
+        // Silmə düyməsini əlavə et
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "x";
+        deleteBtn.classList.add("delete-btn");
+        deleteBtn.onclick = () => removeActor(actorId, item, selectedSpan);
+
+        selectedSpan.appendChild(deleteBtn);
+        selectedItemsContainer.appendChild(selectedSpan);
+      }
+
+      console.log(multiselctValyu); // Massivi konsolda göstər
     });
   });
 };
+
 
 // Aktyorları çəkən və menyuya əlavə edən funksiya
 const getActorsFunc = async () => {
@@ -212,10 +242,15 @@ async function getMoviesFunc() {
         return `
                  <tr>
                                 <td>${i + 1}</td>
-                                <td class="table_title"><img class="table_image" src=${
+                                <td style="display: flex;justify-content: center;"><img class="table_image" src=${
                                   item?.cover_url
-                                } alt=""> ${item?.title}</td>
-                                <td>${item.overview}</td>
+                                } alt=""></td>
+                                  <td> ${item?.title}</td>
+                                <td>${
+                                  item.overview.length > 200
+                                    ? item.overview.substring(0, 200) + "..."
+                                    : item.overview
+                                }</td>
                                 <td>${item?.category?.name}</td>
                                 <td>${item?.imdb}</td>
                                 <td class="table_creat_btn" id="creat" onclick="editMoviesFunc(${
@@ -265,7 +300,7 @@ async function creatMoviesFunc(moviData) {
     const data = await response.json();
     movieModal2.classList.remove("active");
     // window.location.reload();
-    getMoviesFunc()
+    getMoviesFunc();
     console.log(moviData);
     getMoviesFunc();
     console.log("Clicked create");
@@ -288,7 +323,7 @@ async function updateMoviesFunc(element) {
     );
     movieModal2.classList.remove("active");
     // window.location.reload();
-    getMoviesFunc()
+    getMoviesFunc();
     console.log(element);
   } catch (err) {
     console.log(err);
@@ -337,28 +372,83 @@ creatBtn.addEventListener("click", () => {
   adultValue = null;
 });
 
-function editMoviesFunc(element) {
+async function editMoviesFunc(element) {
   selectedMovie = element;
-  let findElement = allMovies.find((item) => item.id === element);
-  (title.value = findElement.title),
-    (cover_url.value = findElement.cover_url),
-    (fragman.value = findElement.fragman),
-    (watch_url.value = findElement.watch_url),
+  try {
+    const response = await fetch(
+      `https://api.sarkhanrahimli.dev/api/filmalisa/admin/movies/${element}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: ` Bearer ${localStorage.getItem("Admin_token")}`,
+        },
+      }
+    );
+    const data = await response.json();
+    console.log(data);
 
-    (adult.checked = findElement.adult),
-    (run_time_min.value = findElement.run_time_min),
-    (imdb.value = findElement.imdb),
-    (overview.value = findElement.overview);
-  movieModal2.classList.add("active");
-  console.log(findElement);
+    // Form sahələrini doldur
+    title.value = data.data.title;
+    cover_url.value = data.data.cover_url;
+    fragman.value = data.data.fragman;
+    watch_url.value = data.data.watch_url;
+    adult.checked = data.data.adult;
+    run_time_min.value = data.data.run_time_min;
+    imdb.value = data.data.imdb;
+    overview.value = data.data.overview;
+    category.value = data.data.category.id;
+
+    // Multiselect üçün aktyor ID-lərini massivin içində saxla
+    multiselctValyu = data.data.actors.map((actor) => actor.id);
+
+    // Seçilmiş elementləri DOM-a yenidən əlavə etmək
+    selectedItemsContainer.innerHTML = ""; // Seçimləri təmizlə
+    dropdownMenu.querySelectorAll("li").forEach((item) => {
+      const actorId = Number(item.getAttribute("value"));
+      const actorName = item.getAttribute("data-value");
+
+      if (multiselctValyu.includes(actorId)) {
+        // Əgər aktyor seçilmişsə, onu aktiv et və DOM-a əlavə et
+        item.classList.add("active");
+
+        const selectedSpan = document.createElement("span");
+        selectedSpan.setAttribute("data-value", actorName);
+        selectedSpan.textContent = actorName;
+
+        // Silmə düyməsini əlavə et
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "x";
+        deleteBtn.classList.add("delete-btn");
+        deleteBtn.onclick = () => removeActor(actorId, item, selectedSpan);
+
+        selectedSpan.appendChild(deleteBtn);
+        selectedItemsContainer.appendChild(selectedSpan);
+      } else {
+        // Əgər aktiv deyilsə, sinifdən çıxar
+        item.classList.remove("active");
+      }
+    });
+
+    movieModal2.classList.add("active");
+  } catch (err) {
+    console.log(err);
+  }
+}
+function removeActor(actorId, item, span) {
+  // Aktor ID-ni massivdən çıxar
+  multiselctValyu = multiselctValyu.filter((id) => id !== actorId);
+
+  // Dropdown elementindən aktiv sinifi sil
+  item.classList.remove("active");
+
+  // DOM-dan span-ı sil
+  span.remove();
+
+  console.log(multiselctValyu); // Yenilənmiş massiv
 }
 
-
-
-
-
-
 function logOutFunc() {
-  localStorage.removeItem("Admin_token")
-  window.location.href = './login.html'
+  localStorage.removeItem("Admin_token");
+  window.location.href = "./login.html";
 }

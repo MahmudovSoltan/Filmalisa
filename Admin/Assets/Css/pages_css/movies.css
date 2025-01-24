@@ -72,7 +72,7 @@ thead {
 table tr th {
   padding: 16px;
   text-align: center;
-  font-family: var(--NunitoFont);
+  font-family: var( --RobotoFont);
   font-size: 14px;
   font-weight: 400;
   line-height: 16.1px;
@@ -81,7 +81,7 @@ table tr th {
 table tr td {
   padding: 16px;
   text-align: center;
-  font-family: var(--NunitoFont);
+  font-family: var( --RobotoFont);
   font-size: 14px;
   font-weight: 400;
   line-height: 16.1px;
@@ -289,4 +289,71 @@ select {
 }
 .multiseletc-dropdown .menu li i.fa-check {
   color: green;
+}
+
+
+
+
+
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 1em;
+  font-family: 'Arial', sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+}
+
+th, td {
+  padding: 12px 15px;
+}
+
+tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.table_creat_btn, .table_delete_btn {
+  cursor: pointer;
+}
+
+.table_creat_btn:hover:hover {
+  color: #006f5f;
+}
+
+.table_image {
+  width: 50px;
+  height: auto;
+  border-radius: 5px;
+}
+
+.selectedlis-container span{
+  position: relative;
+}
+
+.delete-btn{
+  position: absolute;
+  top: -5px;
+  right: -27px;
+  cursor: pointer;
 }
