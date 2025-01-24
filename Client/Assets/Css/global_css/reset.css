@@ -2,66 +2,89 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
-body{
-    font-family: var(--roboto);
+body {
+  background-color: var(--BacgrounColorBlack);
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 /* Block-level elements */
-article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section {
-    display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+  display: block;
 }
 
 /* List elements */
-ol, ul {
-    list-style: none;
+ol,
+ul {
+  list-style: none;
 }
 
 /* Links */
 a {
-    text-decoration: none;
-    color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
 /* Images */
 img {
+  max-width: 100%;
+  height: auto;
+  display: block;
     max-width: 100%;
     height: auto;
     display: block;
+    object-fit: cover;
 }
 
 /* HTML5 form elements reset */
-button, input, select, textarea {
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
-    color: inherit;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    appearance: none;
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  appearance: none;
 }
+
 
 /* Table elements */
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
-caption, th, td {
-    text-align: left;
-    font-weight: normal;
-    vertical-align: middle;
+caption,
+th,
+td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
 }
 
 html {
-    line-height: 1.15;
-    -webkit-text-size-adjust: 100%;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
 }

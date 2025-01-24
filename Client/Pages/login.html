@@ -1,11 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=git sta, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- FOTN AWSAME LINK -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="../Assets/Css/global_css/global.css">
+    <link rel="stylesheet" href="../Assets/Css/pages_css/login_register.css">
 </head>
+
 <body>
-    
+    <section>
+        <div class="login_container">
+            <!-- LOGİN FORM START -->
+            <div class="form_container">
+                <div class="login_logo">
+                    <img src="../Assets/Icons/logo.svg" alt="logo">
+                    <h2 class="form_title">
+                        filmalisa
+                        <span>login</span>
+                    </h2>
+                </div>
+                <div>
+                    <div class="input_div">
+                        <img src="../Assets/Icons/email.svg" alt="">
+                        <input type="email" placeholder="email" id="useremail" autocomplete="off">
+                    </div>
+                    <div class="input_div">
+                        <img src="../Assets/Icons/pasworrdICon.svg" alt="">
+                        <input type="password" placeholder="password" id="password" autocomplete="off">
+                        <img  class="eyeIcon" width="24px"  src="../Assets/Icons/eyeIcon.svg" alt="" id="iconPassword">
+                    </div>
+                    <a href="./register.html">Register here</a>
+                    <button type="submit" class="submit_btn" id="loginButton">Login</button>
+                </div>
+            </div>
+            <!-- LOGİN FORM END -->
+        </div>
+    </section>
+    <script src="../Js/login.js"></script>
 </body>
 </html>

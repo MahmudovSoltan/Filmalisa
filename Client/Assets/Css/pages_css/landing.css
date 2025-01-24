@@ -1,0 +1,240 @@
+/* General Reset */
+body {
+  margin: 0;
+  font-family: var(--RobotoFont);
+  font-weight: 400;
+  font-size: 24px;
+  background-color: var(--BacgrounColorBlack);
+  color: var(--WhiteColor);
+}
+button {
+  cursor: pointer;
+}
+/* Header Section */
+header {
+  background-image: url("../../Images/landingimg/Frame\ 48.png");
+}
+.header {
+  display: flex;
+  justify-content: space-around;
+  padding: 24px 48px 28px 48px;
+}
+.header_left {
+  display: flex;
+  gap: 14px;
+}
+.logo_text {
+  padding: 15px 6px;
+  font-size: 30px;
+  color: var(--WhiteGreyColor);
+}
+.header_signin_btn button {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16.41px;
+  align-items: center;
+  background-color: var(--PurpleColor);
+  padding: 4px 16px;
+  border-radius: 4px;
+}
+.header_signin_btn {
+  padding-top: 15px;
+}
+.logo_icon img {
+  width: 60px;
+  height: 62px;
+  font-family: var(--NumansFont);
+}
+.header_text {
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  gap: 24px;
+  padding: 200px;
+}
+/* Header Text Unlimited  */
+.Unlimited_movies_text h1 {
+  font-weight: 700;
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+.Unlimited_movies_text_down h3 {
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.input_container {
+  display: flex;
+  gap: 8px;
+  padding: 16px 15px 0px 31px;
+}
+.input_container input {
+  padding: 18px 16px;
+  border-radius: 4px;
+  border: 1px solid rgba(128, 128, 128, 1);
+}
+.btn_container {
+  display: flex;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 500;
+  padding: 12px 24px;
+  border-radius: 4px;
+  background-color: var(--PurpleColor);
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.btn_polygon {
+  width: 15px;
+  height: 7px;
+  margin-left: 10px;
+  padding-bottom: 17px;
+}
+/* First section start */
+.section_container {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  padding: 72px 168px 76px 168px;
+}
+.section_text {
+  padding-top: 30px;
+}
+.section_text h2 {
+  font-weight: 700;
+  font-size: 48px;
+  padding-bottom: 16px;
+}
+.section1 .section2 .section3 .contact_section {
+  width: 100%;
+}
+
+/* Contact section start */
+.contact_text {
+  text-align: center;
+  padding-top: 47px;
+}
+.contact_text h2 {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 62px;
+  align-items: center;
+}
+.form input,
+textarea {
+  margin-bottom: 35px;
+  padding: 18px 16px;
+  width: 478px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 4px;
+  border: 1px solid rgba(128, 128, 128, 1);
+}
+.form {
+  padding-top: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+textarea {
+  padding-bottom: 70px;
+}
+.contact_btn {
+  color: rgba(255, 255, 255, 1);
+  font-weight: 500;
+  padding: 12px 24px;
+  border-radius: 4px;
+  line-height: 28px;
+  background-color: var(--PurpleColor);
+  text-align: center;
+  margin: auto;
+  width: 208px;
+  margin-bottom: 140px;
+}
+
+/* FAQ Start */
+.faq_text h2 {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 62px;
+  align-items: center;
+  text-align: center;
+  padding-top: 72px;
+  padding-bottom: 24px;
+}
+.faq {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+}
+.faq_item {
+  line-height: 30px;
+  padding: 24px;
+  background-color: rgba(42, 42, 42, 1);
+}
+.faq_items {
+  display: flex;
+  justify-content: space-between;
+}
+
+.faq_content {
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  transition: height .5s ease-in-out;
+}
+.active {
+ width: 100%;
+ height: 30px;
+ transition: height .5s ease-in-out;
+}
+.element {
+    transform: rotate(50deg);
+    transition: all .3s ease-in-out;
+  }
+.vector_icon img {
+  width: 28px;
+  height: 28px;
+  transition: all .3s ease-in-out;
+  cursor: pointer;
+}
+.faq_container {
+  padding: 72px 168px;
+}
+/* FAQ END */
+
+/* Footer Start */
+
+.footer_container {
+  color: rgba(179, 179, 179, 1);
+  font-size: 14px;
+  text-decoration: underline;
+  line-height: 18px;
+  display: flex;
+  justify-content: flex-start;
+  padding: 72px 168px 170px 168px;
+  gap: 120px;
+}
+.footer_container div {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Footer End  */
+
+/* All Underline  */
+.contact_section,
+.features,
+.section2 {
+  border-bottom: 8px solid rgba(35, 35, 35, 1);
+}
+.section2,
+.footer_container {
+  border-top: 8px solid rgba(35, 35, 35, 1);
+}
+/* All Underline */
