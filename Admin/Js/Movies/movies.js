@@ -278,11 +278,13 @@ async function getMoviesFunc() {
 
 owarlay.addEventListener("click", () => {
   movieModal2.classList.remove("active");
+  window.location.reload();
 });
 owarlay2.addEventListener("click", closeOwarlay2);
 
 function closeOwarlay2() {
   movieModal.classList.remove("active");
+
 }
 async function creatMoviesFunc(moviData) {
   try {
@@ -322,7 +324,7 @@ async function updateMoviesFunc(element) {
       }
     );
     movieModal2.classList.remove("active");
-    // window.location.reload();
+    window.location.reload();
     getMoviesFunc();
     console.log(element);
   } catch (err) {
