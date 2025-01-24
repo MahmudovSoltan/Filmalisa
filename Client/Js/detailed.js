@@ -43,35 +43,6 @@ var swiper3 = new Swiper(".mySwiper3", {
   loop: true,
 });
 
-// document.addEventListener("DOMContentLoaded", function () {
-//   const playfragmanbtn = document.querySelector("#playfragmanbtn");
-//   playfragmanbtn.addEventListener("click", function () {
-//     console.log("clickbtnfragman");
-
-//     const youtubeEmbedLink =
-//       "https://www.youtube.com/embed/2ZX5ssKQwqw?si=raTqrSgmxflV0SJn";
-//     // Check if the iframe already exists
-//     if (!document.querySelector(".youtube-iframe")) {
-//       // Create iframe dynamically
-//       const iframe = document.createElement("iframe");
-//       iframe.src = youtubeEmbedLink;
-//       iframe.width = "60%";
-//       iframe.height = "60%";
-//       iframe.allow = "autoplay; encrypted-media";
-//       iframe.style.position = "absolute";
-//       iframe.style.top = "0";
-//       iframe.style.left = "0";
-//       iframe.style.width = "60%";
-//       iframe.style.height = "60%";
-//       iframe.style.zIndex = "1000";
-//       iframe.style.border = "none";
-//       iframe.classList.add("youtube-iframe");
-
-//       // Append iframe to body
-//       document.body.appendChild(iframe);
-//     }
-//   });
-// });
 //IFRAME START
 
 document.addEventListener("DOMContentLoaded", function () {
