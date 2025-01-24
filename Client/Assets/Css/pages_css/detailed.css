@@ -372,3 +372,34 @@ table tr td {
   line-height: 300px;
   text-align: center;
 }
+/* //iframe start */
+/* Iframe görünüşü üçün tənzimləmə */
+.youtube-iframe {
+  position: fixed;
+  width: 60%; /* Iframe genişliyi */
+  height: 70%; /* Iframe hündürlüyü */
+  z-index: 1000;
+  border: none;
+  background: #000;
+  display: none; /* Başlanğıcda gizli */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); /* İframe üçün kölgə */
+}
+
+/* Şəffaf overlay fon */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+  display: none; /* Başlanğıcda gizli */
+}
+
+/* Iframe-in səhifədə mərkəzləşdirilməsi */
+.youtube-iframe.centered {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
