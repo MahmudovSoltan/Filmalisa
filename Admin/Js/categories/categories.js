@@ -11,6 +11,12 @@ let deleteId = null;
 let selectedCatid = null;
 let allCategories = [];
 let mode = false;
+const prev = document.querySelector("#prev");
+const next = document.querySelector("#next");
+const paginationContainer = document.querySelector(".pagination-container");
+const perPage = 8;
+let index = 1;
+
 creatBtn.addEventListener("click", () => {
   movieModal.classList.add("active");
   mode = false;
@@ -60,7 +66,9 @@ async function getCattegories() {
     );
     const categories = await response.json();
     console.log(categories);
-    table_body.innerHTML = categories.data
+    const allData = categories.data;
+    const newPagination = allData.slice((index - 1) * perPage, index * perPage);
+    table_body.innerHTML = newPagination
       .map((category, i) => {
         return `
         
@@ -99,6 +107,44 @@ async function getCattegories() {
       btn.addEventListener("click", () => {
         movieModal.classList.add("active");
       });
+    });
+
+
+
+    const totalPage = Math.ceil(allData.length / perPage);
+
+    // Dinamik səhifə düymələrini yaradın
+    paginationContainer.innerHTML = ""; // Əvvəlki düymələri təmizləyirik
+    for (let i = 1; i <= totalPage; i++) {
+      const pageButton = document.createElement("button");
+      pageButton.textContent = i;
+      pageButton.classList.add("page-btn");
+      if (i === index) {
+        pageButton.classList.add("active"); // Aktiv səhifə üçün xüsusi sinif
+      }
+      pageButton.addEventListener("click", () => {
+        index = i;
+        getCattegories()
+      });
+      paginationContainer.appendChild(pageButton);
+    }
+
+    // `Prev` düyməsi
+    prev.disabled = index === 1;
+    prev.addEventListener("click", () => {
+      if (index > 1) {
+        index--;
+      getCattegories()
+      }
+    });
+
+    // `Next` düyməsi
+    next.disabled = index === totalPage;
+    next.addEventListener("click", () => {
+      if (index < totalPage) {
+        index++;
+      getCattegories()
+      }
     });
   } catch (err) {
     console.log(err);
