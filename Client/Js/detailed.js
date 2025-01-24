@@ -42,3 +42,10 @@ var swiper3 = new Swiper(".mySwiper3", {
   spaceBetween: 16,
   loop: true,
 });
+
+
+
+/// BURDAKI KOD ILE ONUN ID SIN TUTACAQSAN
+
+
+const postId = window.location.search.split("=")[1];
