@@ -50,8 +50,11 @@ async function getAllMovies() {
         return `
        <div class="swiper-slide swiper_card">
               <div class="owarlay">
+
       </div>
-<img src="${movie.cover_url}" alt="">
+          <a href="./detailed.html?post_id=${movie.id}" style="position: relative;z-index: 999;">
+          <img src="${movie.cover_url}" alt="">
+          </a>
 <div class="swiper_card_content">
 <div class="swiper_content_top">
     Fantasy
@@ -72,7 +75,9 @@ async function getAllMovies() {
         <div class="swiper-slide swiper_card2">
                <div class="owarlay">
       </div>
-                                <img src="${movie.cover_url}" alt="">
+                                <a href="./detailed.html?post_id=${movie.id}" style="position: relative;z-index: 999;">
+          <img src="${movie.cover_url}" alt="">
+          </a>
                              <div class="swiper_card_content">
                                 <div class="swiper_content_top">
                                     Fantasy
