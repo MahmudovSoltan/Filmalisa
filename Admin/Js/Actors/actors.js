@@ -20,9 +20,6 @@ const editImageInput = document.querySelector("#editImage");
 const actorstable = document.querySelector("#actorstable");
 //modali baglama funksiyasi
 
-
-
-
 function closeModal(modal) {
   if (modal) {
     modal.classList.remove("active");
@@ -59,7 +56,7 @@ async function createActor(actordata) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("Dash_token")}`,
+          Authorization: `Bearer ${localStorage.getItem("Admin_token")}`,
         },
         body: JSON.stringify(actordata),
       }
@@ -80,7 +77,7 @@ async function getActors() {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("Dash_token")}`,
+          Authorization: `Bearer ${localStorage.getItem("Admin_token")}`,
         },
       }
     );
@@ -134,7 +131,7 @@ async function updateFn() {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("Dash_token")}`,
+          Authorization: `Bearer ${localStorage.getItem("Admin_token")}`,
         },
         body: JSON.stringify(data),
       }
@@ -165,7 +162,7 @@ async function getDelyes() {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("Dash_token")}`,
+          Authorization: `Bearer ${localStorage.getItem("Admin_token")}`,
         },
       }
     );
@@ -186,9 +183,3 @@ function getDelno() {
   closeModal(movieModal); // Modalı bağla
   location.reload(); // Siyahını yenilə
 }
-
-
-
-
-
-

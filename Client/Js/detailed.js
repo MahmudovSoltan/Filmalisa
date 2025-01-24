@@ -43,6 +43,78 @@ var swiper3 = new Swiper(".mySwiper3", {
   loop: true,
 });
 
+const postId = window.location.search.split("=")[1];
+
+let dataid = null;
+let youtubeEmbedLink = "";
+
+const lostspaseinfo = document.querySelector("#lostspaseinfo");
+const watchlinkbtn = document.querySelector("#watchlinkbtn");
+const adfavbtn = document.querySelector("#adfavbtn");
+const watchlinkhref = document.querySelector("#watchlinkhref");
+const topactors = document.querySelector("#topactors");
+const fragmanimage = document.querySelector("#fragmanimage");
+
+//watchlik function START
+
+watchlinkbtn.addEventListener("click", function () {
+  getWatch();
+});
+
+async function getWatch() {
+  try {
+    const resp = await fetch(
+      "https://api.sarkhanrahimli.dev/api/filmalisa/movies/" + postId,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("login_token")}`,
+        },
+      }
+    );
+    const responce = await resp.json();
+    console.log("responce", responce.data.cover_url);
+
+    fragmanimage.src = responce.data.cover_url;
+    const apifragmanlink = responce.data.fragman
+      .split("youtu.be/")[1]
+      ?.split("?")[0]; // ID `youtu.be/`-dən sonra gəlir
+    if (apifragmanlink) {
+      youtubeEmbedLink = `https://www.youtube.com/embed/${apifragmanlink}?autoplay=1`;
+      console.log("youtubeEmbedLink", youtubeEmbedLink);
+    } else {
+      console.error("Link tapılmadı.");
+    }
+    console.log("responce", responce.data.actors);
+    responce.data.actors.forEach((item) => {
+      topactors.innerHTML += `
+     <div class="swiper-slide">
+                <div>
+                  <img src="${item.img_url}" alt="" />
+                  <p class="topcastext1">${item.name}</p>
+                  <p class="topcastext2">${item.surname}</p>
+                </div>
+              </div>
+
+      `;
+    });
+
+    console.log("responce", responce.data.watch_url);
+
+    if (responce.data.watch_url) {
+      watchlinkhref.href = responce.data.watch_url;
+    } else {
+      console.error("Link tapılmadı.");
+      watchlinkhref.textContent = "No Link Available";
+    }
+  } catch (error) {
+    console.log("error", error);
+  }
+}
+getWatch();
+//watchlik function END
+
 //IFRAME START
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -50,8 +122,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   playfragmanbtn.addEventListener("click", function () {
     // YouTube embed link
-    const youtubeEmbedLink =
-      "https://www.youtube.com/embed/VI6fuv_6_C8?si=iiLk9LBDQJ5jzd7v?autoplay=1";
+    // const youtubeEmbedLink =
+    //   "https://youtu.be/pBk4NYhWNMM?si=P_pBQBgZdNgDzsU7?autoplay=1";
 
     // Iframe və overlay yoxdursa, yaradın
     if (!document.querySelector(".youtube-iframe")) {
@@ -80,44 +152,3 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 //IFRAME END
-
-let dataid = null;
-
-const lostspaseinfo = document.querySelector("#lostspaseinfo");
-const watchlinkbtn = document.querySelector("#watchlinkbtn");
-const adfavbtn = document.querySelector("#adfavbtn");
-
-//watchlik function START
-
-watchlinkbtn.addEventListener("click", function () {
-  getWatch();
-});
-
-async function getWatch() {
-  try {
-    const token =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhcmtoYW5AZ21haWwuY29tIiwic3ViIjoxLCJpYXQiOjE3Mzc3MDAzMDQsImV4cCI6MTc2ODgwNDMwNH0.fLcDRLtvvIR66B5PKZVns5vod6hw_JNBD5yG1L9BGmA";
-
-    const resp = await fetch(
-      "https://api.sarkhanrahimli.dev/api/filmalisa/movies",
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("Client_token")}`,
-        },
-      }
-    );
-    const responce = await resp.json();
-    localStorage.setItem("Client_token", token);
-    console.log("responce", responce.data);
-    responce.data.forEach((item) => {
-      const watchlinkin = item.watch_url;
-      console.log("watchlinkin", watchlinkin);
-    });
-  } catch (error) {
-    console.log("error", error);
-  }
-}
-
-//watchlik function END
