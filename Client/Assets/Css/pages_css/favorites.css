@@ -1,0 +1,8 @@
+.swiper_card{
+    height: 582px;
+}
+.swiper_card img{
+    height: 582px;
+    width: 100%;
+    object-fit: cover;
+}

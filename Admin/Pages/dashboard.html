@@ -67,13 +67,13 @@
         </div>
         <div class="logoutclass">
           <ul>
-            <li class="nav_itemfut">
+            <li class="nav_itemfut" onclick="logOutFunc()">
               <img
                 class="logoimagefut"
                 src="../Assets/Icons/logout.svg"
                 alt=""
               />
-              <a class="nav_linkfut" href="">Logout</a>
+              <a class="nav_linkfut" href="#">Logout</a>
             </li>
           </ul>
         </div>
@@ -90,43 +90,44 @@
             <p>Admin</p>
           </div>
         </div>
-        <div class="card-container">
-          <div class="cardbig">
+        <div class="card-container" id="cardcontainer">
+          <!-- <div class="cardbig">
             <div class="quote">Favorite actions</div>
 
-            <div class="number">121</div>
+            <div class="number" id="favactionsnum">121</div>
           </div>
           <div class="cardpurple">
             <div class="quote">Users</div>
 
-            <div class="number">2</div>
+            <div class="number" id="usersnum">2</div>
           </div>
           <div class="card">
             <div class="quote">Movies</div>
 
-            <div class="number">3</div>
+            <div class="number" id="moviesnum">3</div>
           </div>
           <div class="card">
             <div class="quote">Comments</div>
 
-            <div class="number">4</div>
+            <div class="number" id="commentsnum">4</div>
           </div>
           <div class="cardbig">
             <div class="quote">Categories</div>
 
-            <div class="number">5</div>
+            <div class="number" id="categoriesnum">5</div>
           </div>
           <div class="cardpurple">
             <div class="quote">Actors</div>
 
-            <div class="number">6</div>
+            <div class="number" id="actorsnum">6</div>
           </div>
           <div class="card">
             <div class="quote">Contacts</div>
-            <div class="number">7</div>
-          </div>
+            <div class="number" id="contactnum">7</div>
+          </div> -->
         </div>
       </div>
     </div>
+    <script src="../Js/dashboard/dashboard.js"></script>
   </body>
 </html>
