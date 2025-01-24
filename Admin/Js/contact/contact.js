@@ -7,3 +7,9 @@ deleteBtn.addEventListener("click", () => {
 exitModal.addEventListener("click", () => {
   movieModal.classList.remove("active");
 });
+
+
+function logOutFunc() {
+  localStorage.removeItem("Admin_token")
+  window.location.href = './login.html'
+}

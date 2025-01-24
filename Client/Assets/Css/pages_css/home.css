@@ -167,6 +167,11 @@
 }
 .swiper_card {
   position: relative;
+  /* height: 644px !important; */
+}
+.swiper_card2 img {
+  height: 644px !important;
+  background-color: transparent;
 }
 .swiper_card_content {
   position: absolute;
@@ -185,4 +190,13 @@
   line-height: 32px;
   text-align: left;
   color: var(--WhiteColor);
+}
+
+.owarlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
 }

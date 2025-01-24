@@ -1,5 +1,6 @@
 
 
+<<<<<<< HEAD
 // faqItems.forEach(item => {
 //     const question = item.querySelector('h3');
 //     const content = item.querySelector('.faq_content');
@@ -58,3 +59,15 @@ addSixth.addEventListener("click",()=>{
     imageSixth.classList.toggle("element")
  
 })
+=======
+faqItems.forEach(item => {
+    const addButton = item.querySelector('.vector_icon');
+    const content = item.querySelector('.faq_content');   
+    const image = item.querySelector('img');              
+
+    addButton.addEventListener('click', () => {
+        content.classList.toggle('active');
+        image.classList.toggle('element'); 
+    });
+});
+>>>>>>> 8930b3f116471acddc8f6bc3fa3c62c9e51dac11
