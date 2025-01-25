@@ -9,48 +9,64 @@ const createBtn = document.querySelector("#createBtn");
 let selectedActorId = null; // Seçilən aktyorun ID-ni saxlamaq üçün dəyişən
 let actorList = [];
 // Modalı bağlama funksiyası
+let selectedidinfo = [];
+const createConfirmBtn = document.querySelector("#createConfirm");
+const editConfirmBtn = document.querySelector("#editConfirm");
+const createNameInput = document.querySelector("#createName");
+const createSurnameInput = document.querySelector("#createSurname");
+const createImageInput = document.querySelector("#createImage");
+const editNameInput = document.querySelector("#editName");
+const editSurnameInput = document.querySelector("#editSurname");
+const editImageInput = document.querySelector("#editImage");
+const actorstable = document.querySelector("#actorstable");
+//modali baglama funksiyasi
 function closeModal(modal) {
   if (modal) {
     modal.classList.remove("active");
   }
 }
-
 // Modalı açma funksiyası
 function openModal(modal) {
   if (modal) {
     modal.classList.add("active");
   }
 }
-
-// "Create" düyməsinə basıldığında
+// "Create" düyməsinə basıldığında modal acilir
 createBtn.addEventListener("click", () => {
   openModal(createModal);
 });
-
-// Modal fonuna basıldığında bağlanması
-overlay.addEventListener("click", () => {
-  closeModal(movieModal);
+//modaldaki save btn a basanda melumatlari cedvele oturur
+createConfirmBtn.addEventListener("click", function () {
+  const data = {
+    name: createNameInput.value,
+    surname: createSurnameInput.value,
+    img_url: createImageInput.value,
+  };
+  console.log("data", data);
+  createActor(data);
   closeModal(createModal);
-  closeModal(editModal);
+  getActors();
 });
-
-// Modalı açan hadisə dinləyicisi
-document.addEventListener("click", (event) => {
-  const deleteBtn = event.target.closest(".table_delete_btn");
-  if (deleteBtn) {
-    selectedActorId = deleteBtn.getAttribute("data-id"); // ID-ni əldə et
-    movieModal.classList.add("active");
+//yaradan funksiya
+async function createActor(actordata) {
+  try {
+    const responce = await fetch(
+      "https://api.sarkhanrahimli.dev/api/filmalisa/admin/actor",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("Dash_token")}`,
+        },
+        body: JSON.stringify(actordata),
+      }
+    );
+    const data2 = await responce.json();
+    console.log("data2", data2);
+  } catch (error) {
+    console.log("error", error);
   }
-});
-
-// Modalı bağlayan hadisə dinləyiciləri
-exitModal.addEventListener("click", () => {
-  movieModal.classList.remove("active");
-});
-noBtn.addEventListener("click", () => {
-  movieModal.classList.remove("active");
-});
-
+}
 // API-dən aktyorların siyahısını əldə etmək və göstərmək
 async function getActors() {
   const actorstable = document.querySelector("#actorstable tbody");
@@ -61,7 +77,7 @@ async function getActors() {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("Admin_token")}`,
+          Authorization: `Bearer ${localStorage.getItem("Dash_token")}`,
         },
       }
     );
@@ -78,10 +94,10 @@ async function getActors() {
           <td>${element.name}</td>
           <td>${element.surname}</td>
           <td><img class="tableimage" src="${element.img_url}" alt="Actor Image" /></td>
-          <td class="table_edit_btn" onclick="editActors(${element.id})">
+          <td class="table_edit_btn" onclick="editFn(${element.id})">
           <i class="fa-solid fa-pen"></i>
           </td>
-          <td class="table_delete_btn" data-id="${element.id}" >
+          <td class="table_delete_btn"  onclick="removeFn(${element.id})">
             <i class="fa-solid fa-trash"></i>
           </td>
         </tr>
@@ -177,13 +193,11 @@ editConfirmBtn.addEventListener("click", async () => {
   }
 
   const data = {
-    data: {
-      name,
-      surname,
-      img_url,
-    },
+    name: editNameInput.value,
+    surname: editSurnameInput.value,
+    img_url: editImageInput.value,
   };
-
+  console.log("dataedit", data);
   try {
     const response = await fetch(
       `https://api.sarkhanrahimli.dev/api/filmalisa/admin/actor/${selectedActorId}`,
@@ -191,7 +205,7 @@ editConfirmBtn.addEventListener("click", async () => {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("Admin_token")}`,
+          Authorization: `Bearer ${localStorage.getItem("Dash_token")}`,
         },
         body: JSON.stringify(data),
       }
@@ -221,25 +235,15 @@ createConfirmBtn.addEventListener("click", async () => {
     alert("All fields are required!");
     return;
   }
-
-  const data = {
-    data: {
-      name,
-      surname,
-      img_url,
-    },
-  };
-
   try {
     const response = await fetch(
-      "https://api.sarkhanrahimli.dev/api/filmalisa/admin/actor",
+      `https://api.sarkhanrahimli.dev/api/filmalisa/admin/actor/${selectedActorId}`,
       {
-        method: "POST",
+        method: "DELETE",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("Admin_token")}`,
+          Authorization: `Bearer ${localStorage.getItem("Dash_token")}`,
         },
-        body: JSON.stringify(data),
       }
     );
 

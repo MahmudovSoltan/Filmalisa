@@ -28,7 +28,7 @@ async function searchfunc() {
           </a>
                <div class="swiper_card_content">
            <div class="swiper_content_top">
-    Fantasy
+                  ${movie.category.name}
              </div>
               <div class="">
     <h3>${
@@ -89,12 +89,12 @@ async function searchMovies() {
         </a>
              <div class="swiper_card_content">
          <div class="swiper_content_top">
-  Fantasy
+               ${movie.category.name}
            </div>
             <div class="">
-  <h3>${
+              <h3>${
     movie.title.length > 40 ? movie.title.substring(0, 40) + "..." : movie.title
-  }</h3>
+                                       }</h3>
      <div class="slider_whatch_link">
                                   <a href="${
                                     movie.watch_url

@@ -4,22 +4,22 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding-top: 93px;
-  padding-bottom: 191px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 .login_logo {
-  width: 150px;
+  width: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 23px;
-  margin-bottom: 40px;
+  margin-bottom: 14px;
 }
 .form_title {
   color: var(--WhiteGreyColor);
   font-family: var(--NumansFont);
-  font-size: 70px;
+  font-size: 50px;
   font-weight: 400;
   line-height: 80px;
   letter-spacing: -0.02em;
@@ -27,9 +27,8 @@
 }
 .form_title span {
   display: block;
-  margin-top: 23px;
-  font-family:var(--PopinsFont);
-  font-size: 40px;
+  font-family: var(--PopinsFont);
+  font-size: 33px;
   font-weight: 600;
   line-height: 80px;
   letter-spacing: -0.02em;
@@ -38,7 +37,7 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 20px 16px;
+  padding: 14px 18px;
   border: 1px solid var(--inputBorderColor);
   margin-bottom: 16px;
   border-radius: 12px;
@@ -80,3 +79,23 @@ form a {
   cursor: pointer;
 }
 /* LOGIN FORM END*/
+
+.success-message {
+  color: #2e7d32;
+  padding: 4px 6px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  /* margin: 10px 0; */
+  text-align: start;
+}
+
+.error-message {
+  color: #ff4d4d;
+  padding: 4px 6px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  /* margin: 10px 0; */
+  text-align: start;
+}
