@@ -73,13 +73,13 @@
         </div>
         <div class="logoutclass">
           <ul>
-            <li class="nav_itemfut">
+            <li class="nav_itemfut" onclick="logOutFunc()">
               <img
                 class="logoimagefut"
                 src="../Assets/Icons/logout.svg"
                 alt=""
               />
-              <a class="nav_linkfut" href="">Logout</a>
+              <a class="nav_linkfut" href="#">Logout</a>
             </li>
           </ul>
         </div>
@@ -97,14 +97,13 @@
         </div>
         <!-- Table start -->
         <div class="movies_table_container">
-          <table>
+          <table id="contact_table">
             <thead>
               <tr>
                 <th>ID</th>
                 <th>Username</th>
                 <th>Email</th>
                 <th>Question</th>
-                <th>Create</th>
                 <th>Remove</th>
               </tr>
             </thead>
@@ -113,7 +112,7 @@
                 <td>1</td>
                 <td>Jhon Doe</td>
                 <td>Jhondoe@gmail.com</td>
-                <td>Lorem ipsum dolor sit consectetur, adipisicing elit. Tempora, quod.</td>
+                <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, quod.</td>
                 <td class="table_creat_btn" id="creat">
                   <i class="fa-solid fa-pen-to-square"></i>
                 </td>
