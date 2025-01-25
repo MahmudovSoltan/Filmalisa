@@ -183,3 +183,10 @@ function getDelno() {
   closeModal(movieModal); // Modalı bağla
   location.reload(); // Siyahını yenilə
 }
+
+
+
+function logOutFunc() {
+  localStorage.removeItem("Admin_token");
+  window.location.href = "./login.html";
+}
