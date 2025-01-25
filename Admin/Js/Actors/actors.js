@@ -7,11 +7,10 @@ const editModal = document.querySelector("#editModal"); // Edit Modal
 const overlay = document.querySelector(".owarlay");
 const createBtn = document.querySelector("#createBtn");
 let selectedActorId = null; // Seçilən aktyorun ID-ni saxlamaq üçün dəyişən
-let actorList = [];
 // Modalı bağlama funksiyası
 let selectedidinfo = [];
 const createConfirmBtn = document.querySelector("#createConfirm");
-// const editConfirmBtn = document.querySelector("#editConfirm");
+const editConfirmBtn = document.querySelector("#editConfirm");
 const createNameInput = document.querySelector("#createName");
 const createSurnameInput = document.querySelector("#createSurname");
 const createImageInput = document.querySelector("#createImage");
@@ -82,11 +81,9 @@ async function getActors() {
       }
     );
     const resp = await response.json();
-    resp.data.forEach((element) => {
-      actorList.push(element);
-    });
-
-    actorstable.innerHTML = ""; // Cədvəlin içinə əvvəlki məlumatları sil
+    console.log(resp.data);
+    selectedidinfo = resp.data;
+    console.log("selectedidinfo", selectedidinfo);
     resp.data.forEach((element) => {
       actorstable.innerHTML += `
         <tr>
@@ -107,91 +104,19 @@ async function getActors() {
     console.error(error);
   }
 }
-console.log(actorList, "actorList");
-
-// Seçilmiş aktyoru silən funksiyanı çağıran Yes düyməsi
-yesBtn.addEventListener("click", async () => {
-  if (selectedActorId) {
-    try {
-      await deleteActor(selectedActorId);
-      alert(`Actor with ID ${selectedActorId} has been deleted.`);
-      location.reload(); // Yenidən yükləyərək siyahını yenilə
-    } catch (error) {
-      console.error("Failed to delete actor:", error);
-    }
-    movieModal.classList.remove("active");
-  }
-});
-
-// Seçilmiş aktyoru silən funksiya
-async function deleteActor(actorId) {
-  try {
-    const response = await fetch(
-      `https://api.sarkhanrahimli.dev/api/filmalisa/admin/actor/${actorId}`,
-      {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("Admin_token")}`,
-        },
-      }
-    );
-    if (!response.ok) {
-      throw new Error("Failed to delete the actor.");
-    }
-  } catch (error) {
-    throw error;
-  }
+getActors();
+//edit butonuna basanda
+function editFn(elid) {
+  selectedActorId = elid;
+  console.log("idedit", selectedActorId);
+  const findEl = selectedidinfo.find((item) => item.id == elid);
+  console.log("findEl", findEl);
+  openModal(editModal);
+  editNameInput.value = findEl.name;
+  editSurnameInput.value = findEl.surname;
+  editImageInput.value = findEl.img_url;
 }
-
-// Redaktə düyməsinə basıldığında
-document.querySelector("#editConfirm").addEventListener("click", (event) => {
-  const editBtn = event.target.closest(".table_edit_btn");
-  if (editBtn) {
-    selectedActorId = editBtn.getAttribute("data-id");
-    openModal(editModal); // Edit modalı aç
-    // Redaktə etmək üçün lazım olan məlumatları API-dən çək və modala doldur
-    // fetchActorDetails(selectedActorId);
-  }
-});
-
-// Seçilmiş aktyorun məlumatlarını çək və modala doldur
-
-// async function fetchActorDetails(actorId) {
-//   try {
-//     const response = await fetch(
-//       `https://api.sarkhanrahimli.dev/api/filmalisa/admin/actor/${actorId}`,
-//       {
-//         method: "GET",
-//         headers: {
-//           "Content-Type": "application/json",
-//           Authorization: `Bearer ${localStorage.getItem("Admin_token")}`,
-//         },
-//       }
-//     );
-//     const actor = await response.json();
-//     console.log(actorId);
-
-//     document.querySelector("#editName").value = actor.name;
-//     document.querySelector("#editSurname").value = actor.surname;
-//     document.querySelector("#editImage").value = actor.img_url;
-//   } catch (error) {
-//     console.error("Failed to fetch actor details:", error);
-//   }
-// }
-
-// Aktyor redaktə funksiyası
-const editConfirmBtn = document.querySelector("#editConfirm");
-editConfirmBtn.addEventListener("click", async () => {
-  const name = document.querySelector("#editName").value;
-  const surname = document.querySelector("#editSurname").value;
-  const img_url = document.querySelector("#editImage").src;
-
-  if (!name || !surname || !img_url) {
-    alert("All fields are required!");
-    return;
-  }
-
+async function updateFn() {
   const data = {
     name: editNameInput.value,
     surname: editSurnameInput.value,
@@ -210,29 +135,23 @@ editConfirmBtn.addEventListener("click", async () => {
         body: JSON.stringify(data),
       }
     );
-    console.log(data);
-
-    if (response.ok) {
-      closeModal(editModal);
-      alert("Actor updated successfully!");
-      getActors(); // Yenidən cədvəli yenilə
-    } else {
-      alert("Failed to update actor.");
-    }
-  } catch (err) {
-    console.error("Error updating actor:", err);
+    location.reload();
+  } catch (error) {
+    console.log(error);
+  } finally {
+    selectedActorId = null; // ID-ni sıfırla
   }
-});
-
-// // Aktyor yaratma funksiyası
-// const createConfirmBtn = document.querySelector("#createConfirm");
-createConfirmBtn.addEventListener("click", async () => {
-  const name = document.querySelector("#createName").value;
-  const surname = document.querySelector("#createSurname").value;
-  const img_url = document.querySelector("#createImage").value;
-
-  if (!name || !surname || !img_url) {
-    alert("All fields are required!");
+}
+//silmek ikonuna basanda
+function removeFn(id) {
+  selectedActorId = id;
+  openModal(movieModal);
+  console.log("id budur", selectedActorId);
+}
+//acilan modaldaki yes btn a basanda
+async function getDelyes() {
+  if (!selectedActorId) {
+    console.error("No actor selected for deletion.");
     return;
   }
   try {
@@ -246,41 +165,20 @@ createConfirmBtn.addEventListener("click", async () => {
         },
       }
     );
-
-    if (response.ok) {
-      closeModal(createModal);
-      alert("Actor created successfully!");
-      getActors(); // Yenidən cədvəli yenilə
-    } else {
-      alert("Failed to create actor.");
+    if (!response.ok) {
+      throw new Error("Failed to delete the actor.");
     }
-  } catch (err) {
-    console.error("Error creating actor:", err);
+    alert(`Actor with ID ${selectedActorId} has been deleted.`);
+    closeModal(movieModal); // Modalı bağla
+    location.reload(); // Siyahını yenilə
+  } catch (error) {
+    console.error("Failed to delete the actor:", error);
+    alert("Failed to delete the actor.");
+  } finally {
+    selectedActorId = null; // ID-ni sıfırla
   }
-});
-
-// Get and display actors when the page loads
-getActors();
-
-function editActors(id) {
-  const actor = actorList.find((actor) => actor.id === id);
-  console.log(id);
-  document.querySelector("#editName").value = actor.name;
-  document.querySelector("#editSurname").value = actor.surname;
-  document.querySelector("#editImage").value = actor.img_url;
-  selectedActorId = id;
-  openModal(editModal);
 }
-
 function getDelno() {
   closeModal(movieModal); // Modalı bağla
   location.reload(); // Siyahını yenilə
 }
-
-
-
-function logOutFunc() {
-  localStorage.removeItem("Admin_token");
-  window.location.href = "./login.html";
-}
-
