@@ -229,3 +229,12 @@
   height: 100%;
   z-index: 99;
 }
+
+ .slider> .swiper-slide {
+  flex-shrink: 0;
+  width: auto !important;
+  height: 100%;
+  position: relative;
+  transition-property: transform;
+  display: flex;
+}
