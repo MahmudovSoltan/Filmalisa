@@ -15,7 +15,7 @@ async function getinfo() {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${Admin_token}`,
+          Authorization: `Bearer ${localStorage.getItem("Admin_token")}`,
         },
       }
     );
