@@ -4,6 +4,7 @@ const iconPassword = document.querySelector("#iconPassword");
 const useremailInput = document.querySelector("#email");
 const loginButton = document.querySelector("#loginButton");
 const usernameInput = document.querySelector("#username");
+const registerInfo = document.querySelector("#registerInfo")
 iconPassword.addEventListener("click", () => {
   const type =
     passwordInput.getAttribute("type") === "password" ? "text" : "password";
@@ -22,7 +23,7 @@ loginButton.addEventListener("click", (e) => {
   const username = usernameInput.value.trim();
   const password = passwordInput.value.trim();
   if (!username || !password) {
-    alert("Please fill in both username and password.");
+    registerInfo.innerHTML = ""
     return;
   }
   register();
