@@ -23,7 +23,8 @@ loginButton.addEventListener("click", (e) => {
   const username = usernameInput.value.trim();
   const password = passwordInput.value.trim();
   if (!username || !password) {
-    registerInfo.innerHTML = ""
+    registerInfo.innerHTML = "Registration failed. Please try again."
+    registerInfo.classList.add("error-message")
     return;
   }
   register();
@@ -52,8 +53,11 @@ async function register() {
       const data = await response.json();
       localStorage.setItem("Admin_token", data.token);
       window.location.href = "./login.html";
+      registerInfo.innerHTML = "Your account has been created successfully."
+      registerInfo.classList.add("success-message")
     } else {
-      alert("Invalid username or password");
+        registerInfo.innerHTML ="Invalid username or password";
+        registerInfo.classList.add("error-message")
     }
   } catch (err) {
     console.log(err);
