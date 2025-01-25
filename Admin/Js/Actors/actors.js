@@ -7,7 +7,7 @@ const editModal = document.querySelector("#editModal"); // Edit Modal
 const overlay = document.querySelector(".owarlay");
 const createBtn = document.querySelector("#createBtn");
 let selectedActorId = null; // Seçilən aktyorun ID-ni saxlamaq üçün dəyişən
-let actorList = []
+let actorList = [];
 // Modalı bağlama funksiyası
 function closeModal(modal) {
   if (modal) {
@@ -67,9 +67,9 @@ async function getActors() {
     );
     const resp = await response.json();
     resp.data.forEach((element) => {
-      actorList.push(element)
+      actorList.push(element);
     });
- 
+
     actorstable.innerHTML = ""; // Cədvəlin içinə əvvəlki məlumatları sil
     resp.data.forEach((element) => {
       actorstable.innerHTML += `
@@ -91,8 +91,8 @@ async function getActors() {
     console.error(error);
   }
 }
- console.log(actorList, "actorList");
- 
+console.log(actorList, "actorList");
+
 // Seçilmiş aktyoru silən funksiyanı çağıran Yes düyməsi
 yesBtn.addEventListener("click", async () => {
   if (selectedActorId) {
@@ -155,7 +155,7 @@ document.querySelector("#editConfirm").addEventListener("click", (event) => {
 //     );
 //     const actor = await response.json();
 //     console.log(actorId);
-    
+
 //     document.querySelector("#editName").value = actor.name;
 //     document.querySelector("#editSurname").value = actor.surname;
 //     document.querySelector("#editImage").value = actor.img_url;
@@ -197,7 +197,7 @@ editConfirmBtn.addEventListener("click", async () => {
       }
     );
     console.log(data);
-    
+
     if (response.ok) {
       closeModal(editModal);
       alert("Actor updated successfully!");
@@ -258,7 +258,6 @@ createConfirmBtn.addEventListener("click", async () => {
 // Get and display actors when the page loads
 getActors();
 
-
 function editActors(id) {
   const actor = actorList.find((actor) => actor.id === id);
   console.log(id);
@@ -267,5 +266,4 @@ function editActors(id) {
   document.querySelector("#editImage").value = actor.img_url;
   selectedActorId = id;
   openModal(editModal);
-  
 }
