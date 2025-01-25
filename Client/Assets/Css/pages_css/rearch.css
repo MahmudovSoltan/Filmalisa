@@ -21,6 +21,8 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: flex-start;
+    padding: 0px 40px;
     gap: 30px;
     row-gap: 30px;
 }

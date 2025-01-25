@@ -25,10 +25,17 @@ let itemId = null;
 let mode = true;
 let selectedMovie = null;
 let allMovies = [];
-
+const modal_header = document.querySelector("#modal_header");
+const movieModal3 = document.querySelector("#movieModal3");
+const prev = document.querySelector("#prev");
+const next = document.querySelector("#next");
+const paginationContainer = document.querySelector(".pagination-container"); // Pagination düymələrinin olduğu konteyner
+const perPage = 4;
+let index = 1;
 let multiselctValyu = [];
 let selectedItemsId = null;
 let adultValue = null;
+
 //Sehife acilanda butun filmleri gosterir
 getMoviesFunc();
 
@@ -87,7 +94,10 @@ const attachClickEventToMenu = () => {
         item.classList.add("active"); // Dropdown-da aktiv sinfini əlavə et
 
         const selectedSpan = document.createElement("span");
-        selectedSpan.setAttribute("data-value", item.getAttribute("data-value"));
+        selectedSpan.setAttribute(
+          "data-value",
+          item.getAttribute("data-value")
+        );
         selectedSpan.textContent = item.getAttribute("data-value");
 
         // Silmə düyməsini əlavə et
@@ -104,7 +114,6 @@ const attachClickEventToMenu = () => {
     });
   });
 };
-
 
 // Aktyorları çəkən və menyuya əlavə edən funksiya
 const getActorsFunc = async () => {
@@ -235,9 +244,15 @@ async function getMoviesFunc() {
       allMovies.push(item);
     });
 
+    const allData = movies.data;
+    const newPagination = allData.slice((index - 1) * perPage, index * perPage);
+    console.log(newPagination, "newPagination", allData);
+
+    // Cədvəli təmizləyirik
+
     table_body.innerHTML = "";
 
-    table_body.innerHTML += movies?.data
+    table_body.innerHTML += newPagination
       ?.map((item, i) => {
         return `
                  <tr>
@@ -246,11 +261,13 @@ async function getMoviesFunc() {
                                   item?.cover_url
                                 } alt=""></td>
                                   <td> ${item?.title}</td>
-                                <td>${
-                                  item.overview.length > 200
-                                    ? item.overview.substring(0, 200) + "..."
-                                    : item.overview
-                                }</td>
+                                <td id="owerlay" value="${item.overview}">
+                                
+                                  <div class="overview_div">
+                                   ${item.overview}
+                                  </div>
+                                
+                               </td>
                                 <td>${item?.category?.name}</td>
                                 <td>${item?.imdb}</td>
                                 <td class="table_creat_btn" id="creat" onclick="editMoviesFunc(${
@@ -266,10 +283,55 @@ async function getMoviesFunc() {
       })
       .join("");
 
+    document.querySelectorAll("#owerlay").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        movieModal3.classList.add("active");
+        modal_header.innerHTML = btn.textContent;
+        console.log(btn.textContent, "owerivewContent");
+      });
+    });
+    document.querySelector("#owarlay3").addEventListener("click", () => {
+      movieModal3.classList.remove("active");
+    });
     document.querySelectorAll(".table_delete_btn").forEach((btn) => {
       btn.addEventListener("click", () => {
         movieModal.classList.add("active");
       });
+    });
+    const totalPage = Math.ceil(allData.length / perPage);
+
+    // Dinamik səhifə düymələrini yaradın
+    paginationContainer.innerHTML = ""; // Əvvəlki düymələri təmizləyirik
+    for (let i = 1; i <= totalPage; i++) {
+      const pageButton = document.createElement("button");
+      pageButton.textContent = i;
+      pageButton.classList.add("page-btn");
+      if (i === index) {
+        pageButton.classList.add("active"); // Aktiv səhifə üçün xüsusi sinif
+      }
+      pageButton.addEventListener("click", () => {
+        index = i;
+        getMoviesFunc();
+      });
+      paginationContainer.appendChild(pageButton);
+    }
+
+    // `Prev` düyməsi
+    prev.disabled = index === 1;
+    prev.addEventListener("click", () => {
+      if (index > 1) {
+        index--;
+        getMoviesFunc();
+      }
+    });
+
+    // `Next` düyməsi
+    next.disabled = index === totalPage;
+    next.addEventListener("click", () => {
+      if (index < totalPage) {
+        index++;
+        getMoviesFunc();
+      }
     });
   } catch (err) {
     console.log(err);
@@ -284,7 +346,6 @@ owarlay2.addEventListener("click", closeOwarlay2);
 
 function closeOwarlay2() {
   movieModal.classList.remove("active");
-
 }
 async function creatMoviesFunc(moviData) {
   try {
