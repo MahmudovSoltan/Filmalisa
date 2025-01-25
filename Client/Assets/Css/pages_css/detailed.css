@@ -13,7 +13,7 @@ body {
   gap: 64px;
   box-shadow: var(--LightBlackColor);
   opacity: 90%;
-  z-index: 20;
+  z-index: 22;
   margin-left: 0;
 }
 .logo {
