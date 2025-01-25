@@ -129,7 +129,7 @@ async function deleteActor(actorId) {
 }
 
 // Redaktə düyməsinə basıldığında
-document.addEventListener("click", (event) => {
+document.querySelector("#editConfirm").addEventListener("click", (event) => {
   const editBtn = event.target.closest(".table_edit_btn");
   if (editBtn) {
     selectedActorId = editBtn.getAttribute("data-id");

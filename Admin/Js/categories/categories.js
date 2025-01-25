@@ -146,6 +146,7 @@ async function getCattegories() {
       getCattegories()
       }
     });
+    
   } catch (err) {
     console.log(err);
   }
