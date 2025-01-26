@@ -25,7 +25,7 @@ async function deleteContact(id) {
       }
     );
     const contact = await response.json();
-    console.log("data", contact);
+    console.log("data", id);
   }
   catch (error) {
     console.log(error);
@@ -45,8 +45,8 @@ async function getContact() {
         }
       );
     const contact = await response.json();
-    console.log("data", contact);
-    contact.forEach((contact) => {
+    console.log("data", contact.data);
+    contact.data.forEach((contact) => {
       contactTable.innerHTML += `
       <tr>
       <td>${contact.id}</td>
