@@ -13,12 +13,13 @@ async function getUsers() {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("Dash_token")}`,
+          Authorization: `Bearer ${localStorage.getItem("Admin_token")}`,
         },
       }
     );
     const resp = await response.json();
     const allData = resp.data;
+console.log(resp,"users");
 
     // Tablo məlumatlarını təmizləyirik
     users_table.innerHTML = "";
