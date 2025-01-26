@@ -1,5 +1,5 @@
 table {
-  width: 90%;
+  width: 50% !important;
 }
 
 .movies_right {
@@ -112,4 +112,86 @@ table {
 
 .active {
   display: flex;
+}
+
+
+.page-button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.page-button.active {
+  background-color: #009879;
+  color: white;
+}
+
+.pagination-wrapper {
+  position: absolute;
+  bottom: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#prev,
+#next {
+  width: 100px;
+  border: 1px solid #007bff;
+  background-color: #ffffff;
+  color: #007bff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 35px; /* Digər rəqəmli düymələrlə eyni hündürlük */
+  min-width: 35px; /* Eyni ölçüdə uyğun düymə üçün */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#prev:hover,
+#next:hover {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+.pagination-container {
+  display: flex;
+  gap: 5px;
+}
+
+.pagination-container .page-btn {
+  border: 1px solid #007bff;
+  background-color: #ffffff;
+  color: #007bff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 35px; /* Eyni hündürlük */
+  min-width: 35px; /* Eyni eni */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination-container .page-btn:hover {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+.pagination-container .page-btn.active {
+  background-color: #007bff;
+  color: #ffffff;
+  border-color: #007bff;
 }

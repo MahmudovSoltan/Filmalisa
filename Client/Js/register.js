@@ -4,6 +4,7 @@ const iconPassword = document.querySelector("#iconPassword");
 const useremailInput = document.querySelector("#email");
 const loginButton = document.querySelector("#loginButton");
 const usernameInput = document.querySelector("#username");
+const registerInfo = document.querySelector("#registerInfo")
 iconPassword.addEventListener("click", () => {
   const type =
     passwordInput.getAttribute("type") === "password" ? "text" : "password";
@@ -22,7 +23,8 @@ loginButton.addEventListener("click", (e) => {
   const username = usernameInput.value.trim();
   const password = passwordInput.value.trim();
   if (!username || !password) {
-    alert("Please fill in both username and password.");
+    registerInfo.innerHTML = "Registration failed. Please try again."
+    registerInfo.classList.add("error-message")
     return;
   }
   register();
@@ -51,8 +53,11 @@ async function register() {
       const data = await response.json();
       localStorage.setItem("Admin_token", data.token);
       window.location.href = "./login.html";
+      registerInfo.innerHTML = "Your account has been created successfully."
+      registerInfo.classList.add("success-message")
     } else {
-      alert("Invalid username or password");
+        registerInfo.innerHTML ="Invalid username or password";
+        registerInfo.classList.add("error-message")
     }
   } catch (err) {
     console.log(err);
