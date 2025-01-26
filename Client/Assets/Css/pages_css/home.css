@@ -196,8 +196,11 @@
 .swiper_card_content {
   position: absolute;
   bottom: 0;
-  left: 24px;
-  z-index: 9999;
+  left: 0px;
+  z-index: 9999999;
+  width: 100%;
+  padding-left: 25px;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 .swiper_card_content .swiper_content_top {
   margin-bottom: 20px;
@@ -213,14 +216,15 @@
   color: var(--WhiteColor);
 }
 
-.owarlay {
-  position: fixed;
+/* .owarlay {
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-}
+
+  z-index: 99999;
+} */
 
 .home_secont_container {
   position: relative;
