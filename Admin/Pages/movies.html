@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../Assets/Css/global_css/global.css">
     <link rel="stylesheet" href="../Assets/Css/pages_css/movies.css">
     <link rel="stylesheet" href="../Assets/Css/pages_css/comment.css" />
+    <script src="../Js/Auth/auth.js" defer></script>
   </head>
 
   <body>
@@ -218,6 +219,19 @@
     </section>
 
     <!-- 3 MODAL END -->
+
+    <div class="modal-success" id="modal-success">
+      <h2>Bu uğurlu bir modal nümunəsidir!</h2>
+      <p>Burada düzgün kontrast, yerləşmə və istifadəçi təcrübəsi var.</p>
+      <button>Bağla</button>
+    </div>
+
+    <div class="modal-fail" id="modal-fail">
+      <h2>Bu uğursuz bir modal nümunəsidir!</h2>
+      <p>Rənglər, yerləşmə və üslubla problemlər var.</p>
+      <button onclick="closeModal('fail')">Bağla</button>
+    </div>
+
 
 
     <script src="../Js/Movies/movies.js"></script>
