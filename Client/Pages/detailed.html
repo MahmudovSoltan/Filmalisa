@@ -6,11 +6,13 @@
     <title>Detailed</title>
     <link rel="stylesheet" href="../Assets/Css/global_css/global.css" />
     <link rel="stylesheet" href="../Assets/Css/pages_css/detailed.css" />
-    <!-- <link rel="stylesheet" href="../Assets/Css/pages_css/home.css" /> -->
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
+    <script src="../Js/auth.js" defer></script>
+    <script src="../Js/errorPage.js" defer></script>
   </head>
 
   <body>
@@ -19,17 +21,25 @@
 
       <div class="left_sidebar">
         <div class="logo">
-          <a href="../../index.html"><img src="../Assets/Icons/logo.svg" alt=""></a>
+          <a href="../../index.html"
+            ><img src="../Assets/Icons/logo.svg" alt=""
+          /></a>
         </div>
         <div class="aside_links">
           <div class="aside_link">
-            <a href="./home.html"><img src="../Assets/Icons/homeIcon.svg" alt="" /></a>
+            <a href="./home.html"
+              ><img src="../Assets/Icons/homeIcon.svg" alt=""
+            /></a>
           </div>
           <div class="aside_link">
-            <a href="./search.html"><img src="../Assets/Icons/searchIcon.svg" alt="" /></a>
+            <a href="./search.html"
+              ><img src="../Assets/Icons/searchIcon.svg" alt=""
+            /></a>
           </div>
           <div class="aside_link">
-            <a href="./account.html"><img src="../Assets/Icons/accountIcon.svg" alt="" /></a>
+            <a href="./account.html"
+              ><img src="../Assets/Icons/accountIcon.svg" alt=""
+            /></a>
           </div>
           <div class="aside_link">
             <a href="./favorites.html"
@@ -52,18 +62,21 @@
     </div>
     <div class="container2">
       <div class="lostinspimage">
-        <img class="image1" src="../Assets/images/lostinspaceimg.svg" alt="" />
+        <img id="fragmanimage" class="image1" src="" alt="" />
         <img
+          id="playfragmanbtn"
           class="hoverplaybtn"
           src="../Assets/Icons/playbtnhover.svg"
           alt=""
         />
       </div>
-      <div class="lostspaseinfo">
+      <div class="lostspaseinfo" id="lostspaseinfo">
         <div class="texthead">
           Have you seen our robot?
-          <button class="watclinkbtn">Watch Link</button>
-          <button class="plus">
+          <button class="watclinkbtn" id="watchlinkbtn">
+            <a id="watchlinkhref" href="">Watch Link</a>
+          </button>
+          <button class="plus" id="adfavbtn">
             <img src="../Assets/Icons/+icon.svg" alt="" />
           </button>
         </div>
@@ -117,8 +130,8 @@
         <p class="topcastext">Top Cast</p>
         <div class="top_cast">
           <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
+            <div class="swiper-wrapper" id="topactors">
+              <!-- <div class="swiper-slide">
                 <div>
                   <img src="../Assets/images/topcastimage.svg" alt="" />
                   <p class="topcastext1">maxwell jenkins</p>
@@ -159,7 +172,7 @@
                   <p class="topcastext1">maxwell jenkins</p>
                   <p class="topcastext2">tony slack</p>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
