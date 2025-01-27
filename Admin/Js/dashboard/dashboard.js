@@ -9,21 +9,18 @@ const cardcontainer = document.querySelector("#cardcontainer");
 
 async function getinfo() {
   try {
-    const token =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsInN1YiI6MywiaWF0IjoxNzM3MjA3MjA2LCJleHAiOjE3NjgzMTEyMDZ9.tIYNB1De_mp7T0z1ymWbCxnuFJjnGuJSVfM_jZ56IUY";
     const responce = await fetch(
       "https://api.sarkhanrahimli.dev/api/filmalisa/admin/dashboard",
       {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${localStorage.getItem("Admin_token")}`,
         },
       }
     );
     const resp = await responce.json();
 
-    localStorage.setItem("Dash_token", token);
     console.log(resp.data);
     const element = resp.data;
 
@@ -70,11 +67,7 @@ async function getinfo() {
 }
 getinfo();
 
-
-
-
-
 function logOutFunc() {
-  localStorage.removeItem("Admin_token")
-  window.location.href = './login.html'
+  localStorage.removeItem("Admin_token");
+  window.location.href = "./login.html";
 }

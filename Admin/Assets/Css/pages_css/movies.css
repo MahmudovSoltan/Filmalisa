@@ -1,3 +1,5 @@
+
+
 .movies_main_container {
   display: flex;
   gap: 24px;
@@ -16,7 +18,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 96px;
+  margin-bottom: 40px;
 }
 .right_top_left h6 {
   font-family: var(--RalewayFont);
@@ -72,7 +74,7 @@ thead {
 table tr th {
   padding: 16px;
   text-align: center;
-  font-family: var( --RobotoFont);
+  font-family: var(--RobotoFont);
   font-size: 14px;
   font-weight: 400;
   line-height: 16.1px;
@@ -81,7 +83,7 @@ table tr th {
 table tr td {
   padding: 16px;
   text-align: center;
-  font-family: var( --RobotoFont);
+  font-family: var(--RobotoFont);
   font-size: 14px;
   font-weight: 400;
   line-height: 16.1px;
@@ -96,10 +98,12 @@ table tr:last-child td:last-child {
   border-bottom-right-radius: 4px;
 }
 table tr:last-child th:first-child {
+  width: 50px;
   border-top-left-radius: 4px;
 }
 table tr:last-child th:last-child {
   border-top-right-radius: 4px;
+  width: 50px;
 }
 tbody tr {
   background-color: var(--WhiteColor);
@@ -129,13 +133,14 @@ tbody tr {
   top: 0;
   left: 0;
   width: 100%;
+  height: 100vh;
   padding-bottom: 118px;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   color: white;
-  padding-top: 10px;
+  padding-top: 30%;
 }
 .active {
   display: flex;
@@ -152,7 +157,8 @@ tbody tr {
 .modal_container {
   z-index: 999;
   display: flex;
-  gap: 84px;
+  align-items: center;
+  justify-content: center;
 }
 .modal_form {
   display: flex;
@@ -163,7 +169,7 @@ tbody tr {
 }
 .form_input {
   border: 1px solid var(--inputBorderColor);
-  width: 550px;
+  /* width: 550px; */
   padding: 16px 20px;
   margin-bottom: 20px;
   border-radius: 12px;
@@ -264,7 +270,7 @@ select {
   border-radius: 5px;
   bottom: -150px;
   left: 0;
-  background-color: var( --mainbackgroundColorBlack);
+  background-color: var(--mainbackgroundColorBlack);
   z-index: 1;
   max-height: 150px;
   overflow-y: auto;
@@ -291,18 +297,12 @@ select {
   color: green;
 }
 
-
-
-
-
-
-
 table {
   width: 100%;
   border-collapse: collapse;
   margin: 20px 0;
   font-size: 1em;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   min-width: 400px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
@@ -313,19 +313,17 @@ thead tr {
   text-align: left;
 }
 
-th, td {
+th,
+td {
   padding: 12px 15px;
 }
-
-
-
-
 
 tbody tr:hover {
   background-color: #f1f1f1;
 }
 
-.table_creat_btn, .table_delete_btn {
+.table_creat_btn,
+.table_delete_btn {
   cursor: pointer;
 }
 
@@ -338,14 +336,100 @@ tbody tr:hover {
   height: auto;
   border-radius: 5px;
 }
-
-.selectedlis-container span{
+.overview_div{
+  height: 50px;
+  overflow: hidden;
+}
+.selectedlis-container span {
   position: relative;
 }
 
-.delete-btn{
+.delete-btn {
   position: absolute;
   top: -5px;
   right: -27px;
   cursor: pointer;
+}
+
+
+
+.page-button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.page-button.active {
+  background-color: #009879;
+  color: white;
+}
+
+.pagination-wrapper {
+  position: absolute;
+  bottom: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#prev,
+#next {
+  width: 100px;
+  border: 1px solid #007bff;
+  background-color: #ffffff;
+  color: #007bff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 35px; /* Digər rəqəmli düymələrlə eyni hündürlük */
+  min-width: 35px; /* Eyni ölçüdə uyğun düymə üçün */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#prev:hover,
+#next:hover {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+.pagination-container {
+  display: flex;
+  gap: 5px;
+}
+
+.pagination-container .page-btn {
+  border: 1px solid #007bff;
+  background-color: #ffffff;
+  color: #007bff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 35px; /* Eyni hündürlük */
+  min-width: 35px; /* Eyni eni */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination-container .page-btn:hover {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+.pagination-container .page-btn.active {
+  background-color: #007bff;
+  color: #ffffff;
+  border-color: #007bff;
 }

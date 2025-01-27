@@ -1,8 +1,7 @@
 // Şifrəni göstərmək/gizlətmək funksiyası
 const passwordInput = document.querySelector("#password");
 const iconPassword = document.querySelector("#iconPassword");
-console.log(passwordInput);
-console.log(iconPassword);
+const registerInfo = document.querySelector("#registerInfo");
 
 iconPassword.addEventListener("click", () => {
   const type =
@@ -29,7 +28,8 @@ loginButton.addEventListener("click", (e) => {
 
   // Boşluq yoxlanışı
   if (!useremail || !password) {
-    alert("Please fill in both useremail and password.");
+    registerInfo.innerHTML = "Please fill in both useremail and password.";
+    registerInfo.classList.add("error-message");
     return;
   }
   login();
@@ -55,16 +55,21 @@ async function login() {
     );
 
     const data = await response.json();
-    const login_token = data.data.tokens.access_token
-  localStorage.setItem("login_token",login_token)
-     console.log(data);
-     
+    const login_token = data.data.tokens.access_token;
+    localStorage.setItem("login_token", login_token);
+    console.log(data);
+
     if (data.data.tokens.access_token) {
       window.location.href = "./home.html";
+      registerInfo.innerHTML = "Your account has been created successfully.";
+      registerInfo.classList.add("success-message");
     } else {
-      alert("Invalid useremail or password");
+      registerInfo.innerHTML = "Invalid username or password";
+      registerInfo.classList.add("error-message");
     }
   } catch (err) {
     console.log(err);
+    registerInfo.innerHTML = "Invalid username or password";
+    registerInfo.classList.add("error-message");
   }
 }

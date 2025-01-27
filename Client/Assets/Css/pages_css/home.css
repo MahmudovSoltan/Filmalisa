@@ -14,19 +14,41 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  overflow: hidden;
 }
 
 .swiper-slide img {
   display: block;
   width: 100%;
   object-fit: cover;
+  transition: all 0.3s ease-in-out;
+}
+
+.swiper-slide:hover img {
+  transform: scale(1.09);
 }
 
 .swiper_image img {
   width: 100%;
   height: 100vh;
 }
-
+.slider_whatch_link a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  color: var(--WhiteColor);
+  font-family: var(--RobotoFont);
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  height: 0;
+  font-weight: 500;
+  margin-left: 10px;
+}
+.swiper-slide:hover .slider_whatch_link a {
+  height: 20px;
+  margin-bottom: 20px;
+}
 .swiper-pagination-bullet-active {
   background-color: var(--WhiteColor) !important;
 }
@@ -74,20 +96,7 @@
   line-height: 32px;
   text-align: left;
   color: var(--WhiteColor);
-}
-.watch_btn {
-  display: flex;
-  align-items: flex-start;
-  width: 188px;
-  height: 54px;
-  background-color: transparent;
-  /* z-index: 999 !important; Z-index-in təsir edilməsi üçün əlavə qeyd */
-  margin-top: 20px;
-  border-radius: 40px; /* Elementin kənarlarının yumşaldılması üçün */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Mənbənin önə çıxması üçün kölgə */
-  color: white; /* Mətni görmək üçün rəng */
-  position: relative; /* Mövqe istifadəsi üçün */
-  overflow: hidden; /* Yığılmış elementlərin sıxılmış vizual görünməsi üçün */
+  padding-bottom: 20px;
 }
 
 .watch_link {
@@ -96,26 +105,37 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 40px;
+  background-color: transparent; /* Daxilindəki fon rəngi şəffafdır */
+  color: var(--WhiteColor); /* Mətnin rəngi */
+  position: relative; /* Overlay effektlər üçün mövqe */
+  z-index: 1; /* Üst qatdadır */
+  border: 2px solid transparent; /* Şəffaf sərhəd */
+  border-radius: 40px; /* Radiuslu künclər üçün */
   background-image: linear-gradient(
     135.87deg,
     #0feffd 1.25%,
     #ff00f5 51.73%,
     rgba(15, 239, 253, 0.22) 77.22%
-  );
-  color: white; /* Mətnin görünməsi üçün */
+  ); /* Gradient fon */
+  background-origin: border-box; /* Gradient sərhədə aid edilir */
+  background-clip: border-box; /* Gradient sərhədi göstərmək üçün kəsilir */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Çox yüngül kölgə */
+}
+
+.watch_link::before {
+  content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-  /* z-index: -1; */
+  inset: 0; /* Elementin tam içərisini doldur */
+  background-color: var(--mainbackgroundColorBlack);
+  border-radius: 40px; /* Künclər sərhədə uyğun */
+  z-index: -1; /* Gradient sərhədin arxasında qalır */
 }
 
 /* CATEGORY CSS START */
 
 .category_title {
   margin-top: 28px;
-  margin-bottom: 20px;
+  padding: 20px 0;
   margin-left: 40px;
   color: var(--WhiteColor);
   display: flex;
@@ -165,10 +185,10 @@
 .swiper-slide:nth-child(7) {
   background: #cc7dae;
 }
-.swiper_card {
-  position: relative;
-  /* height: 644px !important; */
+.swiper_card5 img {
+  height: 380px;
 }
+
 .swiper_card2 img {
   height: 644px !important;
   background-color: transparent;
@@ -177,6 +197,7 @@
   position: absolute;
   bottom: 0;
   left: 24px;
+  z-index: 9999;
 }
 .swiper_card_content .swiper_content_top {
   margin-bottom: 20px;
@@ -198,5 +219,22 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.home_secont_container {
+  position: relative;
+  background-color: var(--mainbackgroundColorBlack);
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+}
+
+ .slider> .swiper-slide {
+  flex-shrink: 0;
+  width: auto !important;
+  height: 100%;
+  position: relative;
+  transition-property: transform;
+  display: flex;
 }

@@ -59,7 +59,7 @@ async function createActor(actordata) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("Dash_token")}`,
+          Authorization: `Bearer ${localStorage.getItem("Admin_token")}`,
         },
         body: JSON.stringify(actordata),
       }
@@ -80,7 +80,7 @@ async function getActors() {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("Dash_token")}`,
+          Authorization: `Bearer ${localStorage.getItem("Admin_token")}`,
         },
       }
     );
@@ -94,7 +94,7 @@ async function getActors() {
           <td>${element.id}</td>
           <td>${element.name}</td>
           <td>${element.surname}</td>
-          <td style="display: flex;justify-content: center;"><img class="tableimage" src="${element.img_url}" alt="Actor Image" /></td>
+          <td><img class="tableimage" src="${element.img_url}" alt="Actor Image" /></td>
           <td class="table_edit_btn" onclick="editFn(${element.id})">
           <i class="fa-solid fa-pen"></i>
           </td>
@@ -134,7 +134,7 @@ async function updateFn() {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("Dash_token")}`,
+          Authorization: `Bearer ${localStorage.getItem("Admin_token")}`,
         },
         body: JSON.stringify(data),
       }
@@ -165,7 +165,7 @@ async function getDelyes() {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("Dash_token")}`,
+          Authorization: `Bearer ${localStorage.getItem("Admin_token")}`,
         },
       }
     );
@@ -186,8 +186,6 @@ function getDelno() {
   closeModal(movieModal); // Modalı bağla
   location.reload(); // Siyahını yenilə
 }
-
-
 
 
 
