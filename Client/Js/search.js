@@ -37,3 +37,20 @@ async function searchfunc() {
   }
 }
 searchfunc();
+
+
+
+
+
+const routes = {
+  "/": "<h1>Home Page</h1>",
+  "/about": "<h1>About Page</h1>",
+};
+const appDiv = document.getElementById("app");
+const currentPath = window.location.pathname;
+if (routes[currentPath]) {
+  appDiv.innerHTML = routes[currentPath];
+} else {
+  appDiv.innerHTML = "<h1>404 - Page Not Found</h1>";
+}
+
