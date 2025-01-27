@@ -250,3 +250,10 @@ function closeModal() {
   sucsesfullModal.classList.remove("active");
   failModal.classList.remove("active");
 }
+
+
+
+function logOutFunc() {
+  localStorage.removeItem("Admin_token")
+  window.location.href = './login.html'
+}

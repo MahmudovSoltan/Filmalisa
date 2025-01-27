@@ -2,7 +2,7 @@ const movieModal = document.querySelector("#movieModal");
 const deleteBtn = document.querySelector(".table_delete_btn");
 const exitModal = document.querySelector(".owarlay");
 const contactTable = document.querySelector("#contact_table");
-
+const loading = document.querySelector("#loading")
 
 deleteBtn.addEventListener("click", () => {
   movieModal.classList.add("active");
@@ -14,6 +14,7 @@ exitModal.addEventListener("click", () => {
 
 
 async function deleteContact(id) {
+  loading.classList.remove("loadFalse")
   try {
     const response = await fetch(
       `https://api.sarkhanrahimli.dev/api/filmalisa/admin/contacts/${id}`,
@@ -26,6 +27,7 @@ async function deleteContact(id) {
     );
     const contact = await response.json();
     console.log("data", id);
+    loading.classList.add("loadFalse")
   }
   catch (error) {
     console.log(error);
@@ -59,6 +61,7 @@ async function getContact() {
     </tr>
       `
     })
+    loading.classList.add("loadFalse")
   }
   catch (error) {
     console.log(error);

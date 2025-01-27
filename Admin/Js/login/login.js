@@ -2,6 +2,7 @@
 const passwordInput = document.querySelector("#password");
 const iconPassword = document.querySelector("#iconPassword");
 
+loading.classList.add("loadFalse")
 iconPassword.addEventListener("click", () => {
   const type =
     passwordInput.getAttribute("type") === "password" ? "text" : "password";
