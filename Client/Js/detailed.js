@@ -54,7 +54,10 @@ const adfavbtn = document.querySelector("#adfavbtn");
 const watchlinkhref = document.querySelector("#watchlinkhref");
 const topactors = document.querySelector("#topactors");
 const fragmanimage = document.querySelector("#fragmanimage");
-
+const rightpanelbackimg = document.querySelector("#rightpanelbackimg");
+const commentinput = document.querySelector("#commentinput");
+const addcomentbtn = document.querySelector("#addcomentbtn");
+const addedcommentare = document.querySelector("#addedcommentare");
 //watchlik function START
 
 watchlinkbtn.addEventListener("click", function () {
@@ -74,9 +77,10 @@ async function getWatch() {
       }
     );
     const responce = await resp.json();
-    console.log("responce", responce.data.cover_url);
+    console.log("responcecover", responce.data.cover_url);
 
     fragmanimage.src = responce.data.cover_url;
+    rightpanelbackimg.style.backgroundImage = `url('${responce.data.cover_url}')`;
     const apifragmanlink = responce.data.fragman
       .split("youtu.be/")[1]
       ?.split("?")[0]; // ID `youtu.be/`-dən sonra gəlir
@@ -114,6 +118,133 @@ async function getWatch() {
 }
 getWatch();
 //watchlik function END
+let comments = [];
+
+//comment function start
+//add butonuna basanda
+addcomentbtn.addEventListener("click", function () {
+  const data = {
+    comment: commentinput.value,
+  };
+  if (data.comment.trim() === "") {
+    alert("Şərh daxil edin!");
+    return;
+  }
+  console.log("data", data);
+  commentinput.value = "";
+
+  creatComment(data);
+});
+// comment yaradan funksiya
+async function creatComment(commentdata) {
+  try {
+    const responce = await fetch(
+      `https://api.sarkhanrahimli.dev/api/filmalisa/movies/${postId}/comment`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("login_token")}`,
+        },
+        body: JSON.stringify(commentdata),
+      }
+    );
+    const data2 = await responce.json();
+    console.log("data2", data2);
+
+    console.log("data2", data2.data);
+
+    comments.unshift(data2.data);
+    comments.forEach((element) => {
+      addedcommentare.innerHTML = `
+      <div class="comhead">
+        <div class="comheadlogo">
+          <img src="../Assets/Icons/adminlogo.svg" alt="" />
+          <p>Anonymous</p>
+        </div>
+        <div>
+          <p>${new Date(element.created_at).toLocaleString()}</p>
+        </div>
+      </div>
+      <div class="comtext">
+        <p>
+        ${element.comment}
+        </p>
+      </div>
+      `;
+    });
+    getComments();
+  } catch (error) {
+    console.log("error", error);
+  }
+}
+
+//comment function  end
+//comentlri gosteren funksiya start
+async function getComments() {
+  try {
+    const responce = await fetch(
+      `https://api.sarkhanrahimli.dev/api/filmalisa/movies/${postId}/comments`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("login_token")}`,
+        },
+      }
+    );
+    const res = await responce.json();
+
+    console.log("commentsdata", res.data);
+    res.data.forEach((element) => {
+      addedcommentare.innerHTML += `
+       <div class="comhead">
+        <div class="comheadlogo">
+          <img src="../Assets/Icons/adminlogo.svg" alt="" />
+          <p>Anonymous</p>
+        </div>
+        <div>
+          <p>${new Date(element.created_at).toLocaleString()}</p>
+        </div>
+      </div>
+      <div class="comtext">
+        <p>
+        ${element.comment}
+        </p>
+      </div>
+      
+      `;
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
+getComments();
+//comentlri gosteren funksiya end
+
+//similar get funksiya start
+async function getSimilar() {
+  try {
+    const responce = await fetch(
+      "https://api.sarkhanrahimli.dev/api/filmalisa/categories",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("login_token")}`,
+        },
+      }
+    );
+    const res = await responce.json();
+
+    console.log("similardata", res.data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+getSimilar();
+
+//similar get funksiya end
 
 //IFRAME START
 

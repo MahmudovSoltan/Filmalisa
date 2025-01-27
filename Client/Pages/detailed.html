@@ -48,7 +48,7 @@
       </div>
       <!-- ASIDE BAR END -->
 
-      <div class="rightpanel">
+      <div class="rightpanel" id="rightpanelbackimg">
         <div class="lostinspace">
           <p class="txt1">
             MaileHereko&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -70,7 +70,7 @@
       </div>
       <div class="lostspaseinfo" id="lostspaseinfo">
         <div class="texthead">
-          Have you seen our robot?
+          <a href="">Have you seen our robot?</a>
           <button class="watclinkbtn" id="watchlinkbtn">
             <a id="watchlinkhref" href="">Watch Link</a>
           </button>
@@ -180,18 +180,19 @@
       <img src="../Assets/Icons/adminlogo.svg" alt="" />
 
       <input
+        id="commentinput"
         class="commentinput"
         type="text"
         id="commentInput"
         autocomplete="off"
         placeholder="Your Comment..."
       />
-      <button class="addcombtn" onclick="addComment()">
+      <button class="addcombtn" onclick="addComment()" id="addcomentbtn">
         <img src="../Assets/Icons/commentaddbtn.svg" alt="" />
       </button>
     </div>
-    <div class="addedcomment" id="addedcomment">
-      <div class="comhead">
+    <div class="addedcomment" id="addedcommentare">
+      <!-- <div class="comhead">
         <div class="comheadlogo">
           <img src="../Assets/Icons/adminlogo.svg" alt="" />
           <p>Sarkhan Rahimli</p>
@@ -205,7 +206,7 @@
           Woah, your project looks awesome! How long have you been coding for? I
           am still new, but think I want to dive into React as well soon.
           Perhaps you can give me an insight on where I can learn React? Thanks!
-        </p>
+        </p> -->
       </div>
     </div>
     <!-- Swiper 3 -->
