@@ -97,7 +97,7 @@
         </div>
         <!-- Table start -->
         <div class="movies_table_container">
-          <table id="contact_table">
+          <table >
             <thead>
               <tr>
                 <th>ID</th>
@@ -107,24 +107,15 @@
                 <th>Remove</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
+            <tbody id="contact_table">
+              <tr >
                 <td>1</td>
                 <td>Jhon Doe</td>
-<<<<<<< HEAD
-                <td>Jhondoe@gmail.com</td>
-                <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, quod.</td>
-                <td class="table_creat_btn" id="creat">
-                  <i class="fa-solid fa-pen-to-square"></i>
-                </td>
-=======
+
                 <td>Jhondoe@gmail.com</td
                 <td>Lorem ipsum dolor sit consectetur, adipisicing elit. Tempora, quod.</td>
-                <td class="table_creat_btn" id="creat">
-                  <i class="fa-solid fa-pen-to-square"></i>
-                </td>
                 <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, quod.</td>
->>>>>>> 06701d55a6f41c115f2719cbaf419b748ddf1821
+
                 <td class="table_delete_btn" id="deletebtn">
                   <i class="fa-solid fa-trash"></i>
                 </td>
@@ -142,8 +133,8 @@
                 Are you sure you want to delete this Contact?
               </div>
               <div class="modal-actions">
-                <button class="btn btn-confirm">Yes</button>
-                <button class="btn btn-cancel">No</button>
+                <button class="btn btn-confirm" onclick="deleteContact()">Yes</button>
+                <button class="btn btn-cancel" onclick="closeModal()">No</button>
               </div>
             </div>
           </div>
