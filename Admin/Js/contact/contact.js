@@ -1,19 +1,34 @@
 const movieModal = document.querySelector("#movieModal");
 const exitModal = document.querySelector(".owarlay");
 const contactTable = document.querySelector("#contact_table");
-
+const loading = document.querySelector("#loading")
 
 
 exitModal.addEventListener("click", () => {
   movieModal.classList.remove("active");
 });
 
-let contactId = null;
-function handleId (id) {
-contactId=id;
-}
-function closeModal () {
-  movieModal.classList.remove("active");
+
+
+async function deleteContact(id) {
+  loading.classList.remove("loadFalse")
+  try {
+    const response = await fetch(
+      `https://api.sarkhanrahimli.dev/api/filmalisa/admin/contacts/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("Admin_token")}`,
+        },
+      }
+    );
+    const contact = await response.json();
+    console.log("data", id);
+    loading.classList.add("loadFalse")
+  }
+  catch (error) {
+    console.log(error);
+  }
 }
 
 
@@ -44,6 +59,7 @@ async function getContact() {
     </tr>
       `
     })
+    loading.classList.add("loadFalse")
     const deleteBtn = document.querySelectorAll(".table_delete_btn");
     deleteBtn.forEach ((btn) => {
       btn.addEventListener("click", () => {

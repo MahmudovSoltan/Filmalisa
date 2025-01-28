@@ -316,6 +316,7 @@ async function getMoviesFunc() {
       });
       paginationContainer.appendChild(pageButton);
     }
+    
     loading.classList.add("loadFalse")
   } catch (err) {
     console.log(err);

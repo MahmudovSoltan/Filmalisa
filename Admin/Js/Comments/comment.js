@@ -1,9 +1,8 @@
 const movieModal = document.querySelector("#movieModal");
 const deleteBtn = document.querySelector(".table_delete_btn");
 const exitModal = document.querySelector(".owarlay");
-const prev = document.querySelector("#prev");
-const next = document.querySelector("#next");
-const paginationContainer = document.querySelector(".pagination-container"); // Pagination düymələrinin olduğu konteyner
+const loading = document.querySelector("#loading")
+const paginationContainer = document.querySelector(".pagination-container"); 
 const perPage = 4;
 let index = 1;
 
@@ -104,29 +103,14 @@ async function getCommnetsFunc() {
       paginationContainer.appendChild(pageButton);
     }
 
-    // `Prev` düyməsi
-    prev.disabled = index === 1;
-    prev.addEventListener("click", () => {
-      if (index > 1) {
-        index--;
-        getCommnetsFunc();
-      }
-    });
-
-    // `Next` düyməsi
-    next.disabled = index === totalPage;
-    next.addEventListener("click", () => {
-      if (index < totalPage) {
-        index++;
-        getCommnetsFunc();
-      }
-    });
+    loading.classList.add("loadFalse")
   } catch (err) {
     console.log(err);
   }
 }
 getCommnetsFunc();
 async function deleteCommentFunc() {
+  loading.classList.remove("loadFalse")
   try {
     const response = await fetch(
       `https://api.sarkhanrahimli.dev/api/filmalisa/admin/movies/${movieId}/comment/${itemId}`,
@@ -142,6 +126,7 @@ async function deleteCommentFunc() {
     console.log(data);
     getCommnetsFunc();
     movieModal.classList.remove("active");
+    loading.classList.add("loadFalse")
   } catch (err) {
     console.log(err);
   }
