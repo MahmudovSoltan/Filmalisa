@@ -121,6 +121,7 @@ body {
   line-height: 32px;
   color: var(--textwhitecolor3);
 }
+
 .watclinkbtn {
   font-size: 16px;
   font-weight: 400;
@@ -133,6 +134,13 @@ body {
 }
 .plus {
   padding-left: 110px;
+}
+.addfavbtn.activefav {
+  color: rgb(239, 8, 8);
+}
+.addfavbtn {
+  cursor: pointer;
+  color: #fff;
 }
 .textbody1 {
   font-size: 22px;
@@ -250,7 +258,9 @@ table tr td {
   margin-left: 80px;
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 55%;
+  height: 250px;
+  overflow: auto;
   border-radius: 8px;
   border: 2px solid var(--PlaceholderColor);
   margin-bottom: 20%;
@@ -274,6 +284,10 @@ table tr td {
   font-weight: 500;
   line-height: 24px;
   gap: 12px;
+}
+.comtext {
+  padding-left: 10%;
+  margin-bottom: 30px;
 }
 /* SWEIPER CSS START */
 .category_title {
@@ -360,6 +374,13 @@ table tr td {
 
 .swiper-pagination-bullet-active {
   background-color: var(--WhiteColor) !important;
+}
+
+.similarswiper > .swiper-slide img {
+  display: block !important;
+  width: 100% !important;
+  height: 20% !important;
+  object-fit: cover !important;
 }
 /* SWEIPER CSS END */
 .swiper-wrapper {
