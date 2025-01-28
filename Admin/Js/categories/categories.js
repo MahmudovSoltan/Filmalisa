@@ -7,6 +7,7 @@ const delete2 = document.querySelector("#delete");
 const modal_section = document.querySelector(".modal_section");
 const table_body = document.querySelector("#table_body");
 const creatInput = document.querySelector("#creatInput");
+const loading = document.querySelector("#loading")
 let deleteId = null;
 let selectedCatid = null;
 let allCategories = [];
@@ -129,23 +130,7 @@ async function getCattegories() {
       paginationContainer.appendChild(pageButton);
     }
 
-    // `Prev` düyməsi
-    prev.disabled = index === 1;
-    prev.addEventListener("click", () => {
-      if (index > 1) {
-        index--;
-      getCattegories()
-      }
-    });
-
-    // `Next` düyməsi
-    next.disabled = index === totalPage;
-    next.addEventListener("click", () => {
-      if (index < totalPage) {
-        index++;
-      getCattegories()
-      }
-    });
+    loading.classList.add("loadFalse")
     
   } catch (err) {
     console.log(err);
@@ -154,6 +139,7 @@ async function getCattegories() {
 getCattegories();
 
 async function deleteCategory() {
+  loading.classList.remove("loadFalse")
   try {
     const response = await fetch(
       `https://api.sarkhanrahimli.dev/api/filmalisa/admin/category/${deleteId}`,
@@ -169,12 +155,14 @@ async function deleteCategory() {
     console.log(deleteId);
     window.location.reload();
     movieModal.classList.remove("active");
+    loading.classList.add("loadFalse")
   } catch (err) {
     console.log(err);
   }
 }
 
 async function createCategory(data) {
+  loading.classList.remove("loadFalse")
   try {
     const response = await fetch(
       `https://api.sarkhanrahimli.dev/api/filmalisa/admin/category`,
@@ -188,6 +176,7 @@ async function createCategory(data) {
       }
     );
     window.location.reload();
+    loading.classList.add("loadFalse")
   } catch (err) {
     console.log(err);
     

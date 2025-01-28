@@ -6,7 +6,7 @@ const categoriesnum = document.querySelector("#categoriesnum");
 const actorsnum = document.querySelector("#actorsnum");
 const contactnum = document.querySelector("#contactnum");
 const cardcontainer = document.querySelector("#cardcontainer");
-
+const loading = document.querySelector("#loading")
 async function getinfo() {
   try {
     const responce = await fetch(
@@ -61,6 +61,7 @@ async function getinfo() {
             <div class="number" id="contactnum">${element.contacts}</div>
           </div>
         `;
+        loading.classList.add("loadFalse")
   } catch (error) {
     console.log(error);
   }
