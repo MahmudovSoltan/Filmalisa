@@ -3,6 +3,8 @@ const deleteBtn = document.querySelector(".table_delete_btn");
 const exitModal = document.querySelector(".owarlay");
 const loading = document.querySelector("#loading")
 const paginationContainer = document.querySelector(".pagination-container"); 
+const sucsesfullModal = document.querySelector("#modal-success")
+const failModal = document.querySelector("#modal-fail")
 const perPage = 4;
 let index = 1;
 
@@ -127,10 +129,23 @@ async function deleteCommentFunc() {
     getCommnetsFunc();
     movieModal.classList.remove("active");
     loading.classList.add("loadFalse")
+    if (data.statusCode === 400) {
+      failModal.classList.add("active")
+    }else{
+      sucsesfullModal.classList.add("active")
+    }
   } catch (err) {
     console.log(err);
   }
 }
+
+
+function closeModal() {
+  sucsesfullModal.classList.remove("active")
+   owarlay2.style.display = "none";
+   failModal.classList.remove("active")
+ }
+
 
 function logOutFunc() {
   localStorage.removeItem("Admin_token");

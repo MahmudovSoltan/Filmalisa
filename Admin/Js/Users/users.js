@@ -1,6 +1,7 @@
 const prev = document.querySelector("#prev");
 const next = document.querySelector("#next");
 const paginationContainer = document.querySelector(".pagination-container");
+const loading = document.querySelector("#loading")
 const perPage = 5;
 let index = 1;
 
@@ -20,7 +21,7 @@ async function getUsers() {
     const resp = await response.json();
     const allData = resp.data;
 console.log(resp,"users");
-
+loading.classList.add("loadFalse")
     // Tablo məlumatlarını təmizləyirik
     users_table.innerHTML = "";
 
@@ -62,6 +63,7 @@ console.log(resp,"users");
     // `Prev` və `Next` düymələrinin əvvəlki dinləyicilərini silmək
     prev.replaceWith(prev.cloneNode(true));
     next.replaceWith(next.cloneNode(true));
+
   } catch (error) {
     console.error(error);
   }

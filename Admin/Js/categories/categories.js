@@ -8,6 +8,8 @@ const modal_section = document.querySelector(".modal_section");
 const table_body = document.querySelector("#table_body");
 const creatInput = document.querySelector("#creatInput");
 const loading = document.querySelector("#loading")
+const sucsesfullModal = document.querySelector("#modal-success")
+const failModal = document.querySelector("#modal-fail")
 let deleteId = null;
 let selectedCatid = null;
 let allCategories = [];
@@ -151,11 +153,16 @@ async function deleteCategory() {
       }
     );
     const result = await response.json();
-    console.log(result);
-    console.log(deleteId);
-    window.location.reload();
-    movieModal.classList.remove("active");
+  
+    // window.location.reload();
+    categoryModal.classList.remove("active");
     loading.classList.add("loadFalse")
+    getCattegories()
+    if (result.statusCode === 400) {
+      failModal.classList.add("active")
+    }else{
+      sucsesfullModal.classList.add("active")
+    }
   } catch (err) {
     console.log(err);
   }
@@ -175,7 +182,15 @@ async function createCategory(data) {
         body: JSON.stringify(data),
       }
     );
-    window.location.reload();
+    // window.location.reload();
+    const result = await response.json()
+    getCattegories()
+    movieModal.classList.remove("active");
+    if (result.statusCode === 400) {
+      failModal.classList.add("active")
+    }else{
+      sucsesfullModal.classList.add("active")
+    }
     loading.classList.add("loadFalse")
   } catch (err) {
     console.log(err);
@@ -204,7 +219,15 @@ async function editCategory(data) {
         body: JSON.stringify(data),
       }
     );
-    window.location.reload();
+    const result = await response.json()
+    movieModal.classList.remove("active");
+    getCattegories()
+    if (result.statusCode === 400) {
+      failModal.classList.add("active")
+    }else{
+      sucsesfullModal.classList.add("active")
+    }
+
   } catch (err) {
     console.log(err);
   }
@@ -216,6 +239,11 @@ async function editCategory(data) {
 
 
 
+function closeModal() {
+  sucsesfullModal.classList.remove("active")
+   owarlay2.style.display = "none";
+   failModal.classList.remove("active")
+ }
 
 
 

@@ -11,7 +11,7 @@ const sucsesfullModal = document.querySelector("#modal-success")
 const failModal = document.querySelector("#modal-fail")
 const loading = document.querySelector("#loading")
 const modal_image = document.querySelector("#modal_image")
-// fomr input value
+// form input value
 
 const title = document.querySelector("#title");
 const overview = document.querySelector("#Overview");
@@ -348,8 +348,6 @@ async function creatMoviesFunc(moviData) {
     );
     const data = await response.json();
     movieModal2.classList.remove("active");
-    // window.location.reload();
-    getMoviesFunc();
     getMoviesFunc();
    
     if (data.statusCode === 400) {
@@ -371,7 +369,7 @@ console.log(failModal);
 async function updateMoviesFunc(element) {
   loading.classList.remove("loadFalse")
   try {
-    await fetch(
+    const response = await fetch(
       `https://api.sarkhanrahimli.dev/api/filmalisa/admin/movie/${selectedMovie}`,
       {
         method: "PUT",
@@ -382,6 +380,7 @@ async function updateMoviesFunc(element) {
         body: JSON.stringify(element),
       }
     );
+    const data = await response.json()
     movieModal2.classList.remove("active");
     // window.location.reload();
     getMoviesFunc();
