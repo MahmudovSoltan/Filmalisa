@@ -98,9 +98,9 @@ async function getWatch() {
     // console.log("responce", responce.data.actors);
     responce.data.actors.forEach((item) => {
       topactors.innerHTML += `
-     <div class="swiper-slide">
+     <div class="swiper-slide" style="height: 200px;">
                 <div>
-                  <img src="${item.img_url}" alt="" />
+                  <img src="${item.img_url}" alt="" style="height: 150px;" />
                   <p class="topcastext1">${item.name}</p>
                   <p class="topcastext2">${item.surname}</p>
                 </div>
@@ -250,17 +250,35 @@ async function getSimilar() {
     console.log("similardata", similardata);
     similardata.movies.forEach((element) => {
       simmovswiper.innerHTML += `
-      <div class="swiper-wrapper similarswiper" id="simmovswiper">
-            <div class="swiper-slide swiper_card">
-              <img src="${element.cover_url}" alt="" />
-              <div class="swiper_card_content">
-                <div class="swiper_content_top">Fantasy</div>
-                <div class="">
-                  <h3>${element.title}</h3>
-                </div>
-              </div>
-            </div>
-            </div>
+      <div class="swiper-slide swiper_card2"  style="height: 655px;">
+                    <div class="owarlay"></div>
+                    <a href="./detailed.html?post_id=${element.id}" style="position: relative;z-index: 999;">
+                      <div>
+                        <img src="${element.cover_url}" alt="">
+                      </div>
+                    </a>
+                    <div class="swiper_card_content">
+                      <div class="swiper_content_top">Fantasy</div>
+                      <div class="">
+                        <h3>${
+                          element.title.length > 40
+                            ? element.title.substring(0, 40) + "..."
+                            : element.title
+                        }</h3>
+                        <div class="slider_whatch_link">
+                          <a href="${element.watch_url}">
+                            Watch now 
+                            <svg width="12" height="17" viewBox="0 0 12 17" fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                d="M7.4577 7.93863L1.72741 2.20833L2.72883 1.20691L9.99088 8.46896L2.72883 15.731L1.72741 14.7296L7.4577 8.99929L7.98803 8.46896L7.4577 7.93863Z"
+                                fill="#0FEFFD" stroke="white" stroke-width="1.5" />
+                            </svg>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
       `;
     });
   } catch (error) {
@@ -345,49 +363,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
 ///-----------
 
-{
-  /* <div>
-<div class="category_title">
-  <h2>${element.name}</h2>
-  <svg width="12" height="17" viewBox="0 0 12 17" fill="none"
-    xmlns="http://www.w3.org/2000/svg">
-    <path
-      d="M7.4577 7.93863L1.72741 2.20833L2.72883 1.20691L9.99088 8.46896L2.72883 15.731L1.72741 14.7296L7.4577 8.99929L7.98803 8.46896L7.4577 7.93863Z"
-      fill="#0FEFFD" stroke="white" stroke-width="1.5" />
-  </svg>
-</div>
-<div class="swiper mySwiper3">
-  <div class="swiper-wrapper slider">
-    ${element.movies
-      .map(
-        (movie) => `
-      <div class="swiper-slide swiper_card2">
-        <div class="owarlay"></div>
-        <a href="./detailed.html?post_id=${movie.id}" style="position: relative;z-index: 999;">
-          <div>
-            <img src="${movie.cover_url}" alt="">
-          </div>
-        </a>
-        <div class="swiper_card_content">
-          <div class="swiper_content_top">Fantasy</div>
-          <div class="">
-            <h3>${
-              movie.title.length > 40
-                ? movie.title.substring(0, 40) + "..."
-                : movie.title
-            }</h3>
-            <div class="slider_whatch_link">
-              <a href="${movie.watch_url}">
-                Watch now 
-                <svg width="12" height="17" viewBox="0 0 12 17" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M7.4577 7.93863L1.72741 2.20833L2.72883 1.20691L9.99088 8.46896L2.72883 15.731L1.72741 14.7296L7.4577 8.99929L7.98803 8.46896L7.4577 7.93863Z"
-                    fill="#0FEFFD" stroke="white" stroke-width="1.5" />
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div> */
-}
+
+

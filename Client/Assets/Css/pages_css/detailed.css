@@ -259,7 +259,7 @@ table tr td {
   display: flex;
   flex-direction: column;
   width: 55%;
-  height: 250px;
+  max-height: 310px;
   overflow: auto;
   border-radius: 8px;
   border: 2px solid var(--PlaceholderColor);
