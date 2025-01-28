@@ -107,3 +107,14 @@ color: var(--WhiteGreyColor);
     font-family: var(--PopinsFont);
     color: var(--WhiteColor);
 }
+
+
+
+input:-webkit-autofill {
+    background-color: transparent !important;
+    -webkit-box-shadow: 0 0 0px 1000px var(--TEXT-color_8) inset !important;
+    color: inherit !important;
+    }
+    input:-webkit-autofill::first-line {
+    color: inherit !important;
+    }
