@@ -6,9 +6,9 @@ function addComment() {
   if (commentInput.value.trim() !== "") {
     addedcomment.innerText += commentInput.value;
     commentInput.value = "";
-    console.log(commentInput.value);
+    // console.log(commentInput.value);
   } else {
-    console.log("serh yazin");
+    // console.log("serh yazin");
   }
 }
 
@@ -54,7 +54,13 @@ const adfavbtn = document.querySelector("#adfavbtn");
 const watchlinkhref = document.querySelector("#watchlinkhref");
 const topactors = document.querySelector("#topactors");
 const fragmanimage = document.querySelector("#fragmanimage");
-
+const rightpanelbackimg = document.querySelector("#rightpanelbackimg");
+const commentinput = document.querySelector("#commentinput");
+const addcomentbtn = document.querySelector("#addcomentbtn");
+const addedcommentare = document.querySelector("#addedcommentare");
+const simmovswiper = document.querySelector("#simmovswiper");
+const addfavbtn = document.querySelector("#addfavbtn");
+let categoryid = null;
 //watchlik function START
 
 watchlinkbtn.addEventListener("click", function () {
@@ -74,9 +80,12 @@ async function getWatch() {
       }
     );
     const responce = await resp.json();
-    console.log("responce", responce.data.cover_url);
+    console.log("responcecover", responce.data);
+    categoryid = responce.data.category.id;
+    console.log("categoryid", categoryid);
 
     fragmanimage.src = responce.data.cover_url;
+    rightpanelbackimg.style.backgroundImage = `url('${responce.data.cover_url}')`;
     const apifragmanlink = responce.data.fragman
       .split("youtu.be/")[1]
       ?.split("?")[0]; // ID `youtu.be/`-dən sonra gəlir
@@ -86,12 +95,12 @@ async function getWatch() {
     } else {
       console.error("Link tapılmadı.");
     }
-    console.log("responce", responce.data.actors);
+    // console.log("responce", responce.data.actors);
     responce.data.actors.forEach((item) => {
       topactors.innerHTML += `
-     <div class="swiper-slide">
+     <div class="swiper-slide" style="height: 200px;">
                 <div>
-                  <img src="${item.img_url}" alt="" />
+                  <img src="${item.img_url}" alt="" style="height: 150px;" />
                   <p class="topcastext1">${item.name}</p>
                   <p class="topcastext2">${item.surname}</p>
                 </div>
@@ -100,7 +109,7 @@ async function getWatch() {
       `;
     });
 
-    console.log("responce", responce.data.watch_url);
+    // console.log("responce", responce.data.watch_url);
 
     if (responce.data.watch_url) {
       watchlinkhref.href = responce.data.watch_url;
@@ -109,11 +118,210 @@ async function getWatch() {
       watchlinkhref.textContent = "No Link Available";
     }
   } catch (error) {
-    console.log("error", error);
+    // console.log("error", error);
   }
 }
 getWatch();
 //watchlik function END
+let comments = [];
+let similardata = [];
+
+//comment function start
+//add butonuna basanda
+addcomentbtn.addEventListener("click", function () {
+  const data = {
+    comment: commentinput.value,
+  };
+  if (data.comment.trim() === "") {
+    alert("Şərh daxil edin!");
+    return;
+  }
+  // console.log("data", data);
+  commentinput.value = "";
+
+  creatComment(data);
+});
+// comment yaradan funksiya
+async function creatComment(commentdata) {
+  try {
+    const responce = await fetch(
+      `https://api.sarkhanrahimli.dev/api/filmalisa/movies/${postId}/comment`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("login_token")}`,
+        },
+        body: JSON.stringify(commentdata),
+      }
+    );
+    const data2 = await responce.json();
+    // console.log("data2", data2);
+
+    // console.log("data2", data2.data);
+
+    comments.unshift(data2.data);
+    comments.forEach((element) => {
+      addedcommentare.innerHTML = `
+      <div class="comhead">
+        <div class="comheadlogo">
+          <img src="../Assets/Icons/adminlogo.svg" alt="" />
+          <p>Anonymous</p>
+        </div>
+        <div>
+          <p>${new Date(element.created_at).toLocaleString()}</p>
+        </div>
+      </div>
+      <div class="comtext">
+        <p>
+        ${element.comment}
+        </p>
+      </div>
+      `;
+    });
+    getComments();
+  } catch (error) {
+    // console.log("error", error);
+  }
+}
+
+//comment function  end
+//comentlri gosteren funksiya start
+async function getComments() {
+  try {
+    const responce = await fetch(
+      `https://api.sarkhanrahimli.dev/api/filmalisa/movies/${postId}/comments`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("login_token")}`,
+        },
+      }
+    );
+    const res = await responce.json();
+
+    // console.log("commentsdata", res.data);
+    res.data.forEach((element) => {
+      addedcommentare.innerHTML += `
+       <div class="comhead">
+        <div class="comheadlogo">
+          <img src="../Assets/Icons/adminlogo.svg" alt="" />
+          <p>Anonymous</p>
+        </div>
+        <div>
+          <p>${new Date(element.created_at).toLocaleString()}</p>
+        </div>
+      </div>
+      <div class="comtext">
+        <p>
+        ${element.comment}
+        </p>
+      </div>
+      
+      `;
+    });
+  } catch (error) {
+    // console.log(error);
+  }
+}
+getComments();
+//comentlri gosteren funksiya end
+
+//similar get funksiya start
+async function getSimilar() {
+  try {
+    const responce = await fetch(
+      "https://api.sarkhanrahimli.dev/api/filmalisa/categories",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("login_token")}`,
+        },
+      }
+    );
+    const res = await responce.json();
+
+    console.log("similardata", res.data);
+    similardata = res.data.find((item) => item.id === categoryid);
+    console.log("postId", postId);
+
+    console.log("similardata", similardata);
+    similardata.movies.forEach((element) => {
+      simmovswiper.innerHTML += `
+      <div class="swiper-slide swiper_card2"  style="height: 655px;">
+                    <div class="owarlay"></div>
+                    <a href="./detailed.html?post_id=${element.id}" style="position: relative;z-index: 999;">
+                      <div>
+                        <img src="${element.cover_url}" alt="">
+                      </div>
+                    </a>
+                    <div class="swiper_card_content">
+                      <div class="swiper_content_top">Fantasy</div>
+                      <div class="">
+                        <h3>${
+                          element.title.length > 40
+                            ? element.title.substring(0, 40) + "..."
+                            : element.title
+                        }</h3>
+                        <div class="slider_whatch_link">
+                          <a href="${element.watch_url}">
+                            Watch now 
+                            <svg width="12" height="17" viewBox="0 0 12 17" fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                d="M7.4577 7.93863L1.72741 2.20833L2.72883 1.20691L9.99088 8.46896L2.72883 15.731L1.72741 14.7296L7.4577 8.99929L7.98803 8.46896L7.4577 7.93863Z"
+                                fill="#0FEFFD" stroke="white" stroke-width="1.5" />
+                            </svg>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+      `;
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
+getSimilar();
+
+//similar get funksiya end
+
+//add to favorite function start
+addfavbtn.addEventListener("click", function () {
+  getaddFavori();
+});
+
+async function getaddFavori() {
+  try {
+    const responce = await fetch(
+      `https://api.sarkhanrahimli.dev/api/filmalisa/movie/${postId}/favorite`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("login_token")}`,
+        },
+      }
+    );
+    const favdata = await responce.json();
+    console.log("responce", responce);
+
+    console.log("favdata", favdata);
+
+    if (favdata.message == "Successfully added favorites") {
+      addfavbtn.classList.add("activefav");
+    } else {
+      addfavbtn.classList.remove("activefav");
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+//add to favorite function end
 
 //IFRAME START
 
@@ -152,3 +360,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 //IFRAME END
+
+///-----------
+
+
+

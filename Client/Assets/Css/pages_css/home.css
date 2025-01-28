@@ -162,7 +162,7 @@
   text-align: center;
 }
 
-.swiper-slide:nth-child(2) {
+/* .swiper-slide:nth-child(2) {
   background: #8acc7d;
 }
 
@@ -184,7 +184,7 @@
 
 .swiper-slide:nth-child(7) {
   background: #cc7dae;
-}
+} */
 .swiper_card5 img {
   height: 380px;
 }
