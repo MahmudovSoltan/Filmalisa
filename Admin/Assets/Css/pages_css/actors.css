@@ -83,3 +83,228 @@ table {
 .modal_section {
   color: black;
 }
+
+
+
+
+
+.page-button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.page-button.active {
+  background-color: #009879;
+  color: white;
+}
+
+.pagination-wrapper {
+  position: absolute;
+  bottom: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#prev,
+#next {
+  width: 100px;
+  border: 1px solid #007bff;
+  background-color: #ffffff;
+  color: #007bff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 35px; /* Digər rəqəmli düymələrlə eyni hündürlük */
+  min-width: 35px; /* Eyni ölçüdə uyğun düymə üçün */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#prev:hover,
+#next:hover {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+.pagination-container {
+  display: flex;
+  gap: 5px;
+}
+
+.pagination-container .page-btn {
+  border: 1px solid #007bff;
+  background-color: #ffffff;
+  color: #007bff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 35px; /* Eyni hündürlük */
+  min-width: 35px; /* Eyni eni */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination-container .page-btn:hover {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+.pagination-container .page-btn.active {
+  background-color: #007bff;
+  color: #ffffff;
+  border-color: #007bff;
+}
+
+
+
+.modal-success {
+  display: none; /* Başlanğıcda gizlidir */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  padding: 20px;
+  z-index: 1000;
+}
+.modal-success.active {
+  display: block;
+}
+.modal-success h2 {
+  margin-top: 0;
+}
+.modal-success button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.modal-success button:hover {
+  background-color: #45a049;
+}
+
+/* Uğursuz modal üçün CSS */
+.modal-fail {
+  display: none; /* Başlanğıcda gizlidir */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--WhiteColor);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  border: 1px solid red;
+  padding: 20px;
+  z-index: 9999; /* Düşük prioritet */
+}
+.modal-fail.active {
+  display: block;
+}
+.modal-fail button {
+  background: none;
+  border: 2px solid red;
+  color: black;
+  padding: 5px;
+  background-color: rgb(231, 54, 54);
+  cursor: pointer;
+  border-radius: 4px;
+}
+.modal-fail button:hover{
+  background-color: rgb(252, 4, 4);
+}
+.modal-fail h2{
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: red;
+  font-weight: 600;
+}
+
+.loadFalse{
+ visibility: hidden;
+}
+
+/* Loading konteyneri */
+#loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Qaranlıq yarı şəffaf fon */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;/* Əsasda gizli vəziyyətdə olacaq */
+ /* Faded-out olaraq başlayır */
+  transition: opacity 0.3s ease; /* Gözəl görünən açılış/bağlanış effekti */
+}
+
+#loading.active {
+  visibility: visible;
+  opacity: 1; /* Aktiv olduqda görünən vəziyyətə keçir */
+}
+
+/* Spinner dizaynı */
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid rgba(255, 255, 255, 0.3); /* Yarı şəffaf ağ çərçivə */
+  border-top: 6px solid #ffffff; /* Tam ağ çərçivə */
+  border-radius: 50%; /* Dairə formasında */
+  animation: spin 1s linear infinite; /* Fırlanma animasiyası */
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.6); /* Gözəl işıq effekti */
+}
+
+/* Spinner animasiyası */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Ekstra loading effekti: Yazı (optional) */
+.loading-text {
+  margin-top: 20px;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: fade 1.5s ease-in-out infinite; /* Yazının yavaşca yanıb-sönmə effekti */
+}
+
+/* Yazının fade animasiyası */
+@keyframes fade {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}

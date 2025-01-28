@@ -86,7 +86,8 @@ async function getCommnetsFunc() {
     });
 
     const totalPage = Math.ceil(data2.length / perPage);
-
+   console.log("hello");
+   
     // Dinamik səhifə düymələrini yaradın
     paginationContainer.innerHTML = ""; // Əvvəlki düymələri təmizləyirik
     for (let i = 1; i <= totalPage; i++) {

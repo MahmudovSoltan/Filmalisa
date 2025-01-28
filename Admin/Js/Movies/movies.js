@@ -7,6 +7,10 @@ const owarlay2 = document.querySelector("#owarlay2");
 const table_body = document.querySelector("#table_body");
 const categorySelect = document.querySelector("#category");
 const actorsSelect = document.querySelector("#actors");
+const sucsesfullModal = document.querySelector("#modal-success")
+const failModal = document.querySelector("#modal-fail")
+const loading = document.querySelector("#loading")
+const modal_image = document.querySelector("#modal_image")
 // fomr input value
 
 const title = document.querySelector("#title");
@@ -27,15 +31,24 @@ let selectedMovie = null;
 let allMovies = [];
 const modal_header = document.querySelector("#modal_header");
 const movieModal3 = document.querySelector("#movieModal3");
-const prev = document.querySelector("#prev");
-const next = document.querySelector("#next");
-const paginationContainer = document.querySelector(".pagination-container"); // Pagination düymələrinin olduğu konteyner
+
+const paginationContainer = document.querySelector(".pagination-container"); 
 const perPage = 4;
 let index = 1;
 let multiselctValyu = [];
 let selectedItemsId = null;
 let adultValue = null;
 
+modal_image.src = cover_url.value
+  ? cover_url.value
+  : "https://www.beelights.gr/assets/images/empty-image.png";
+
+// Input sahəsində dəyişiklikləri izləyirik
+cover_url.addEventListener("input", () => {
+  modal_image.src = cover_url.value
+    ? cover_url.value
+    : "https://www.beelights.gr/assets/images/empty-image.png";
+});
 //Sehife acilanda butun filmleri gosterir
 getMoviesFunc();
 
@@ -45,7 +58,7 @@ const selectedItemsContainer = document.getElementById("selectedItems");
 
 function handleCheckBox() {
   adultValue = adult.checked;
-}
+} 
 
 // Dropdown-u açıb-bağlamaq üçün funksiya
 const toggleMenu = () => {
@@ -110,7 +123,6 @@ const attachClickEventToMenu = () => {
         selectedItemsContainer.appendChild(selectedSpan);
       }
 
-      console.log(multiselctValyu); // Massivi konsolda göstər
     });
   });
 };
@@ -128,7 +140,6 @@ const getActorsFunc = async () => {
       }
     );
     const actor = await response.json();
-    console.log(actor);
 
     // Gələn məlumatlarla menyunu yenilə
     let options = "";
@@ -175,16 +186,7 @@ function submit() {
     updateMoviesFunc(moviData);
   }
 }
-function handleselctCategiryId(e) {
-  // selectedItemsId = id;
-  console.log(selectedItemsId);
-  console.log(e);
-}
-console.log(category);
 
-category.addEventListener("click", () => {
-  console.log();
-});
 const getCategoriesFunc = async () => {
   try {
     // API sorğusu
@@ -216,6 +218,7 @@ const getCategoriesFunc = async () => {
     categorySelect.addEventListener("change", (e) => {
       selectedItemsId = e.target.value;
     });
+  
   } catch (err) {
     console.error("Error fetching categories:", err);
   }
@@ -238,7 +241,6 @@ async function getMoviesFunc() {
       }
     );
     const movies = await response.json();
-    console.log(movies.data, "movies");
     let newData = movies.data;
     newData.map((item) => {
       allMovies.push(item);
@@ -246,7 +248,6 @@ async function getMoviesFunc() {
 
     const allData = movies.data;
     const newPagination = allData.slice((index - 1) * perPage, index * perPage);
-    console.log(newPagination, "newPagination", allData);
 
     // Cədvəli təmizləyirik
 
@@ -315,24 +316,7 @@ async function getMoviesFunc() {
       });
       paginationContainer.appendChild(pageButton);
     }
-
-    // `Prev` düyməsi
-    prev.disabled = index === 1;
-    prev.addEventListener("click", () => {
-      if (index > 1) {
-        index--;
-        getMoviesFunc();
-      }
-    });
-
-    // `Next` düyməsi
-    next.disabled = index === totalPage;
-    next.addEventListener("click", () => {
-      if (index < totalPage) {
-        index++;
-        getMoviesFunc();
-      }
-    });
+    loading.classList.add("loadFalse")
   } catch (err) {
     console.log(err);
   }
@@ -348,6 +332,7 @@ function closeOwarlay2() {
   movieModal.classList.remove("active");
 }
 async function creatMoviesFunc(moviData) {
+  loading.classList.remove("loadFalse")
   try {
     const response = await fetch(
       "https://api.sarkhanrahimli.dev/api/filmalisa/admin/movie",
@@ -364,14 +349,26 @@ async function creatMoviesFunc(moviData) {
     movieModal2.classList.remove("active");
     // window.location.reload();
     getMoviesFunc();
-    console.log(moviData);
     getMoviesFunc();
-    console.log("Clicked create");
+   
+    if (data.statusCode === 400) {
+      failModal.classList.add("active")
+    }else{
+      sucsesfullModal.classList.add("active")
+    }
+    console.log(data);
+    loading.classList.add("loadFalse")
   } catch (err) {
     console.log(err);
+   
+    console.log(failModal);
+
   }
 }
+console.log(failModal);
+
 async function updateMoviesFunc(element) {
+  loading.classList.remove("loadFalse")
   try {
     await fetch(
       `https://api.sarkhanrahimli.dev/api/filmalisa/admin/movie/${selectedMovie}`,
@@ -385,11 +382,17 @@ async function updateMoviesFunc(element) {
       }
     );
     movieModal2.classList.remove("active");
-    window.location.reload();
+    // window.location.reload();
     getMoviesFunc();
-    console.log(element);
+    if (data.statusCode === 400) {
+      failModal.classList.add("active")
+    }else{
+      sucsesfullModal.classList.add("active")
+    }
+    loading.classList.add("loadFalse")
   } catch (err) {
     console.log(err);
+    failModal.classList.add("active")
   }
 }
 
@@ -399,6 +402,7 @@ function handLeMovieId(id) {
 }
 
 async function deleteMovie() {
+  loading.classList.remove("loadFalse")
   try {
     await fetch(
       `https://api.sarkhanrahimli.dev/api/filmalisa/admin/movie/${itemId}`,
@@ -413,8 +417,11 @@ async function deleteMovie() {
     getMoviesFunc();
     movieModal2.classList.remove("active");
     movieModal.classList.remove("active");
+    sucsesfullModal.classList.add("active")
+    loading.classList.add("loadFalse")
   } catch (err) {
     console.log(err);
+    failModal.classList.add("active")
   }
 }
 
@@ -433,6 +440,7 @@ creatBtn.addEventListener("click", () => {
   multiselctValyu = [];
   movieModal2.classList.add("active");
   adultValue = null;
+  modal_image.src = "https://www.beelights.gr/assets/images/empty-image.png"
 });
 
 async function editMoviesFunc(element) {
@@ -449,7 +457,6 @@ async function editMoviesFunc(element) {
       }
     );
     const data = await response.json();
-    console.log(data);
 
     // Form sahələrini doldur
     title.value = data.data.title;
@@ -461,6 +468,7 @@ async function editMoviesFunc(element) {
     imdb.value = data.data.imdb;
     overview.value = data.data.overview;
     category.value = data.data.category.id;
+    modal_image.src = cover_url.value
 
     // Multiselect üçün aktyor ID-lərini massivin içində saxla
     multiselctValyu = data.data.actors.map((actor) => actor.id);
@@ -507,8 +515,14 @@ function removeActor(actorId, item, span) {
 
   // DOM-dan span-ı sil
   span.remove();
+ // Yenilənmiş massiv
+}
 
-  console.log(multiselctValyu); // Yenilənmiş massiv
+
+function closeModal() {
+ sucsesfullModal.classList.remove("active")
+  owarlay2.style.display = "none";
+  failModal.classList.remove("active")
 }
 
 function logOutFunc() {
