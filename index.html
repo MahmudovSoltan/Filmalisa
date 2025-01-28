@@ -107,20 +107,21 @@ Third Section End  -->
             <h2>Contact Us</h2>
         </div>
         <div class="form">
-            <form action="">
-                <div>
-                    <input type="text" placeholder="Name" autocomplete="off">
+           <div>
+                <div >
+                    <input id= "nameInput" type="text" placeholder="Name" autocomplete="off">
                 </div>
                 <div>
-                    <input type="email" placeholder="Email" autocomplete="off">
+                    <input id= "emailInput" type="email" placeholder="Email" autocomplete="off">
                 </div>
                 <div>
-                    <textarea placeholder="Reason"></textarea>
+                    <textarea id="reasonInput" placeholder="Reason"></textarea>
                 </div>
+                <p id="sendInfo"></p>
                 <div class="contact_btn">
-                    <button type="submit">Send</button>
+                    <button type="submit" onclick="getContact()">Send</button>
                 </div>
-            </form>
+            </div>
         </div>
     </section>
     <!-- Contact Section end -->
