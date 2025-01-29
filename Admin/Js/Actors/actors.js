@@ -18,6 +18,9 @@ const editNameInput = document.querySelector("#editName");
 const editSurnameInput = document.querySelector("#editSurname");
 const editImageInput = document.querySelector("#editImage");
 const actorstable = document.querySelector("#actorstable");
+const paginationContainer = document.querySelector(".pagination-container");
+const perPage = 8;
+let index = 1;
 //modali baglama funksiyasi
 
 
@@ -88,10 +91,13 @@ async function getActors() {
     console.log(resp.data);
     selectedidinfo = resp.data;
     console.log("selectedidinfo", selectedidinfo);
-    resp.data.forEach((element) => {
+    const allData = resp.data;
+    const newPagination = resp.data.slice((index - 1) * perPage, index * perPage);
+    actorstable.innerHTML=""
+    newPagination.forEach((element,index) => {
       actorstable.innerHTML += `
         <tr>
-          <td>${element.id}</td>
+          <td>${index+1}</td>
           <td>${element.name}</td>
           <td>${element.surname}</td>
           <td><img class="tableimage" src="${element.img_url}" alt="Actor Image" /></td>
@@ -104,6 +110,24 @@ async function getActors() {
         </tr>
       `;
     });
+
+    const totalPage = Math.ceil(allData.length / perPage);
+
+    // Dinamik səhifə düymələrini yaradın
+    paginationContainer.innerHTML = ""; // Əvvəlki düymələri təmizləyirik
+    for (let i = 1; i <= totalPage; i++) {
+      const pageButton = document.createElement("button");
+      pageButton.textContent = i;
+      pageButton.classList.add("page-btn");
+      if (i === index) {
+        pageButton.classList.add("active"); // Aktiv səhifə üçün xüsusi sinif
+      }
+      pageButton.addEventListener("click", () => {
+        index = i;
+        getActors()
+      });
+      paginationContainer.appendChild(pageButton);
+    }
   } catch (error) {
     console.error(error);
   }

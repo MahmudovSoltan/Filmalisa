@@ -1,73 +1,71 @@
-.comment_section{
-    display: flex;
-    gap: 24px;
-
+.comment_section {
+  display: flex;
+  gap: 24px;
 }
-.comments_right{
-    padding-top: 24px;
-    padding-right: 116px;
-    flex: 1;
+.comments_right {
+  padding-top: 24px;
+  padding-right: 116px;
+  flex: 1;
 }
-.comments_modal{
-    background-color: var(--formBgColor);
-    padding: 50px 30px;
-    border-radius: 24px;
+.comments_modal {
+  background-color: var(--formBgColor);
+  padding: 50px 30px;
+  border-radius: 24px;
 }
-
 
 /* Modal container styling */
 .modal {
-    width: 300px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    font-family: Arial, sans-serif;
-    margin: 100px auto;
-  }
-  
-  /* Modal header */
-  .modal-header {
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  .modal-actions {
-    display: flex;
-    justify-content: space-around;
-    gap: 20px;
-  }
-  
-  .btn {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .btn-confirm {
-    background-color: #28a745;
-    color: #fff;
-  }
-  
-  .btn-confirm:hover {
-    background-color: #218838;
-  }
-  
-  .btn-cancel {
-    background-color: #dc3545;
-    color: #fff;
-  }
-  
-  .btn-cancel:hover {
-    background-color: #c82333;
-  }
-  
+  max-width: 60%;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: Arial, sans-serif;
+  margin: 100px auto;
+}
+
+/* Modal header */
+.modal-header {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-confirm {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.btn-confirm:hover {
+  background-color: #218838;
+}
+
+.btn-cancel {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.btn-cancel:hover {
+  background-color: #c82333;
+}
+
 .page-button {
   margin: 0 5px;
   padding: 5px 10px;

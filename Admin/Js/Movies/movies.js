@@ -317,22 +317,7 @@ async function getMoviesFunc() {
     }
 
     // `Prev` düyməsi
-    prev.disabled = index === 1;
-    prev.addEventListener("click", () => {
-      if (index > 1) {
-        index--;
-        getMoviesFunc();
-      }
-    });
-
-    // `Next` düyməsi
-    next.disabled = index === totalPage;
-    next.addEventListener("click", () => {
-      if (index < totalPage) {
-        index++;
-        getMoviesFunc();
-      }
-    });
+   
   } catch (err) {
     console.log(err);
   }
