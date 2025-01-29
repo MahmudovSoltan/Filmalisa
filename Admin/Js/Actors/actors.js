@@ -30,15 +30,20 @@ const perPage = 8;
 let index = 1;
 
 function closeModal(modal) {
-  if (modal) {
     modal.classList.remove("active");
-  }
+
 }
 // Modalı açma funksiyası
 function openModal(modal) {
   if (modal) {
     modal.classList.add("active");
   }
+} 
+ function closeModal2() {
+  createModal.classList.remove("active")
+  editModal.classList.remove("active")
+  console.log("click");
+  
 }
 // "Create" düyməsinə basıldığında modal acilir
 createBtn.addEventListener("click", () => {
