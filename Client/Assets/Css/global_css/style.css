@@ -4,7 +4,7 @@ aside{
     top: 0px;
     left: 0px;
     height: 100vh;
-    padding: 40px 12px;
+    padding: 40px 4px 40px 0px;
     background-color: var(  --LightBlackColor);
     display: flex;
     flex-direction: column;

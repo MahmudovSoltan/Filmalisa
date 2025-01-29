@@ -6,30 +6,41 @@
     <title>Detailed</title>
     <link rel="stylesheet" href="../Assets/Css/global_css/global.css" />
     <link rel="stylesheet" href="../Assets/Css/pages_css/detailed.css" />
-    <!-- <link rel="stylesheet" href="../Assets/Css/pages_css/home.css" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../Assets/Css/pages_css/home.css">
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
+    <script src="../Js/auth.js" defer></script>
+    <script src="../Js/errorPage.js" defer></script>
   </head>
 
   <body>
     <div class="detailed_container">
       <!-- ASIDE BAR START -->
 
-      <div class="left_sidebar">
+      <div class="left_sidebar" >
         <div class="logo">
-          <a href="../../index.html"><img src="../Assets/Icons/logo.svg" alt=""></a>
+          <a href="../../index.html"
+            ><img src="../Assets/Icons/logo.svg" alt=""
+          /></a>
         </div>
         <div class="aside_links">
           <div class="aside_link">
-            <a href="./home.html"><img src="../Assets/Icons/homeIcon.svg" alt="" /></a>
+            <a href="./home.html"
+              ><img src="../Assets/Icons/homeIcon.svg" alt=""
+            /></a>
           </div>
           <div class="aside_link">
-            <a href="./search.html"><img src="../Assets/Icons/searchIcon.svg" alt="" /></a>
+            <a href="./search.html"
+              ><img src="../Assets/Icons/searchIcon.svg" alt=""
+            /></a>
           </div>
           <div class="aside_link">
-            <a href="./account.html"><img src="../Assets/Icons/accountIcon.svg" alt="" /></a>
+            <a href="./account.html"
+              ><img src="../Assets/Icons/accountIcon.svg" alt=""
+            /></a>
           </div>
           <div class="aside_link">
             <a href="./favorites.html"
@@ -40,7 +51,7 @@
       </div>
       <!-- ASIDE BAR END -->
 
-      <div class="rightpanel">
+      <div class="rightpanel" id="rightpanelbackimg">
         <div class="lostinspace">
           <p class="txt1">
             MaileHereko&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -52,19 +63,24 @@
     </div>
     <div class="container2">
       <div class="lostinspimage">
-        <img class="image1" src="../Assets/images/lostinspaceimg.svg" alt="" />
+        <img id="fragmanimage" class="image1" src="" alt="" />
         <img
+          id="playfragmanbtn"
           class="hoverplaybtn"
           src="../Assets/Icons/playbtnhover.svg"
           alt=""
         />
       </div>
-      <div class="lostspaseinfo">
+      <div class="lostspaseinfo" id="lostspaseinfo">
         <div class="texthead">
-          Have you seen our robot?
-          <button class="watclinkbtn">Watch Link</button>
-          <button class="plus">
-            <img src="../Assets/Icons/+icon.svg" alt="" />
+          <a href="">Have you seen our robot?</a>
+          <button class="watclinkbtn" id="watchlinkbtn">
+            <a id="watchlinkhref" href="">Watch Link</a>
+          </button>
+          <button class="plus" id="adfavbtn">
+            <!-- <img src="../Assets/Icons/+icon.svg" alt="" /> -->
+            <!-- <i class="fa-regular fa-heart" style="color: red;"></i> -->
+            <i class="fa-solid fa-heart addfavbtn "  id="addfavbtn" ></i>
           </button>
         </div>
         <div class="textbody1">
@@ -117,8 +133,8 @@
         <p class="topcastext">Top Cast</p>
         <div class="top_cast">
           <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
+            <div class="swiper-wrapper" id="topactors">
+              <!-- <div class="swiper-slide">
                 <div>
                   <img src="../Assets/images/topcastimage.svg" alt="" />
                   <p class="topcastext1">maxwell jenkins</p>
@@ -159,7 +175,7 @@
                   <p class="topcastext1">maxwell jenkins</p>
                   <p class="topcastext2">tony slack</p>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -169,18 +185,19 @@
       <img src="../Assets/Icons/adminlogo.svg" alt="" />
 
       <input
+        id="commentinput"
         class="commentinput"
         type="text"
         id="commentInput"
         autocomplete="off"
         placeholder="Your Comment..."
       />
-      <button class="addcombtn" onclick="addComment()">
+      <button class="addcombtn" onclick="addComment()" id="addcomentbtn">
         <img src="../Assets/Icons/commentaddbtn.svg" alt="" />
       </button>
     </div>
-    <div class="addedcomment" id="addedcomment">
-      <div class="comhead">
+    <div class="addedcomment" id="addedcommentare">
+      <!-- <div class="comhead">
         <div class="comheadlogo">
           <img src="../Assets/Icons/adminlogo.svg" alt="" />
           <p>Sarkhan Rahimli</p>
@@ -194,7 +211,7 @@
           Woah, your project looks awesome! How long have you been coding for? I
           am still new, but think I want to dive into React as well soon.
           Perhaps you can give me an insight on where I can learn React? Thanks!
-        </p>
+        </p> -->
       </div>
     </div>
     <!-- Swiper 3 -->
@@ -218,8 +235,8 @@
       </div>
       <div class="">
         <div class="swiper mySwiper3">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide swiper_card">
+          <div class="swiper-wrapper similarswiper" id="simmovswiper">
+            <!-- <div class="swiper-slide swiper_card">
               <img src="../Assets/Images/card-img.png" alt="" />
               <div class="swiper_card_content">
                 <div class="swiper_content_top">Fantasy</div>
@@ -299,7 +316,7 @@
                   <h3>Wonder Woman 1984</h3>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
