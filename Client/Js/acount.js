@@ -1,7 +1,7 @@
-const iserProfileImge = document.querySelector("#iserProfileImge");
+const userProfileImg = document.querySelector("#userProfileImg");
 const userName = document.querySelector("#userName");
 const userEmail = document.querySelector("#userEmail");
-const profileImageInput = document.querySelector("#profileImageInput");
+const profileImgInput = document.querySelector("#profileImgInput");
 const passwordInput = document.querySelector("#password");
 const iconPassword = document.querySelector("#iconPassword");
 
@@ -15,21 +15,24 @@ async function getAccount() {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          Authorization: "Bearer " + localStorage.getItem("login_token"),
+          Authorization: ` Bearer ${localStorage.getItem("login_token")}`,
         },
       }
     );
+    
     let data = await response.json();
     console.log(data);
     userEmail.value = data.data.email;
     userName.value = data.data.full_name;
-    profileImageInput.value = data.data.img_url;
-    iserProfileImge.src = data.data.img_url
+    profileImgInput.value = data.data.img_url;
+    userProfileImg.src = data.data.img_url
       ? data.data.img_url
-      : "https://media.istockphoto.com/id/1495088043/vector/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=dhV2p1JwmloBTOaGAtaA3AW1KSnjsdMt7-U_3EZElZ0=";
+      : "https://cdn3.vectorstock.com/i/1000x1000/49/92/beautiful-woman-avatar-character-icon-vector-33984992.jpg"
   } catch (error) {
     console.log(error);
   }
+
+  
 }
 getAccount();
 
@@ -37,7 +40,7 @@ async function updateAccount() {
   const data = {
     full_name: userName.value,
     email: userEmail.value,
-    img_url: profileImageInput.value,
+    img_url: profileImgInput.value,
     password: passwordInput.value,
   };
   try {
@@ -45,10 +48,12 @@ async function updateAccount() {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("login_token"),
+        Authorization: ` Bearer ${localStorage.getItem("login_token")}`,
       },
       body: JSON.stringify(data),
     });
+    console.log(response);
+    
     const result = await response.json();
     console.log(result);
     
