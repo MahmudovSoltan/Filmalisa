@@ -129,8 +129,12 @@
   background-color: var(--mainbackgroundColorBlack);
   border-radius: 40px; /* Künclər sərhədə uyğun */
   z-index: -1; /* Gradient sərhədin arxasında qalır */
+  transition: all .3s ease-out;
 }
-
+  
+.watch_link:hover::before{
+  background-color: transparent;
+}
 /* CATEGORY CSS START */
 
 .category_title {

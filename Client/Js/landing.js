@@ -58,22 +58,8 @@ faqItems.forEach(item => {
             if (!data.result) {
                 sendInfo.innerHTML= "Please fill in all fields";
                 sendInfo.style.color = "#ff4d4d";          
-            }else {
-                sendInfo.innerHTML = "Your message has been sent successfully!";   
-                sendInfo.style.color = "#2e7d32";             
-            }
-
-            console.log('Server response:', data);
-
-            // API-dən alınan məlumatı göstəririk 
-            console.log('Received data:', data.data);
-            // Məsələn, serverdən gələn `full_name` və `email`-i göstərə bilərik:
-            alert(`Thank you ${data.data.full_name}, we have received your message!`);
-                sendInfo.style.color = "#ff4d4d"; 
-                setTimeout(()=>{
-                    sendInfo.innerHTML = ""
-                },3000)         
-            }else {
+            } 
+            else {
                 sendInfo.innerHTML = "Your message has been sent successfully!";   
                 sendInfo.style.color = "#2e7d32";   
                 setTimeout(()=>{
@@ -94,6 +80,6 @@ faqItems.forEach(item => {
             console.log('Error:', error); 
         }
     }
-    }
+    
 
 

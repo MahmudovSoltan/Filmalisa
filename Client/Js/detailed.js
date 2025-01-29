@@ -60,6 +60,7 @@ const addcomentbtn = document.querySelector("#addcomentbtn");
 const addedcommentare = document.querySelector("#addedcommentare");
 const simmovswiper = document.querySelector("#simmovswiper");
 const addfavbtn = document.querySelector("#addfavbtn");
+const loading = document.querySelector("#loading")
 let categoryid = null;
 //watchlik function START
 
@@ -117,6 +118,7 @@ async function getWatch() {
       console.error("Link tapılmadı.");
       watchlinkhref.textContent = "No Link Available";
     }
+    loading.classList.add("loadFalse")
   } catch (error) {
     // console.log("error", error);
   }
@@ -248,17 +250,21 @@ async function getSimilar() {
     console.log("postId", postId);
 
     console.log("similardata", similardata);
-    similardata.movies.forEach((element) => {
+    const filteredMovies = similardata.movies.filter((item) => item.id != postId);
+    console.log(filteredMovies);
+    
+    
+    filteredMovies?.forEach((element) => {
       simmovswiper.innerHTML += `
       <div class="swiper-slide swiper_card2"  style="height: 655px;">
                     <div class="owarlay"></div>
                     <a href="./detailed.html?post_id=${element.id}" style="position: relative;z-index: 999;">
                       <div>
-                        <img src="${element.cover_url}" alt="">
+                        <img style="height: 655px !important" src="${element.cover_url}" alt="">
                       </div>
                     </a>
                     <div class="swiper_card_content">
-                      <div class="swiper_content_top">Fantasy</div>
+                      <div class="swiper_content_top">${element.category.name}</div>
                       <div class="">
                         <h3>${
                           element.title.length > 40

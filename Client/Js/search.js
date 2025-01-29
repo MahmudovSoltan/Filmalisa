@@ -1,5 +1,8 @@
 const seracr_left_cards = document.querySelector(".seracr_left_cards");
 const serachInput = document.querySelector("#serachInput");
+const loading = document.querySelector("#loading")
+const homemain = document.querySelector("#homemain")
+const searchDiv = document.getElementById("searchDiv");
 async function searchfunc() {
   try {
     const response = await fetch(
@@ -14,7 +17,7 @@ async function searchfunc() {
     const data = await response.json();
     console.log(data);
 
-    seracr_left_cards.innerHTML = data.data
+         seracr_left_cards.innerHTML = data.data
       .map((movie) => {
         return `
         <div class="swiper-slide swiper_card5" >
@@ -53,7 +56,9 @@ async function searchfunc() {
         
         `;
       })
-      .join("");
+      .join("")
+       homemain.style.opacity = "1"
+      loading.classList.add("loadFalse")
   } catch (err) {
     console.log(err);
   }
@@ -63,21 +68,9 @@ searchfunc();
 
 
 
-const routes = {
-  "/": "<h1>Home Page</h1>",
-  "/about": "<h1>About Page</h1>",
-};
-const appDiv = document.getElementById("app");
-const currentPath = window.location.pathname;
-if (routes[currentPath]) {
-  appDiv.innerHTML = routes[currentPath];
-} else {
-  appDiv.innerHTML = "<h1>404 - Page Not Found</h1>";
-}
-
-
 
 async function searchMovies() {
+  loading.classList.remove("loadFalse")
   try {
     const response = await fetch(
       `https://api.sarkhanrahimli.dev/api/filmalisa/movies?search=${serachInput.value}`,
@@ -92,7 +85,7 @@ async function searchMovies() {
     const data = await response.json();
     seracr_left_cards.innerHTML = "";
 
-    seracr_left_cards.innerHTML = data.data
+    data.data.length>0?  seracr_left_cards.innerHTML = data.data
       .map((movie) => {
         return `
       <div class="swiper-slide swiper_card5" >
@@ -129,7 +122,8 @@ async function searchMovies() {
       
       `;
       })
-      .join("");
+      .join(""): searchDiv.style.display = "flex"
+      loading.classList.add("loadFalse")
     console.log(data);
   } catch (err) {
     console.log(err);

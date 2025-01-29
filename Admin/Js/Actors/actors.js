@@ -142,6 +142,7 @@ async function getActors() {
         getActors()
       });
       paginationContainer.appendChild(pageButton);
+      loading.classList.add("loadFalse")
     }
   } catch (error) {
     console.error(error);

@@ -4,6 +4,8 @@ var swiper3 = new Swiper(".mySwiper3", {
   spaceBetween: 16,
 });
 const favorites = document.querySelector("#favorites");
+const loading = document.querySelector("#loading")
+const homemain = document.querySelector("#homemain")
 async function getFavorites() {
   try {
     const response = await fetch("https://api.sarkhanrahimli.dev/api/filmalisa/movies/favorites",{
@@ -56,8 +58,9 @@ async function getFavorites() {
         
         `
     });
+      homemain.style.opacity = "1"
+    return loading.classList.add("loadFalse");
     
-    return data;
   } catch (error) {
     console.log(error);
   }
