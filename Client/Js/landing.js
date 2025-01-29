@@ -1,65 +1,16 @@
+// FAQ Toggle Logic
+const faqItems = document.querySelectorAll('.faq_item');
+
+faqItems.forEach(item => {
+    const question = item.querySelector('h3');
+    const content = item.querySelector('.faq_content');
+    question.addEventListener('click', () => {
+        const isVisible = content.style.display === 'block';
+        content.style.display = isVisible ? 'none' : 'block';
+    });
+});
 
 
-<<<<<<< HEAD
-// faqItems.forEach(item => {
-//     const question = item.querySelector('h3');
-//     const content = item.querySelector('.faq_content');
-//     question.addEventListener('click', () => {
-//         const isVisible = content.style.display === 'block';
-//         content.style.display = isVisible ? 'none' : 'block';
-//     });
-// });
-
-
-const add = document.querySelector("#add1")
-const paraqraf = document.querySelector("#paragraph1")
-const image = document.querySelector("#image1")
-add.addEventListener("click",()=>{
-    paraqraf.classList.toggle("active")
-    image.classList.toggle("element")
-})
-
-const addSecond = document.querySelector("#add2")
-const paraqrafSecond = document.querySelector("#paragraph2")
-const imageSecond = document.querySelector("#image2")
-addSecond.addEventListener("click",()=>{
-    paraqrafSecond.classList.toggle("active")
-    imageSecond.classList.toggle("element")
-})
-
-const addThird = document.querySelector("#add3")
-const paraqrafThird = document.querySelector("#paragraph3")
-const imageThird = document.querySelector("#image3")
-addThird.addEventListener("click",()=>{
-    paraqrafThird.classList.toggle("active")
-    imageThird.classList.toggle("element")
-})
-
-const addFourth = document.querySelector("#add4")
-const paraqrafFourth = document.querySelector("#paragraph4")
-const imageFourth = document.querySelector("#image4")
-addFourth.addEventListener("click",()=>{
-    paraqrafFourth.classList.toggle("active")
-    imageFourth.classList.toggle("element")
-})
-
-const addFifth = document.querySelector("#add5")
-const paraqrafFifth = document.querySelector("#paragraph5")
-const imageFifth = document.querySelector("#image5")
-addFifth.addEventListener("click",()=>{
-    paraqrafFifth.classList.toggle("active")
-    imageFifth.classList.toggle("element")
-})
-
-const addSixth = document.querySelector("#add6")
-const paraqrafSixth = document.querySelector("#paragraph6")
-const imageSixth = document.querySelector("#image6")
-addSixth.addEventListener("click",()=>{
-    paraqrafSixth.classList.toggle("active")
-    imageSixth.classList.toggle("element")
- 
-})
-=======
 faqItems.forEach(item => {
     const addButton = item.querySelector('.vector_icon');
     const content = item.querySelector('.faq_content');   
@@ -70,4 +21,56 @@ faqItems.forEach(item => {
         image.classList.toggle('element'); 
     });
 });
->>>>>>> 8930b3f116471acddc8f6bc3fa3c62c9e51dac11
+
+// Contactform APİ hissesi
+
+    // Formdan məlumatları alırıq
+    let fullName = document.querySelector("#nameInput");
+    let email = document.querySelector("#emailInput");
+    let reason = document.querySelector("#reasonInput");
+    let sendInfo = document.querySelector("#sendInfo");
+
+    // API-ə POST istəyi göndəririk
+    async function getContact() {
+        const formData = {
+            full_name: fullName.value,
+            email: email.value,
+            reason: reason.value
+        };
+        console.log(formData);
+        try {
+            const response = await fetch("https://api.sarkhanrahimli.dev/api/filmalisa/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",               
+                  },
+                body: JSON.stringify(formData) // Form məlumatlarını göndəririk
+            });
+
+            // API-dən cavabı alırıq
+            const data = await response.json();
+
+            fullName.value = "";
+            email.value = "";
+            reason.value = "";
+
+            // Cavabda problem varsa
+            if (!data.result) {
+                sendInfo.innerHTML= "Please fill in all fields";
+                sendInfo.style.color = "#ff4d4d";          
+            }else {
+                sendInfo.innerHTML = "Your message has been sent successfully!";   
+                sendInfo.style.color = "#2e7d32";             
+            }
+
+            console.log('Server response:', data);
+
+            // API-dən alınan məlumatı göstəririk 
+            console.log('Received data:', data.data);
+            // Məsələn, serverdən gələn `full_name` və `email`-i göstərə bilərik:
+            alert(`Thank you ${data.data.full_name}, we have received your message!`);
+
+        } catch (error) {
+            console.log('Error:', error); 
+        }
+    }
