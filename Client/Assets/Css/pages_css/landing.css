@@ -34,7 +34,7 @@ header {
   line-height: 16.41px;
   align-items: center;
   background-color: var(--PurpleColor);
-  padding: 4px 16px;
+  padding: 6px 16px;
   border-radius: 4px;
 }
 .header_signin_btn {
@@ -71,7 +71,7 @@ header {
   padding: 16px 15px 0px 31px;
 }
 .input_container input {
-  padding: 18px 16px;
+  padding: 18px 100px 18px 16px;
   border-radius: 4px;
   border: 1px solid rgba(128, 128, 128, 1);
 }
@@ -79,7 +79,7 @@ header {
   display: flex;
   color: rgba(255, 255, 255, 1);
   font-weight: 500;
-  padding: 12px 24px;
+  padding: 12px 30px;
   border-radius: 4px;
   background-color: var(--PurpleColor);
   text-align: center;
@@ -171,6 +171,29 @@ textarea {
   gap: 8px;
   flex-direction: column;
 }
+
+/* 
+    line-height: 30px;
+    padding: 24px;
+    background-color: rgba(42, 42, 42, 1);
+
+}
+.faq_item_first{
+    display: flex;
+    justify-content: space-between;
+}
+.faq_section p {
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    transition: all .3s ease-in-out;
+}
+.active {
+width: 150px;
+height: 30px;
+}
+
+ */
 .faq_item {
   line-height: 30px;
   padding: 24px;
@@ -186,7 +209,10 @@ textarea {
   width: 0;
   overflow: hidden;
   transition: height .5s ease-in-out;
+  padding-top: 6px;
+  color: var(--WhiteGreyColor);
 }
+
 .active {
  width: 100%;
  height: 30px;
@@ -195,7 +221,8 @@ textarea {
 .element {
     transform: rotate(50deg);
     transition: all .3s ease-in-out;
-  }
+}
+
 .vector_icon img {
   width: 28px;
   height: 28px;
@@ -238,12 +265,9 @@ textarea {
   border-top: 8px solid rgba(35, 35, 35, 1);
 }
 /* All Underline */
-
 #sendInfo {
   font-size: 16px;
     font-weight: bold;
     text-align: start;
-    /* color: #2e7d32; */
-    /* color: #ff4d4d; */
     margin-bottom: 20px;
 }

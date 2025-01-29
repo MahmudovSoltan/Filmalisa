@@ -56,7 +56,7 @@ async function creatAdmin() {
     if (token) {
       window.location.href = "./dashboard.html";
     }else{
-       error_masge.innerHTML = "Sef kod yazmisan yada email sehvdir"
+       error_masge.innerHTML = "Password or email is incorrect"
     }
     
   } catch (err) {
