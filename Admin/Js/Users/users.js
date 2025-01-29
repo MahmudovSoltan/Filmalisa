@@ -22,12 +22,15 @@ async function getUsers() {
     const allData = resp.data;
 console.log(resp,"users");
 loading.classList.add("loadFalse")
+   const allData2 = allData.slice(0,20)
     // Tablo məlumatlarını təmizləyirik
     users_table.innerHTML = "";
 
     // Yeni səhifənin məlumatlarını əlavə edirik
-    const newPagination = allData.slice((index - 1) * perPage, index * perPage);
-    newPagination.forEach((element, i) => {
+    const newPagination1 = allData2.slice((index - 1) * perPage, index * perPage);
+ 
+    
+    newPagination1.forEach((element, i) => {
       users_table.innerHTML += `
           <tr>
                 <td>${i + 1 + (index - 1) * perPage}</td>
@@ -42,7 +45,7 @@ loading.classList.add("loadFalse")
         `;
     });
 
-    const totalPage = Math.ceil(allData.length / perPage);
+    const totalPage = Math.ceil(allData2.length / perPage);
 
     // Dinamik səhifə düymələrini yaradın
     paginationContainer.innerHTML = ""; // Əvvəlki düymələri təmizləyirik

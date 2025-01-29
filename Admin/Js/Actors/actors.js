@@ -22,6 +22,8 @@ const sucsesfullModal = document.querySelector("#modal-success");
 const failModal = document.querySelector("#modal-fail");
 const loading = document.querySelector("#loading");
 const owarlay2 = document.querySelector("#owarlay2");
+
+
 //modali baglama funksiyasi
 const paginationContainer = document.querySelector(".pagination-container");
 const perPage = 8;
@@ -102,13 +104,15 @@ async function getActors() {
     console.log(resp.data);
     actorstable.innerHTML = "";
     selectedidinfo = resp.data;
-    const allData = resp.data;
-    const newPagination = allData.slice((index - 1) * perPage, index * perPage);
 
-    newPagination.forEach((element) => {
+    console.log("selectedidinfo", selectedidinfo);
+    const allData = resp.data;
+    const newPagination = resp.data.slice((index - 1) * perPage, index * perPage);
+    actorstable.innerHTML=""
+    newPagination.forEach((element,index) => {
       actorstable.innerHTML += `
         <tr>
-          <td>${element.id}</td>
+          <td>${index+1}</td>
           <td>${element.name}</td>
           <td>${element.surname}</td>
           <td  style="display: flex;justify-content: center;"><img class="tableimage"  src="${element.img_url}" alt="Actor Image" /></td>
@@ -135,11 +139,10 @@ async function getActors() {
       }
       pageButton.addEventListener("click", () => {
         index = i;
-        getActors();
+        getActors()
       });
       paginationContainer.appendChild(pageButton);
     }
-    loading.classList.add("loadFalse")
   } catch (error) {
     console.error(error);
   }

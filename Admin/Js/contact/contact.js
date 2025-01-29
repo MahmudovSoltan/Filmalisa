@@ -2,6 +2,10 @@ const movieModal = document.querySelector("#movieModal");
 const exitModal = document.querySelector(".owarlay");
 const contactTable = document.querySelector("#contact_table");
 const loading = document.querySelector("#loading")
+const paginationContainer = document.querySelector(".pagination-container");
+const perPage = 8;
+let index = 1;
+
 
 
 exitModal.addEventListener("click", () => {
@@ -46,7 +50,10 @@ async function getContact() {
       );
     const contact = await response.json();
     console.log("data", contact);
-    contact.data.forEach((contact,i) => {
+    const allData = contact.data;
+    const newPagination = contact.data.slice((index - 1) * perPage, index * perPage);
+    contactTable.innerHTML = ""
+    newPagination.forEach((contact,i) => {
       contactTable.innerHTML += `
       <tr>
       <td>${i+1}</td>
@@ -54,7 +61,7 @@ async function getContact() {
       <td>${contact.email}</td>
       <td>${contact.reason}</td>
       <td>
-        <button class="table_delete_btn" onclick="handleId(${contact.id})">Delete</button>
+        <button class="table_delete_btn" onclick="handleId(${contact.id})">   <i class="fa-solid fa-trash"></i></button>
       </td>
     </tr>
       `
@@ -66,6 +73,26 @@ async function getContact() {
         movieModal.classList.add("active");
       });
     });
+
+
+    const totalPage = Math.ceil(allData.length / perPage);
+
+    // Dinamik səhifə düymələrini yaradın
+    paginationContainer.innerHTML = ""; // Əvvəlki düymələri təmizləyirik
+    for (let i = 1; i <= totalPage; i++) {
+      const pageButton = document.createElement("button");
+      pageButton.textContent = i;
+      pageButton.classList.add("page-btn");
+      if (i === index) {
+        pageButton.classList.add("active"); // Aktiv səhifə üçün xüsusi sinif
+      }
+      pageButton.addEventListener("click", () => {
+        index = i;
+        getContact()
+      });
+      paginationContainer.appendChild(pageButton);
+    }
+    
   }
   catch (error) {
     console.log(error);

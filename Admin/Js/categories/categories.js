@@ -234,6 +234,7 @@ async function editCategory(data) {
 }
 
 
+<<<<<<< HEAD
 
 
 
@@ -248,6 +249,8 @@ function closeModal() {
 
 
 
+=======
+>>>>>>> main
 function logOutFunc() {
   localStorage.removeItem("Admin_token")
   window.location.href = './login.html'
