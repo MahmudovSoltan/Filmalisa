@@ -20,6 +20,9 @@
 
 <body>
     <section>
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+          </div>
         <div class="login_container">
             <!-- ASIDE BAR START -->
             <aside>
@@ -67,7 +70,7 @@
             </aside>
             <!-- ASIDE BAR END -->
             <!-- LOGİN FORM START -->
-            <div class="form_container">
+            <div class="form_container" id="homemain" style="opacity: 0;">
                 <div class="login_logo">
                     <img id="userProfileImg" src="https://media.istockphoto.com/id/1495088043/vector/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=dhV2p1JwmloBTOaGAtaA3AW1KSnjsdMt7-U_3EZElZ0=" alt="logo">
                     <!-- <h2 class="form_title">
@@ -98,6 +101,8 @@
                         <img class="eyeIcon" width="24px" src="../Assets/Icons/eyeIcon.svg" alt="" id="iconPassword" autocomplete="off">
 
                     </div>
+
+                    <p id="userUpdsteInfo"></p>
 
                     <button type="submit" class="submit_btn" id="loginButton" onclick="updateAccount()">save</button>
                 </div>

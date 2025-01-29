@@ -18,13 +18,16 @@ const editNameInput = document.querySelector("#editName");
 const editSurnameInput = document.querySelector("#editSurname");
 const editImageInput = document.querySelector("#editImage");
 const actorstable = document.querySelector("#actorstable");
+const sucsesfullModal = document.querySelector("#modal-success");
+const failModal = document.querySelector("#modal-fail");
+const loading = document.querySelector("#loading");
+const owarlay2 = document.querySelector("#owarlay2");
+
+
+//modali baglama funksiyasi
 const paginationContainer = document.querySelector(".pagination-container");
 const perPage = 8;
 let index = 1;
-//modali baglama funksiyasi
-
-
-
 
 function closeModal(modal) {
   if (modal) {
@@ -55,6 +58,7 @@ createConfirmBtn.addEventListener("click", function () {
 });
 //yaradan funksiya
 async function createActor(actordata) {
+  loading.classList.remove("loadFalse")
   try {
     const responce = await fetch(
       "https://api.sarkhanrahimli.dev/api/filmalisa/admin/actor",
@@ -68,7 +72,16 @@ async function createActor(actordata) {
       }
     );
     const data2 = await responce.json();
-    console.log("data2", data2);
+    if (data2.statusCode === 400) {
+      failModal.classList.add("active");
+      createModal.classList.remove("active")
+      getActors();
+    } else {
+      sucsesfullModal.classList.add("active");
+      createModal.classList.remove("active")
+      getActors();
+    }
+    loading.classList.add("loadFalse")
   } catch (error) {
     console.log("error", error);
   }
@@ -89,7 +102,9 @@ async function getActors() {
     );
     const resp = await response.json();
     console.log(resp.data);
+    actorstable.innerHTML = "";
     selectedidinfo = resp.data;
+
     console.log("selectedidinfo", selectedidinfo);
     const allData = resp.data;
     const newPagination = resp.data.slice((index - 1) * perPage, index * perPage);
@@ -100,7 +115,7 @@ async function getActors() {
           <td>${index+1}</td>
           <td>${element.name}</td>
           <td>${element.surname}</td>
-          <td><img class="tableimage" src="${element.img_url}" alt="Actor Image" /></td>
+          <td  style="display: flex;justify-content: center;"><img class="tableimage"  src="${element.img_url}" alt="Actor Image" /></td>
           <td class="table_edit_btn" onclick="editFn(${element.id})">
           <i class="fa-solid fa-pen"></i>
           </td>
@@ -127,6 +142,7 @@ async function getActors() {
         getActors()
       });
       paginationContainer.appendChild(pageButton);
+      loading.classList.add("loadFalse")
     }
   } catch (error) {
     console.error(error);
@@ -145,6 +161,7 @@ function editFn(elid) {
   editImageInput.value = findEl.img_url;
 }
 async function updateFn() {
+  loading.classList.remove("loadFalse")
   const data = {
     name: editNameInput.value,
     surname: editSurnameInput.value,
@@ -161,9 +178,19 @@ async function updateFn() {
           Authorization: `Bearer ${localStorage.getItem("Admin_token")}`,
         },
         body: JSON.stringify(data),
-      }
+      } 
     );
-    location.reload();
+    const data2 = await response.json();
+    if (data2.statusCode === 400) {
+      failModal.classList.add("active");
+      editModal.classList.remove("active")
+      getActors();
+    } else {
+      sucsesfullModal.classList.add("active");
+      editModal.classList.remove("active")
+      getActors();
+    }
+    loading.classList.add("loadFalse")
   } catch (error) {
     console.log(error);
   } finally {
@@ -178,6 +205,7 @@ function removeFn(id) {
 }
 //acilan modaldaki yes btn a basanda
 async function getDelyes() {
+  loading.classList.remove("loadFalse")
   if (!selectedActorId) {
     console.error("No actor selected for deletion.");
     return;
@@ -196,12 +224,23 @@ async function getDelyes() {
     if (!response.ok) {
       throw new Error("Failed to delete the actor.");
     }
-    alert(`Actor with ID ${selectedActorId} has been deleted.`);
+    // alert(`Actor with ID ${selectedActorId} has been deleted.`);
     closeModal(movieModal); // Modalı bağla
-    location.reload(); // Siyahını yenilə
+    // location.reload(); // Siyahını yenilə
+    const data = response.json();
+    if (data.statusCode === 400) {
+      failModal.classList.add("active");
+      movieModal  .classList.remove("active")
+      getActors();
+    } else {
+      sucsesfullModal.classList.add("active");
+      movieModal  .classList.remove("active")
+      getActors();
+    }
+    loading.classList.add("loadFalse")
   } catch (error) {
     console.error("Failed to delete the actor:", error);
-    alert("Failed to delete the actor.");
+    // alert("Failed to delete the actor.");
   } finally {
     selectedActorId = null; // ID-ni sıfırla
   }
@@ -211,6 +250,14 @@ function getDelno() {
   location.reload(); // Siyahını yenilə
 }
 
+function closeModal() {
+  sucsesfullModal.classList.remove("active");
+  failModal.classList.remove("active");
+}
 
 
 
+function logOutFunc() {
+  localStorage.removeItem("Admin_token")
+  window.location.href = './login.html'
+}

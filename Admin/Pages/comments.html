@@ -21,6 +21,9 @@
   </head>
 
   <body>
+    <div id="loading" class="loading">
+      <div class="spinner"></div>
+    </div>
     <section class="comment_section">
       <aside>
         <div class="left_panel">
@@ -176,6 +179,23 @@
       </div>
     </section>
     <!-- MODAL SECTION END -->
+
+    <div>
+      <!-- <div class="resaltowarlay" id="owarlay2"></div> -->
+      <div class="modal-success" id="modal-success">
+        <h2>Successful</h2>
+  
+        <button onclick="closeModal()">Bağla</button>
+      </div>
+    </div>
+  
+    <div>
+      <!-- <div class="owarlay" id="owarlay2" ></div> -->
+      <div class="modal-fail" id="modal-fail">
+        <h2>Unsuccessful</h2>
+        <button onclick="closeModal()">Close</button>
+      </div>
+    </div>
 
     <script src="../Js/Comments/comment.js"></script>
   </body>

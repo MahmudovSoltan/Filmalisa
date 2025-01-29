@@ -38,6 +38,7 @@ var swiper3 = new Swiper(".mySwiper3", {
 const carusel2 = document.querySelector("#carusel2");
 const swiper1 = document.querySelector("#swiper1");
 const swiper_image = document.querySelector("#swiper_image");
+const homemain = document.querySelector("#homemain")
 async function getAllMovies() {
   try {
     const response = await fetch(
@@ -48,11 +49,12 @@ async function getAllMovies() {
           Authorization: ` Bearer ${localStorage.getItem("login_token")}`,
         },
       }
+    
     );
     const movies = await response.json();
-
+      homemain.style.opacity = "1"
     let oneMovieCarusel = movies.data.slice(1, 4);
-    console.log(oneMovieCarusel);
+    const loading = document.querySelector("#loading")
     let imageOne = document.querySelector("#imageOne");
     let imageTwo = document.querySelector("#imageTwo");
     let imageThree = document.querySelector("#imageThree");
@@ -62,6 +64,9 @@ async function getAllMovies() {
     const description1 = document.querySelector("#description1");
     const description2 = document.querySelector("#description2");
     const description3 = document.querySelector("#description3");
+    const swiper_content_top1 = document.querySelector("#swiper_content_top1") 
+    const swiper_content_top2 = document.querySelector("#swiper_content_top2") 
+    const swiper_content_top3 = document.querySelector("#swiper_content_top3") 
     const url3 = document.querySelector("#url3");
     const url2 = document.querySelector("#url2");
     const url1 = document.querySelector("#url1");
@@ -77,8 +82,11 @@ async function getAllMovies() {
     imageOne.src = oneMovieCarusel[0].cover_url;
     imageTwo.src = oneMovieCarusel[1].cover_url;
     imageThree.src = oneMovieCarusel[2].cover_url;
-
+    swiper_content_top3.innerHTML = oneMovieCarusel[2].category.name
+    swiper_content_top2.innerHTML = oneMovieCarusel[1].category.name
+    swiper_content_top1.innerHTML = oneMovieCarusel[0].category.name
     console.log(swiper1);
+    loading.classList.add("loadFalse")
   } catch (errr) {
     console.log(errr);
   }
@@ -131,7 +139,7 @@ async function getCattegories() {
                       <img src="${movie.cover_url}" alt="">
                     </a>
                     <div class="swiper_card_content">
-                      <div class="swiper_content_top">Fantasy</div>
+                      <div class="swiper_content_top">${movie.category.name}</div>
                       <div class="">
                         <h3>${
                           movie.title.length > 40
@@ -183,7 +191,7 @@ async function getCattegories() {
                       </div>
                     </a>
                     <div class="swiper_card_content">
-                      <div class="swiper_content_top">Fantasy</div>
+                      <div class="swiper_content_top">${movie.category.name}</div>
                       <div class="">
                         <h3>${
                           movie.title.length > 40

@@ -17,3 +17,28 @@
     background: transparent;
     object-fit: cover;
 }
+
+#userUpdateInfo {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    
+  }
+
+  .success {
+    background-color: #28a745;
+    opacity: 1;
+    text-align: center;
+    padding: 5px 0;
+  }
+
+  .error {
+    background-color: #dc3545;
+    opacity: 1;
+    text-align: center;
+    padding: 5px 0;
+  }

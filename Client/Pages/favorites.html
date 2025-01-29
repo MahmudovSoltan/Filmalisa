@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,30 +13,39 @@
     <script src="../Js/auth.js" defer></script>
     <script src="../Js/errorPage.js" defer></script>
 </head>
+
 <body>
-                <!-- ASIDE BAR START -->
-                <aside>
-                    <div class="logo">
-                        <a href="../../index.html"><img src="../Assets/Icons/logo.svg" alt=""></a>
-                    </div>
-                    <div class="aside_links">
-                        <div class="aside_link">
-                            <a href="./home.html"><img src="../Assets/Icons/homeIcon.svg" alt=""></a>
-                        </div>
-                        <div class="aside_link">
-                            <a href="./search.html"><img src="../Assets/Icons/searchIcon.svg" alt=""></a>
-                        </div>
-                        <div class="aside_link">
-                            <a href="./account.html"><img src="../Assets/Icons/accountIcon.svg" alt=""></a>
-                        </div>
-                        <div class="aside_link">
-                            <a href="#"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M10 2L12 7.74222H18L13.3333 11.4578L15 17.2L10 13.8222L5 17.2L6.66667 11.4578L2 7.74222H8L10 2Z" stroke="rgba(15, 239, 253, 1)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg></a>
-                        </div>
-                    </div>
-                </aside>
-    <section style="padding-left: 80px; padding-bottom: 60px; padding-top: 162px;">
+
+    <div id="loading" class="loading">
+        <div class="spinner"></div>
+      </div>
+    <!-- ASIDE BAR START -->
+    <aside>
+        <div class="logo">
+            <a href="../../index.html"><img src="../Assets/Icons/logo.svg" alt=""></a>
+        </div>
+        <div class="aside_links">
+            <div class="aside_link">
+                <a href="./home.html"><img src="../Assets/Icons/homeIcon.svg" alt=""></a>
+            </div>
+            <div class="aside_link">
+                <a href="./search.html"><img src="../Assets/Icons/searchIcon.svg" alt=""></a>
+            </div>
+            <div class="aside_link">
+                <a href="./account.html"><img src="../Assets/Icons/accountIcon.svg" alt=""></a>
+            </div>
+            <div class="aside_link">
+                <a href="#"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M10 2L12 7.74222H18L13.3333 11.4578L15 17.2L10 13.8222L5 17.2L6.66667 11.4578L2 7.74222H8L10 2Z"
+                            stroke="rgba(15, 239, 253, 1)" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg></a>
+            </div>
+        </div>
+    </aside>
+    <section style="padding-left: 80px; padding-bottom: 60px; padding-top: 80px; opacity: 0;" id="homemain">
         <div class="category_title">
             <h2>Favorite movies</h2>
             <svg width="12" height="17" viewBox="0 0 12 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -58,7 +68,7 @@
                         </div>
                      </div>
                     </div> -->
-<!-- 
+                    <!-- 
                     <div class="swiper-slide swiper_card"><img src="../Assets/Images/img.png" alt="">       <div class="swiper_card_content">
                         <div class="swiper_content_top">
                             Fantasy
@@ -133,8 +143,9 @@
             </div>
         </div>
     </section>
-   <!-- Swiper JS -->
-   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-   <script src="../Js/favorites.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="../Js/favorites.js"></script>
 </body>
+
 </html>

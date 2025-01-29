@@ -20,6 +20,10 @@
     <script src="../Js/Auth/auth.js" defer></script>
   </head>
   <body>
+    <!-- LOADING HTML -->
+  <div id="loading" class="loading">
+    <div class="spinner"></div>
+  </div>
     <div class="container">
       <!-- /* dashboard left side start */ -->
       <div class="left_panel">
@@ -77,7 +81,7 @@
         </div>
         <div class="logoutclass">
           <ul>
-            <li class="nav_itemfut">
+            <li class="nav_itemfut" onclick="logOutFunc()">
               <img
                 class="logoimagefut"
                 src="../Assets/Icons/logout.svg"
@@ -147,7 +151,7 @@
         </div>
         <!-- table end -->
         <!-- MODAL DELETE START -->
-        <section class="modal_section" id="movieModal">
+        <section class="modal_section" id="movieModal" style="padding-top: 0px;">
           <div class="owarlay"></div>
           <div class="modal_container">
             <div class="modal">
@@ -173,7 +177,7 @@
       </div>
     </div>
     <!-- CREAT  SECTION START -->
-    <section class="modal_section" id="createModal">
+    <section class="modal_section" id="createModal" style="padding-top: 0px;">
       <div class="owarlay"></div>
       <div class="modal_container">
         <div class="modal">
@@ -209,7 +213,7 @@
     </section>
     <!-- CREAT  SECTION END -->
     <!-- EDIT  SECTION START -->
-    <section class="modal_section" id="editModal">
+    <section class="modal_section" id="editModal" style="padding-top: 0px;">
       <div class="owarlay"></div>
       <div class="modal_container">
         <div class="modal">
@@ -249,6 +253,23 @@
         </div>
       </div>
     </section>
+
+    <div>
+      <!-- <div class="resaltowarlay" id="owarlay2"></div> -->
+      <div class="modal-success" id="modal-success">
+        <h2>Successful</h2>
+  
+        <button onclick="closeModal()">Bağla</button>
+      </div>
+    </div>
+  
+    <div>
+      <!-- <div class="owarlay" id="owarlay2" ></div> -->
+      <div class="modal-fail" id="modal-fail">
+        <h2>Unsuccessful</h2>
+        <button onclick="closeModal()">Close</button>
+      </div>
+    </div>
     <!-- EDIT  SECTION END -->
     <script src="../Js/Actors/actors.js"></script>
   </body>
