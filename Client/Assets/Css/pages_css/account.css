@@ -42,3 +42,13 @@
     text-align: center;
     padding: 5px 0;
   }
+
+  @media (max-width: 575px){
+    .input_div input{
+      width: auto !important;
+    }
+    .submit_btn {
+      padding: 8px 12px;
+      margin-top: 20px;
+  }
+  }

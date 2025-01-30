@@ -6,9 +6,10 @@ const passwordInput = document.querySelector("#password");
 const iconPassword = document.querySelector("#iconPassword");
 const loading = document.querySelector("#loading");
 const userUpdsteInfo = document.querySelector("#userUpdsteInfo");
-const homemain = document.querySelector("#homemain")
+const homemain = document.querySelector("#homemain");
 async function getAccount() {
   try {
+    
     let response = await fetch(
       "https://api.sarkhanrahimli.dev/api/filmalisa/profile",
       {
@@ -21,6 +22,8 @@ async function getAccount() {
     );
 
     let data = await response.json();
+    loading.classList.add("loadFalse");
+    homemain.style.opacity = "1";
     console.log(data);
     userEmail.value = data.data.email;
     userName.value = data.data.full_name;
@@ -28,8 +31,7 @@ async function getAccount() {
     userProfileImg.src = data.data.img_url
       ? data.data.img_url
       : "https://cdn3.vectorstock.com/i/1000x1000/49/92/beautiful-woman-avatar-character-icon-vector-33984992.jpg";
-       homemain.style.opacity = "1"
-    loading.classList.add("loadFalse");
+   
   } catch (error) {
     console.log(error);
   }
@@ -64,16 +66,17 @@ async function updateAccount() {
     getAccount();
     loading.classList.add("loadFalse");
     if (response.status === 200) {
-      userUpdsteInfo.innerHTML =  "User information updated successfully!"
-      userUpdsteInfo.classList.add("success")
-    }else{
-      userUpdsteInfo.innerHTML = "Error updating user information. Please try again."
-      userUpdsteInfo.classList.add("error")
+      userUpdsteInfo.innerHTML = "User information updated successfully!";
+      userUpdsteInfo.classList.add("success");
+    } else {
+      userUpdsteInfo.innerHTML =
+        "Error updating user information. Please try again.";
+      userUpdsteInfo.classList.add("error");
     }
     setTimeout(() => {
       userUpdsteInfo.innerHTML = "";
-      userUpdsteInfo.classList.remove("error")
-      userUpdsteInfo.classList.remove("success")
+      userUpdsteInfo.classList.remove("error");
+      userUpdsteInfo.classList.remove("success");
     }, 3000);
   } catch (error) {
     console.log(error);

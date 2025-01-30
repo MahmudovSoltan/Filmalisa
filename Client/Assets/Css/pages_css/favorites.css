@@ -6,3 +6,9 @@
     width: 100%;
     object-fit: cover;
 }
+@media (max-width: 575px){
+    .favoritesSection{
+        padding-left: 20px !important;
+        padding-top: 0px !important;
+    }
+}

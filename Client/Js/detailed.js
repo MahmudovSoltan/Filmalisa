@@ -32,8 +32,21 @@ function addComment() {
 
 var swiper = new Swiper(".mySwiper", {
   watchSlidesProgress: true,
-  slidesPerView: 5,
+  slidesPerView: 7,
   spaceBetween: 24,
+  breakpoints: {
+    // 320px-ə qədər ekranlarda
+    320: {
+        slidesPerView: 4,
+        spaceBetween: 5
+    },
+    // 480px-ə qədər ekranlarda
+    575: {
+        slidesPerView: 4,
+        spaceBetween: 10
+    },
+    // 768px və ya daha böyük ekranlar
+}
 });
 
 var swiper3 = new Swiper(".mySwiper3", {
@@ -41,6 +54,23 @@ var swiper3 = new Swiper(".mySwiper3", {
   slidesPerView: 3,
   spaceBetween: 16,
   loop: true,
+  breakpoints: {
+    // 320px-ə qədər ekranlarda
+    320: {
+        slidesPerView: 1,
+        spaceBetween: 5
+    },
+    // 480px-ə qədər ekranlarda
+    575: {
+        slidesPerView: 1,
+        spaceBetween: 10
+    },
+    1024:{
+      slidesPerView: 3,
+      spaceBetween: 10
+    }
+  
+}
 });
 
 const postId = window.location.search.split("=")[1];
@@ -61,6 +91,7 @@ const addedcommentare = document.querySelector("#addedcommentare");
 const simmovswiper = document.querySelector("#simmovswiper");
 const addfavbtn = document.querySelector("#addfavbtn");
 const loading = document.querySelector("#loading")
+
 let categoryid = null;
 //watchlik function START
 
@@ -95,7 +126,7 @@ async function getWatch() {
       console.log("youtubeEmbedLink", youtubeEmbedLink);
     } else {
       console.error("Link tapılmadı.");
-    }
+    } 
     // console.log("responce", responce.data.actors);
     responce.data.actors.forEach((item) => {
       topactors.innerHTML += `
@@ -111,6 +142,7 @@ async function getWatch() {
     });
 
     // console.log("responce", responce.data.watch_url);
+    loading.classList.add("loadFalse")
 
     if (responce.data.watch_url) {
       watchlinkhref.href = responce.data.watch_url;
@@ -118,7 +150,6 @@ async function getWatch() {
       console.error("Link tapılmadı.");
       watchlinkhref.textContent = "No Link Available";
     }
-    loading.classList.add("loadFalse")
   } catch (error) {
     // console.log("error", error);
   }
@@ -365,6 +396,40 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+
+document.addEventListener("DOMContentLoaded", function () {
+  const mobileFrqman = document.querySelector("#mobileFrqman")
+
+  mobileFrqman.addEventListener("click", function () {
+    // YouTube embed link
+    // const youtubeEmbedLink =
+    //   "https://youtu.be/pBk4NYhWNMM?si=P_pBQBgZdNgDzsU7?autoplay=1";
+
+    // Iframe və overlay yoxdursa, yaradın
+    if (!document.querySelector(".youtube-iframe")) {
+      // Overlay yaratmaq
+      const overlay = document.createElement("div");
+      overlay.classList.add("overlay");
+      document.body.appendChild(overlay);
+
+      // Iframe yaratmaq
+      const iframe = document.createElement("iframe");
+      iframe.src = youtubeEmbedLink;
+      iframe.classList.add("youtube-iframe", "centered");
+      document.body.appendChild(iframe);
+
+      // Overlay və iframe-i göstərmək
+      overlay.style.display = "block";
+      iframe.style.display = "block";
+
+      // Overlay-i bağlama funksiyası
+      overlay.addEventListener("click", function () {
+        iframe.remove();
+        overlay.remove();
+      });
+    }
+  });
+});
 //IFRAME END
 
 ///-----------
