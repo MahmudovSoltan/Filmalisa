@@ -44,6 +44,7 @@ aside{
    align-items: center;
    z-index: 1000;/* Əsasda gizli vəziyyətdə olacaq */
    transition: opacity 0.3s ease; /* Gözəl görünən açılış/bağlanış effekti */
+   z-index: 99999999999999999;
  }
  
  #loading.active {

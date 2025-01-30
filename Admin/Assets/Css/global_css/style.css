@@ -16,12 +16,13 @@
    left: 0;
    width: 100%;
    height: 100%;
-   background-color: rgba(0, 0, 0, 0.7); /* Qaranlıq yarı şəffaf fon */
+   background-color: rgba(0, 0, 0); /* Qaranlıq yarı şəffaf fon */
    display: flex;
    justify-content: center;
    align-items: center;
    z-index: 1000;/* Əsasda gizli vəziyyətdə olacaq */
    transition: opacity 0.3s ease; /* Gözəl görünən açılış/bağlanış effekti */
+   z-index: 99999999999999;
  }
  
  #loading.active {
