@@ -89,3 +89,32 @@
     text-align: center;
     font-weight: 700;
   }
+
+
+
+  @media (max-width: 575px) {
+    .search_left{
+      padding: 0px !important;
+    }
+    .search_left_top{
+      margin: 0 0 20px;
+      padding: 0;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .search_left_top_input{
+      padding: 0px;
+    }
+    .category_title{
+      margin-left: 0;
+      margin-right: 24px;
+    }
+    .seracr_left_cards{
+      justify-content: center;
+    }
+    .Image404{
+      width: 95% !important;
+      height: 50vh;
+    }
+  }

@@ -99,3 +99,22 @@ form a {
   /* margin: 10px 0; */
   text-align: start;
 }
+@media (max-width: 575px){
+  .input_div input{
+    width: 100%;
+  }
+  .input_div{
+    padding: 8px 12px;
+  }
+  .form_title{
+    font-size: 32px;
+    line-height: 40px;
+  }
+  .form_title span{
+    font-size: 24px;
+  }
+  .submit_btn{
+    padding: 12px 0;
+    margin-top: 20px;
+  }
+}

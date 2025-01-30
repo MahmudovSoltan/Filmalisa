@@ -129,10 +129,10 @@
   background-color: var(--mainbackgroundColorBlack);
   border-radius: 40px; /* Künclər sərhədə uyğun */
   z-index: -1; /* Gradient sərhədin arxasında qalır */
-  transition: all .3s ease-out;
+  transition: all 0.3s ease-out;
 }
-  
-.watch_link:hover::before{
+
+.watch_link:hover::before {
   background-color: transparent;
 }
 /* CATEGORY CSS START */
@@ -226,8 +226,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-
-  z-index: 99999;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 99;
 } */
 
 .home_secont_container {
@@ -238,11 +238,42 @@
   z-index: 99;
 }
 
- .slider> .swiper-slide {
+.slider > .swiper-slide {
   flex-shrink: 0;
   width: auto !important;
   height: 100%;
   position: relative;
   transition-property: transform;
   display: flex;
+}
+
+@media (max-width: 575px) {
+  .swiper_card2 img {
+    height: 400px !important;
+    background-color: transparent;
+  }
+  .swiper_content {
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    left: 0;
+    bottom: 0;
+    padding: 110px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+  }
+  .movie_title {
+    font-size: 32px;
+    margin: 0;
+  }
+  .watch_link {
+    width: 150px;
+    height: 50px;
+  }
+  .homeswiper_section{
+    padding-left: 20px !important;
+  }
 }

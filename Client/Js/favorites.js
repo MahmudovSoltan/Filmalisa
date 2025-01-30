@@ -2,6 +2,28 @@ var swiper3 = new Swiper(".mySwiper3", {
   watchSlidesProgress: true,
   slidesPerView: 3,
   spaceBetween: 16,
+  breakpoints: {
+    // 320px-ə qədər ekranlarda
+    320: {
+        slidesPerView: 1,
+        spaceBetween: 5
+    },
+    // 480px-ə qədər ekranlarda
+    480: {
+        slidesPerView: 1,
+        spaceBetween: 10
+    },
+    // 768px və ya daha böyük ekranlarda
+    768: {
+        slidesPerView: 3,
+        spaceBetween: 15
+    },
+    // 1024px və ya daha böyük ekranlarda
+    1024: {
+        slidesPerView: 4,
+        spaceBetween: 20
+    }
+}
 });
 const favorites = document.querySelector("#favorites");
 const loading = document.querySelector("#loading")
