@@ -6,13 +6,19 @@ const paginationContainer = document.querySelector(".pagination-container");
 const perPage = 8;
 let index = 1;
 
-
+let contactId = null
 
 exitModal.addEventListener("click", () => {
   movieModal.classList.remove("active");
 });
 
+function handleId(id) {
+  contactId = id
+}
 
+function closeModal() {
+  movieModal.classList.remove("active");
+}
 
 async function deleteContact(id) {
   loading.classList.remove("loadFalse")
