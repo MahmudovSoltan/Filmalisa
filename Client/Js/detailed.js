@@ -100,6 +100,7 @@ watchlinkbtn.addEventListener("click", function () {
 });
 
 async function getWatch() {
+
   try {
     const resp = await fetch(
       "https://api.sarkhanrahimli.dev/api/filmalisa/movies/" + postId,
@@ -115,7 +116,7 @@ async function getWatch() {
     console.log("responcecover", responce.data);
     categoryid = responce.data.category.id;
     console.log("categoryid", categoryid);
-
+    
     fragmanimage.src = responce.data.cover_url;
     rightpanelbackimg.style.backgroundImage = `url('${responce.data.cover_url}')`;
     const apifragmanlink = responce.data.fragman
@@ -142,8 +143,8 @@ async function getWatch() {
     });
 
     // console.log("responce", responce.data.watch_url);
+   
     loading.classList.add("loadFalse")
-
     if (responce.data.watch_url) {
       watchlinkhref.href = responce.data.watch_url;
     } else {
@@ -281,7 +282,7 @@ async function getSimilar() {
     console.log("postId", postId);
 
     console.log("similardata", similardata);
-    const filteredMovies = similardata.movies.filter((item) => item.id != postId);
+    const filteredMovies = similardata?.movies?.filter((item) => item.id != postId);
     console.log(filteredMovies);
     
     
