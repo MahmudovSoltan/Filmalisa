@@ -68,7 +68,7 @@ async function searchMovies() {
   loading.classList.remove("loadFalse");
   try {
     const response = await fetch(
-      `https://api.sarkhanrahimli.dev/api/filmalisa/movies?search=${serachInput.value}`,
+      `https://api.sarkhanrahimli.dev/api/filmalisa/movies?search=${serachInput.value.trim()}`,
       {
         method: "GET",
         headers: {
@@ -121,8 +121,14 @@ async function searchMovies() {
           })
           .join(""))
       : (searchDiv.style.display = "flex");
+
+      if (serachInput.value == "") {
+        searchDiv.style.display = "none"
+      }
     loading.classList.add("loadFalse");
   } catch (err) {
     console.log(err);
   }
 }
+
+

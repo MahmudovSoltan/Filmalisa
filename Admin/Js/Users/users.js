@@ -2,7 +2,7 @@ const prev = document.querySelector("#prev");
 const next = document.querySelector("#next");
 const paginationContainer = document.querySelector(".pagination-container");
 const loading = document.querySelector("#loading")
-const perPage = 5;
+const perPage = 4;
 let index = 1;
 
 async function getUsers() {

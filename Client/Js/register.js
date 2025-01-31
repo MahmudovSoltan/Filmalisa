@@ -3,6 +3,7 @@ const userEmail = document.querySelector("#email");
 const passwordInput = document.querySelector("#password");
 const iconPassword = document.querySelector("#iconPassword");
 const loginButton = document.querySelector("#loginButton");
+const registerInfo = document.querySelector("#registerInfo")
 
 async function getAccount() {
   const data = {
@@ -27,6 +28,11 @@ async function getAccount() {
     console.log(result);
     if (result.result) {
       window.location.href = "./login.html";
+      registerInfo.innerHTML = "Your account has been created successfully.";
+      registerInfo.classList.add("success-message");
+    }else{
+      registerInfo.innerHTML = 'This account already exists'
+      registerInfo.classList.add("error-message");
     }
   } catch (error) {
     console.log(error);

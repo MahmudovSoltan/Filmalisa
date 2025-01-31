@@ -269,7 +269,7 @@ async function getSimilar() {
     similardata = res.data.find((item) => item.id === categoryid);
   
     const filteredMovies = similardata?.movies?.filter((item) => item.id != postId);
-    filteredMovies ? filteredMovies?.forEach((element) => {
+    filteredMovies.length>0 ? filteredMovies?.forEach((element) => {
       simmovswiper.innerHTML += `
       <div class="swiper-slide swiper_card2"  style="height: 655px;">
                     <div class="owarlay"></div>

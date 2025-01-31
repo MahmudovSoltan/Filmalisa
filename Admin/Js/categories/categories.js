@@ -236,14 +236,24 @@ async function editCategory(data) {
 
 
 
+function closeModal2() {
+  sucsesfullModal.classList.remove("active")
+   owarlay.classList.remove("active")
+   failModal.classList.remove("active")
+   console.log("click");
+   
+ }
 
 
 
 
 function closeModal() {
   sucsesfullModal.classList.remove("active")
-   owarlay2.style.display = "none";
+   owarlay.classList.remove("active")
    failModal.classList.remove("active")
+   categoryModal.classList.toggle("active")
+   console.log("click");
+   
  }
 
 
