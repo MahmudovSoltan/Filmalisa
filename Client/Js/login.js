@@ -1,7 +1,9 @@
-// Şifrəni göstərmək/gizlətmək funksiyası
+
 const passwordInput = document.querySelector("#password");
 const iconPassword = document.querySelector("#iconPassword");
 const registerInfo = document.querySelector("#registerInfo");
+const loginButton = document.querySelector("#loginButton");
+const useremailInput = document.querySelector("#useremail");
 
 iconPassword.addEventListener("click", () => {
   const type =
@@ -16,10 +18,8 @@ iconPassword.addEventListener("click", () => {
   iconPassword.src = iconSrc;
 });
 
-// Formanın yoxlanılması
-const loginButton = document.querySelector("#loginButton");
-const useremailInput = document.querySelector("#useremail");
-console.log(loginButton);
+
+
 
 loginButton.addEventListener("click", (e) => {
   e.preventDefault();

@@ -128,14 +128,14 @@ aside {
     bottom: 0;
     width: 100vw;
     height: 20px;
-    padding: 20px 4px 36px 0px;
+    padding: 20px 4px 36px 5px;
     z-index: 99999999999999999;
   }
   .logo {
     display: none;
   }
   .aside_links {
-    flex-direction: row;
+    flex-direction: row !important;
     z-index: 99999;
   }
 }

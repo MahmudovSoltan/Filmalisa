@@ -1,24 +1,24 @@
 var swiper = new Swiper(".mySwiper", {
-  slidesPerView: 1, // Hər dəfə bir slayd göstərilir
-  spaceBetween: 30, // Slaydlar arasındakı boşluq
-  loop: true, // Sonsuz dövrə
-  effect: "fade", // Şəffaflıq effekti
+  slidesPerView: 1, 
+  spaceBetween: 30, 
+  loop: true, 
+  effect: "fade", 
   fadeEffect: {
-    crossFade: true, // Daha hamar keçid üçün
+    crossFade: true, 
   },
   autoplay: {
-    delay: 3000, // Hər 3 saniyədən bir slayd dəyişir
-    disableOnInteraction: false, // İstifadəçi müdaxilə etsə belə davam edir
-    pauseOnMouseEnter: true, // Mausun üzərində olarkən durur
+    delay: 3000, 
+    disableOnInteraction: false, 
+    pauseOnMouseEnter: true,
   },
-  speed: 1000, // Animasiya sürəti (1 saniyə)
+  speed: 1000, 
   pagination: {
     el: ".swiper-pagination",
-    clickable: true, // Səhifəçəkliklər kliklənə bilər
+    clickable: true, 
   },
   navigation: {
-    nextEl: ".swiper-button-next", // Növbəti slayd düyməsi
-    prevEl: ".swiper-button-prev", // Əvvəlki slayd düyməsi
+    nextEl: ".swiper-button-next", 
+    prevEl: ".swiper-button-prev",
   },
 });
 

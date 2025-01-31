@@ -337,8 +337,9 @@ tbody tr:hover {
 
 .table_image {
   width: 50px;
-  height: auto;
+  height: 60px;
   border-radius: 5px;
+  object-fit: cover;
 }
 .overview_div{
   height: 50px;

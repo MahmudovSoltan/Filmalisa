@@ -240,13 +240,14 @@
 
 .slider > .swiper-slide {
   flex-shrink: 0;
-  width: auto !important;
   height: 100%;
   position: relative;
   transition-property: transform;
   display: flex;
 }
-
+.slider > .swiper-slide img{
+  width: 320.75px;
+}
 @media (max-width: 575px) {
   .swiper_card2 img {
     height: 400px !important;
@@ -275,5 +276,8 @@
   }
   .homeswiper_section{
     padding-left: 20px !important;
+  }
+  .slider > .swiper-slide{
+    width: auto !important;
   }
 }

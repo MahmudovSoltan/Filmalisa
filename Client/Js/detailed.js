@@ -1,3 +1,28 @@
+const postId = window.location.search.split("=")[1];
+
+
+
+const lostspaseinfo = document.querySelector("#lostspaseinfo");
+const watchlinkbtn = document.querySelector("#watchlinkbtn");
+const adfavbtn = document.querySelector("#adfavbtn");
+const watchlinkhref = document.querySelector("#watchlinkhref");
+const topactors = document.querySelector("#topactors");
+const fragmanimage = document.querySelector("#fragmanimage");
+const rightpanelbackimg = document.querySelector("#rightpanelbackimg");
+const commentinput = document.querySelector("#commentinput");
+const addcomentbtn = document.querySelector("#addcomentbtn");
+const addedcommentare = document.querySelector("#addedcommentare");
+const simmovswiper = document.querySelector("#simmovswiper");
+const addfavbtn = document.querySelector("#addfavbtn");
+const loading = document.querySelector("#loading")
+
+let categoryid = null;
+let comments = [];
+let similardata = [];
+let dataid = null;
+let youtubeEmbedLink = "";
+
+
 function addComment() {
   const commentInput = document.querySelector("#commentInput");
   const addedcomment = document.querySelector("#addedcomment");
@@ -12,23 +37,7 @@ function addComment() {
   }
 }
 
-// var swiper = new Swiper(".mySwiper", {
-//   slidesPerView: 1,
-//   spaceBetween: 30,
-//   loop: true,
-//   pagination: {
-//     el: ".swiper-pagination",
-//     clickable: true,
-//   },
-//   autoplay: {
-//     delay: 2500,
-//     disableOnInteraction: false,
-//   },
-//   navigation: {
-//     nextEl: ".swiper-button-next",
-//     prevEl: ".swiper-button-prev",
-//   },
-// });
+
 
 var swiper = new Swiper(".mySwiper", {
   watchSlidesProgress: true,
@@ -73,26 +82,7 @@ var swiper3 = new Swiper(".mySwiper3", {
 }
 });
 
-const postId = window.location.search.split("=")[1];
 
-let dataid = null;
-let youtubeEmbedLink = "";
-
-const lostspaseinfo = document.querySelector("#lostspaseinfo");
-const watchlinkbtn = document.querySelector("#watchlinkbtn");
-const adfavbtn = document.querySelector("#adfavbtn");
-const watchlinkhref = document.querySelector("#watchlinkhref");
-const topactors = document.querySelector("#topactors");
-const fragmanimage = document.querySelector("#fragmanimage");
-const rightpanelbackimg = document.querySelector("#rightpanelbackimg");
-const commentinput = document.querySelector("#commentinput");
-const addcomentbtn = document.querySelector("#addcomentbtn");
-const addedcommentare = document.querySelector("#addedcommentare");
-const simmovswiper = document.querySelector("#simmovswiper");
-const addfavbtn = document.querySelector("#addfavbtn");
-const loading = document.querySelector("#loading")
-
-let categoryid = null;
 //watchlik function START
 
 watchlinkbtn.addEventListener("click", function () {
@@ -157,8 +147,7 @@ async function getWatch() {
 }
 getWatch();
 //watchlik function END
-let comments = [];
-let similardata = [];
+
 
 //comment function start
 //add butonuna basanda

@@ -11,6 +11,9 @@ const sucsesfullModal = document.querySelector("#modal-success")
 const failModal = document.querySelector("#modal-fail")
 const loading = document.querySelector("#loading")
 const modal_image = document.querySelector("#modal_image")
+const dropdown = document.getElementById("dropdown");
+const dropdownMenu = document.getElementById("dropdownMenu");
+const selectedItemsContainer = document.getElementById("selectedItems");
 // form input value
 
 const title = document.querySelector("#title");
@@ -38,7 +41,6 @@ let index = 1;
 let multiselctValyu = [];
 let selectedItemsId = null;
 let adultValue = null;
-
 modal_image.src = cover_url.value
   ? cover_url.value
   : "https://www.beelights.gr/assets/images/empty-image.png";
@@ -52,9 +54,7 @@ cover_url.addEventListener("input", () => {
 //Sehife acilanda butun filmleri gosterir
 getMoviesFunc();
 
-const dropdown = document.getElementById("dropdown");
-const dropdownMenu = document.getElementById("dropdownMenu");
-const selectedItemsContainer = document.getElementById("selectedItems");
+
 
 function handleCheckBox() {
   adultValue = adult.checked;
@@ -141,7 +141,6 @@ const getActorsFunc = async () => {
     );
     const actor = await response.json();
 
-    // Gələn məlumatlarla menyunu yenilə
     let options = "";
     actor.data.forEach((element) => {
       options += `
@@ -149,8 +148,6 @@ const getActorsFunc = async () => {
       `;
     });
     dropdownMenu.innerHTML = options;
-
-    // Seçimlərə klik hadisələrini bağlamaq
     attachClickEventToMenu();
   } catch (err) {
     console.error("Error fetching actors:", err);
@@ -210,11 +207,7 @@ const getCategoriesFunc = async () => {
          <option value="${element.id}">${element.name}</option>
       `;
     });
-
-    // Seçmə elementinə seçimləri əlavə et
     categorySelect.innerHTML = options;
-
-    // Dəyişiklik hadisəsini bağla
     categorySelect.addEventListener("change", (e) => {
       selectedItemsId = e.target.value;
     });
@@ -248,9 +241,6 @@ async function getMoviesFunc() {
 
     const allData = movies.data;
     const newPagination = allData.slice((index - 1) * perPage, index * perPage);
-
-    // Cədvəli təmizləyirik
-
     table_body.innerHTML = "";
 
     table_body.innerHTML += newPagination
@@ -300,15 +290,13 @@ async function getMoviesFunc() {
       });
     });
     const totalPage = Math.ceil(allData.length / perPage);
-
-    // Dinamik səhifə düymələrini yaradın
-    paginationContainer.innerHTML = ""; // Əvvəlki düymələri təmizləyirik
+    paginationContainer.innerHTML = "";
     for (let i = 1; i <= totalPage; i++) {
       const pageButton = document.createElement("button");
       pageButton.textContent = i;
       pageButton.classList.add("page-btn");
       if (i === index) {
-        pageButton.classList.add("active"); // Aktiv səhifə üçün xüsusi sinif
+        pageButton.classList.add("active");
       }
       pageButton.addEventListener("click", () => {
         index = i;
@@ -365,8 +353,8 @@ async function creatMoviesFunc(moviData) {
     console.log(failModal);
 
   }
-}
-console.log(failModal);
+} 
+
 
 async function updateMoviesFunc(element) {
   loading.classList.remove("loadFalse")
@@ -449,7 +437,7 @@ async function editMoviesFunc(element) {
   selectedMovie = element;
   try {
     const response = await fetch(
-      `https://api.sarkhanrahimli.dev/api/filmalisa/admin/movies/${element}`,
+      `https://api.sarkhanrahimli.dev/api/filmalisa/movies/${element}`,
       {
         method: "GET",
         headers: {
@@ -461,6 +449,8 @@ async function editMoviesFunc(element) {
     const data = await response.json();
 
     // Form sahələrini doldur
+    console.log(data);
+    
     title.value = data.data.title;
     cover_url.value = data.data.cover_url;
     fragman.value = data.data.fragman;
@@ -509,15 +499,9 @@ async function editMoviesFunc(element) {
   }
 }
 function removeActor(actorId, item, span) {
-  // Aktor ID-ni massivdən çıxar
   multiselctValyu = multiselctValyu.filter((id) => id !== actorId);
-
-  // Dropdown elementindən aktiv sinifi sil
   item.classList.remove("active");
-
-  // DOM-dan span-ı sil
   span.remove();
- // Yenilənmiş massiv
 }
 
 

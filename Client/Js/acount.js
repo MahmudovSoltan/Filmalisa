@@ -30,7 +30,7 @@ async function getAccount() {
     profileImgInput.value = data.data.img_url;
     userProfileImg.src = data.data.img_url
       ? data.data.img_url
-      : "https://cdn3.vectorstock.com/i/1000x1000/49/92/beautiful-woman-avatar-character-icon-vector-33984992.jpg";
+      : "https://media.istockphoto.com/id/1495088043/vector/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=dhV2p1JwmloBTOaGAtaA3AW1KSnjsdMt7-U_3EZElZ0=";
    
   } catch (error) {
     console.log(error);
@@ -93,3 +93,5 @@ iconPassword.addEventListener("click", () => {
     iconPassword.src = "../Assets/Icons/eyeIcon.svg";
   }
 });
+
+
