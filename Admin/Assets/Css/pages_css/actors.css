@@ -11,7 +11,9 @@ table {
   width: 70%;
   text-align: left;
 }
-
+.table_edit_btn{
+  cursor: pointer;
+}
 /* Modal container styling */
 .modal {
   width: 100%;

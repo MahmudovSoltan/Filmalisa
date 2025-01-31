@@ -53,7 +53,7 @@
 .admin_image {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
 }
 .admin_image span {
   font-family: var(--RalewayFont);
@@ -192,7 +192,7 @@ tbody tr {
 
 select {
   width: 100%;
-  color: var(--inputBorderColor) !important;
+  color: var(--WhiteGreyColor) !important;
   cursor: pointer;
 }
 .form_bottom {
@@ -263,6 +263,7 @@ select {
   margin: 2px;
   border-radius: 5px;
   font-size: 16px;
+  color: var(--WhiteGreyColor);
 }
 .multiseletc-dropdown .menu {
   display: none;
@@ -281,6 +282,7 @@ select {
   list-style: none;
   padding: 5px;
   cursor: pointer;
+  /* color: var(--WhiteGreyColor); */
 }
 .multiseletc-dropdown .menu li:hover {
   /* background-color: #e0e0e0; */
@@ -344,6 +346,7 @@ tbody tr:hover {
 }
 .selectedlis-container span {
   position: relative;
+  color: var(--WhiteGreyColor);
 }
 
 .delete-btn {

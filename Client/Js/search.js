@@ -1,7 +1,7 @@
 const seracr_left_cards = document.querySelector(".seracr_left_cards");
 const serachInput = document.querySelector("#serachInput");
-const loading = document.querySelector("#loading")
-const homemain = document.querySelector("#homemain")
+const loading = document.querySelector("#loading");
+const homemain = document.querySelector("#homemain");
 const searchDiv = document.getElementById("searchDiv");
 async function searchfunc() {
   try {
@@ -17,8 +17,7 @@ async function searchfunc() {
     const data = await response.json();
     console.log(data);
 
-         seracr_left_cards.innerHTML = data.data
-      .map((movie) => {
+    seracr_left_cards.innerHTML = data.data.map((movie) => {
         return `
         <div class="swiper-slide swiper_card5" >
               <div class="owarlay">
@@ -56,21 +55,17 @@ async function searchfunc() {
         
         `;
       })
-      .join("")
-       homemain.style.opacity = "1"
-      loading.classList.add("loadFalse")
+      .join("");
+    homemain.style.opacity = "1";
+    loading.classList.add("loadFalse");
   } catch (err) {
     console.log(err);
   }
 }
 searchfunc();
 
-
-
-
-
 async function searchMovies() {
-  loading.classList.remove("loadFalse")
+  loading.classList.remove("loadFalse");
   try {
     const response = await fetch(
       `https://api.sarkhanrahimli.dev/api/filmalisa/movies?search=${serachInput.value}`,
@@ -85,9 +80,9 @@ async function searchMovies() {
     const data = await response.json();
     seracr_left_cards.innerHTML = "";
 
-    data.data.length>0?  seracr_left_cards.innerHTML = data.data
-      .map((movie) => {
-        return `
+    data.data.length > 0
+      ? (seracr_left_cards.innerHTML = data.data.map((movie) => {
+            return `
       <div class="swiper-slide swiper_card5" >
             <div class="owarlay">
 
@@ -103,8 +98,10 @@ async function searchMovies() {
            </div>
             <div class="">
               <h3>${
-    movie.title.length > 40 ? movie.title.substring(0, 40) + "..." : movie.title
-                                       }</h3>
+                movie.title.length > 40
+                  ? movie.title.substring(0, 40) + "..."
+                  : movie.title
+              }</h3>
      <div class="slider_whatch_link">
                                   <a href="${
                                     movie.watch_url
@@ -121,12 +118,11 @@ async function searchMovies() {
 </div>
       
       `;
-      })
-      .join(""): searchDiv.style.display = "flex"
-      loading.classList.add("loadFalse")
-    console.log(data);
+          })
+          .join(""))
+      : (searchDiv.style.display = "flex");
+    loading.classList.add("loadFalse");
   } catch (err) {
     console.log(err);
   }
 }
-

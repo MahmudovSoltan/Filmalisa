@@ -113,9 +113,9 @@ async function getWatch() {
       }
     );
     const responce = await resp.json();
-    console.log("responcecover", responce.data);
+    
     categoryid = responce.data.category.id;
-    console.log("categoryid", categoryid);
+ 
     
     fragmanimage.src = responce.data.cover_url;
     rightpanelbackimg.style.backgroundImage = `url('${responce.data.cover_url}')`;
@@ -124,7 +124,7 @@ async function getWatch() {
       ?.split("?")[0]; // ID `youtu.be/`-dən sonra gəlir
     if (apifragmanlink) {
       youtubeEmbedLink = `https://www.youtube.com/embed/${apifragmanlink}?autoplay=1`;
-      console.log("youtubeEmbedLink", youtubeEmbedLink);
+  
     } else {
       console.error("Link tapılmadı.");
     } 
@@ -190,9 +190,7 @@ async function creatComment(commentdata) {
       }
     );
     const data2 = await responce.json();
-    // console.log("data2", data2);
-
-    // console.log("data2", data2.data);
+  
 
     comments.unshift(data2.data);
     comments.forEach((element) => {
@@ -213,6 +211,7 @@ async function creatComment(commentdata) {
       </div>
       `;
     });
+    addedcommentare.innerHTML = ""
     getComments();
   } catch (error) {
     // console.log("error", error);
@@ -236,7 +235,7 @@ async function getComments() {
     const res = await responce.json();
 
     // console.log("commentsdata", res.data);
-    res.data.forEach((element) => {
+      res.data.length>0? res.data.forEach((element) => {
       addedcommentare.innerHTML += `
        <div class="comhead">
         <div class="comheadlogo">
@@ -254,7 +253,7 @@ async function getComments() {
       </div>
       
       `;
-    });
+    }):  addedcommentare.innerHTML =  `<div class="not_comment">Not Comment Yet</div>`
   } catch (error) {
     // console.log(error);
   }
@@ -277,16 +276,11 @@ async function getSimilar() {
     );
     const res = await responce.json();
 
-    console.log("similardata", res.data);
+  
     similardata = res.data.find((item) => item.id === categoryid);
-    console.log("postId", postId);
-
-    console.log("similardata", similardata);
+  
     const filteredMovies = similardata?.movies?.filter((item) => item.id != postId);
-    console.log(filteredMovies);
-    
-    
-    filteredMovies?.forEach((element) => {
+    filteredMovies ? filteredMovies?.forEach((element) => {
       simmovswiper.innerHTML += `
       <div class="swiper-slide swiper_card2"  style="height: 655px;">
                     <div class="owarlay"></div>
@@ -318,7 +312,7 @@ async function getSimilar() {
                     </div>
                   </div>
       `;
-    });
+    }):  simmovswiper.innerHTML = `<div class="not_similar">Not Similar Movie</div>`
   } catch (error) {
     console.log(error);
   }
@@ -345,9 +339,7 @@ async function getaddFavori() {
       }
     );
     const favdata = await responce.json();
-    console.log("responce", responce);
-
-    console.log("favdata", favdata);
+ 
 
     if (favdata.message == "Successfully added favorites") {
       addfavbtn.classList.add("activefav");
@@ -436,4 +428,34 @@ document.addEventListener("DOMContentLoaded", function () {
 ///-----------
 
 
+
+async function getFavorites() {
+  try {
+    const response = await fetch("https://api.sarkhanrahimli.dev/api/filmalisa/movies/favorites",{
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("login_token")}`,
+      },
+    });
+    const data = await response.json();
+    console.log(data.data);
+       console.log(postId);
+       
+      const icon = data.data.find((item)=>item.id == postId)
+       console.log(icon);
+         if(icon){
+          addfavbtn.classList.add("activefav");
+              console.log(icon);
+              
+         }else{
+          addfavbtn.classList.remove("activefav");
+         }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
+getFavorites()
 

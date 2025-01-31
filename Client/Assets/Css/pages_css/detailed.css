@@ -206,7 +206,7 @@ table tr td {
 .top_cast {
   display: flex;
   gap: 24px;
-  margin-top: 132px;
+  margin-top: 50px;
 }
 .topcastext1 {
   font-size: 18px;
@@ -430,6 +430,18 @@ table tr td {
 }
 .fragman_link {
   display: none;
+}
+.not_similar{
+  color: #9058d8;
+    font-size: 32px;
+    font-weight: 500;
+    margin-left: 41px;
+}
+.not_comment{
+  color: #9058d8;
+    font-size: 24px;
+    font-weight: 500;
+    /* margin-left: 10px; */
 }
 
 @media (max-width: 575px) {

@@ -22,8 +22,8 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-start;
-    padding: 0px 40px;
-    gap: 30px;
+    padding: 0px 30px;
+    gap: 25px;
     row-gap: 30px;
 }
 .search_left_top{
@@ -31,7 +31,6 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 60px;
-    margin-left: 50px;
 }
 .search_left_top_input{
     display: flex;
