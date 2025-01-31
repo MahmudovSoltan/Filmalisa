@@ -97,6 +97,7 @@ body {
   cursor: pointer;
   object-position: center;
   object-fit: fill;
+  border-radius: 24px;
 }
 
 .hoverplaybtn {
