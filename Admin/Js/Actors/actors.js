@@ -258,6 +258,7 @@ function getDelno() {
 function closeModal() {
   sucsesfullModal.classList.remove("active");
   failModal.classList.remove("active");
+  window.location.reload()
 }
 
 
