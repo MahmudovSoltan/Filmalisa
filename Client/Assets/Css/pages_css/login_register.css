@@ -10,7 +10,7 @@
 .login_logo {
   width: 150px;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   margin-bottom: 14px;
   /* align-items: center; */
 }
